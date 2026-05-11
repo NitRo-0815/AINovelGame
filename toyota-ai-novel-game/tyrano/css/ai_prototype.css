@@ -1,0 +1,24 @@
+.tyrano_base {
+    background: #07151f;
+}
+
+.message_outer {
+    border: 1px solid rgba(95, 217, 255, 0.46);
+    box-shadow: 0 0 24px rgba(50, 205, 255, 0.18);
+}
+
+.glink_button {
+    border: 1px solid rgba(110, 226, 255, 0.72);
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(18, 42, 58, 0.95), rgba(25, 74, 86, 0.92));
+    box-shadow: 0 0 18px rgba(56, 203, 255, 0.18), inset 0 0 16px rgba(90, 240, 255, 0.08);
+    color: #eefcff;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0;
+    text-shadow: none;
+}
+
+.glink_button:hover {
+    background: linear-gradient(90deg, rgba(26, 74, 92, 0.98), rgba(33, 105, 112, 0.95));
+    box-shadow: 0 0 26px rgba(56, 203, 255, 0.34), inset 0 0 18px rgba(125, 245, 255, 0.14);
+}
