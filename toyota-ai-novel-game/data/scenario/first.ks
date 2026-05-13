@@ -1,133 +1,269 @@
 ; ============================================================
-; Task macro prototype
-; Resolved fgimage paths:
-; - agent/standard  -> chara/agent/standard.PNG
-; - agent/happy     -> chara/agent/happy.PNG
-; - person1/confuse -> chara/person1/confuse.PNG
-; - person1/standard -> chara/person1/standard.PNG
+; AIエージェント おけるくん サンプルノベル
+; 1ファイル構成
 ; ============================================================
 
-[macro name="task_template"]
-[cm]
-[eval exp="tf.current_task_name = '%task_name'"]
-[free name="task_name_area" layer="1"]
-
-[chara_show name="person1" face="confuse" left=700 top=150 width=450 time=1]
-
-[ptext name="task_name_area" layer="1" page="fore" text="%task_name" x=460 y=100 size=38 color="0xe8fbff" bold=true]
-
-#
-新しい課題が届いた。
-[p]
-
-#相談者
-「%task_name」で困っています。どうしたらいいですか？
-[p]
-
-[glink color="blue" text="a：AIと協力して助ける" target="*task_success" x=360 y=250 width=560 size=24]
-[glink color="blue" text="b：今回はうまく助けられない" target="*task_fail" x=360 y=350 width=560 size=24]
-[s]
-[endmacro]
-
 *start
+
 
 [cm]
 [clearfix]
 [freeimage layer=1]
-[layopt layer=1 page=fore visible=true]
-[start_keyconfig]
-[showmenubutton]
 
-; Simple background.
-[bg storage="bg1.PNG" time="300"]
 
-; Message window.
-[position layer="message0" left=130 top=500 width=1020 height=185 page=fore visible=true]
-[position layer="message0" page=fore margint="42" marginl="52" marginr="56" marginb="42"]
-[layopt layer="message0" visible="true"]
+; ============================================================
+; 画面設定
+; ============================================================
 
-; Name area.
-[ptext name="chara_name_area" layer="message0" color="white" size=27 bold=true x=155 y=510]
-[chara_config ptext="chara_name_area"]
+[bg storage="bg1.PNG" time=300]
 
-; Characters.
-[chara_new name="agent" storage="chara/agent/standard.PNG" jname="AIエージェント" width=450]
-[chara_face name="agent" face="standard" storage="chara/agent/standard.PNG"]
-[chara_face name="agent" face="happy" storage="chara/agent/happy.PNG"]
+[position layer="message0" left=120 top=500 width=1040 height=190 page=fore visible=false]
+[position layer="message0" page=fore margint=35 marginl=45 marginr=45 marginb=35]
 
-[chara_new name="person1" storage="chara/person1/standard.PNG" jname="相談者" width=450]
-[chara_face name="person1" face="standard" storage="chara/person1/standard.PNG"]
-[chara_face name="person1" face="confuse" storage="chara/person1/confuse.PNG"]
+[ptext name="name_area" layer="message0" x=140 y=510 size=28 color="0xffffff" bold=true]
+[chara_config ptext="name_area"]
 
-; Main scenario state.
-[eval exp="f.task_index = 0"]
+; ============================================================
+; キャラクター登録
+; ============================================================
 
-[ptext name="hud_title" layer="1" page="fore" text="AI TASK TRAINING" x=36 y=28 size=20 color="0x9be7ff" bold=true]
-[ptext name="hud_agent" layer="1" page="fore" text="AGENT: STANDARD" x=36 y=58 size=18 color="0xdff8ff"]
+[chara_new name="okeru" storage="chara/agent/standard.PNG" jname="おけるくん" width=430]
+[chara_face name="okeru" face="standard" storage="chara/agent/standard.PNG"]
+[chara_face name="okeru" face="happy" storage="chara/agent/happy.PNG"]
 
-[chara_show name="agent" left=100 top=150 width=450 time=300]
+[chara_new name="personA" storage="chara/person1/confuse.PNG" jname="A" width=430]
+[chara_face name="personA" face="standard" storage="chara/person1/standard.PNG"]
+[chara_face name="personA" face="confuse" storage="chara/person1/confuse.PNG"]
+; ============================================================
+; タイトル画面
+; ============================================================
 
-#AIエージェント
-準備完了。課題を順番に確認していきましょう。
-[p]
-
-*task_a
-[task_template task_name="課題A"]
-
-*task_b
-[task_template task_name="課題B"]
-
-*task_c
-[task_template task_name="課題C"]
-
-*task_success
-[chara_mod name="person1" face="standard"]
-[chara_mod name="agent" face="happy"]
-[free name="hud_agent" layer="1"]
-[ptext name="hud_agent" layer="1" page="fore" text="AGENT: HAPPY" x=36 y=58 size=18 color="0xdff8ff"]
-
-#相談者
-ありがとう。
-[p]
-
-#AIエージェント
-どういたしまして。
-[p]
-
-[jump target="*task_reset"]
-
-*task_fail
-#
-助けられなかった。
-[p]
-
-[jump target="*task_reset"]
-
-*task_reset
-[free name="task_name_area" layer="1"]
-[chara_hide name="person1" time=1]
-[chara_mod name="agent" face="standard"]
-[free name="hud_agent" layer="1"]
-[ptext name="hud_agent" layer="1" page="fore" text="AGENT: STANDARD" x=36 y=58 size=18 color="0xdff8ff"]
-[eval exp="f.task_index += 1"]
-
-[if exp="f.task_index == 1"]
-	[jump target="*task_b"]
-[elsif exp="f.task_index == 2"]
-	[jump target="*task_c"]
-[else]
-	[jump target="*task_end"]
-[endif]
-
-*task_end
 [cm]
-#
-すべての課題が終了した。
+
+[ptext layer="1" name="title_text" text="AI AGENT STORY" x=310 y=130 size=52 color="0xffffff" bold=true]
+
+[glink color="blue" text="GAME START!" target="*intro" x=360 y=320 width=520 size=30]
+
+[s]
+
+; ============================================================
+; 導入
+; ============================================================
+
+*intro
+
+[cm]
+
+[layopt layer="message0" visible=true]
+
+[free name="title_text" layer="1"]
+
+[chara_show name="okeru" left=130 top=120 width=430 time=400]
+
+#おけるくん
+こんにちは！
+私はメンター達の友人である、
+AIエージェントのおけるです!
 [p]
 
-#AIエージェント
-次の課題セットも、このテンプレートで追加できます。
+#おけるくん
+今日はある相談事があって、
+あなたの力を貸してほしくて来ました。
 [p]
 
-[glink color="blue" text="もう一度実行する" target="*start" x=390 y=300 width=500 size=24]
+#おけるくん
+相談事というのは
+私の友人達に関してのことです。
+[p]
+
+#おけるくん
+彼らは最近悩み事があるらしくて、
+全然元気がないのです...
+[p]
+
+#おけるくん
+どうにかして元気づけてあげたいのですが、
+手伝ってくれませんか？
+[p]
+
+; ============================================================
+; 選択肢
+; ============================================================
+
+[glink color="blue" text="手伝う" target="*help_yes" x=340 y=260 width=560 size=26]
+
+[glink color="blue" text="手伝わない" target="*help_no" x=340 y=360 width=560 size=26]
+
+[s]
+
+; ============================================================
+; 手伝う
+; ============================================================
+
+*help_yes
+
+[chara_mod name="okeru" face="happy"]
+
+#おけるくん
+ありがとう！
+[p]
+
+[chara_mod name="okeru" face="standard"]
+
+#おけるくん
+まず一人目の友人の悩みを
+解決したいです！
+[p]
+
+#おけるくん
+彼は会社員なのですが、
+毎日深夜までの激務で
+心身ともに限界を迎えているようです。
+[p]
+
+#おけるくん
+私には膨大なデータ処理能力がありますが、
+人間の「感情」にどう寄り添うべきか、
+正解がわかりません。
+[p]
+
+#おけるくん
+一緒に彼のもとへ
+向かってもらえませんか？
+[p]
+
+[chara_hide name="okeru" time=200]
+
+[chara_show name="okeru" left=80 top=120 width=430 time=300]
+[chara_show name="personA" left=620 top=120 width=430 time=300]
+
+#おけるくん
+こんにちは！Aさん
+[p]
+
+#Aさん
+どうしたんだ、急に呼び出して
+[p]
+
+#Aさん
+今日も仕事が大変なんだ
+[p]
+
+#おけるくん
+最近元気がなさそうだから
+呼んでみたんだ！
+[p]
+
+#Aさん
+そんなことを言われても、
+仕事を抜けると
+チームの人に迷惑がかかるんだ
+[p]
+
+#Aさん
+ほっといてくれよ
+[p]
+
+#おけるくん
+Aさん、かなり思い詰めているんだよね
+[p]
+
+#おけるくん
+どうしたら
+元気になってくれるかなぁ
+[p]
+
+; ============================================================
+; 二つ目の選択肢
+; ============================================================
+
+[glink color="blue" text="AIに聞いてみる" target="*choice_ai" x=310 y=220 width=620 size=24]
+
+[glink color="blue" text="自分で考えてみる" target="*choice_self" x=310 y=320 width=620 size=24]
+
+[glink color="blue" text="HAIの活用" target="*choice_hai" x=310 y=420 width=620 size=24]
+
+[s]
+
+; ============================================================
+; 手伝わない
+; ============================================================
+
+*help_no
+
+#おけるくん
+そっか...
+[p]
+
+#おけるくん
+自分で頑張るね
+[p]
+
+[jump target="*restart"]
+
+; ============================================================
+; ゲームオーバー
+; ============================================================
+
+*game_over
+
+[cm]
+
+[ptext layer="1" name="gameover_text" text="FAILED..." x=420 y=180 size=46 color="0xff5555" bold=true]
+
+[ptext layer="1" name="retry_text" text="おけるくんを助けられなかった..." x=300 y=280 size=28 color="0xffffff"]
+
+[glink color="blue" text="やり直す" target="*intro" x=360 y=380 width=520 size=28]
+
+[end]
+
+; ============================================================
+; 分岐（仮）
+; ============================================================
+
+*choice_ai
+
+#おけるくん
+AIの分析結果を確認してみるね！
+[p]
+
+#おけるくん
+「休息不足」「責任感の強さ」
+この二つが大きな原因みたい...
+[p]
+
+[jump target="*restart"]
+
+*choice_self
+
+#おけるくん
+あなたはどう考える？
+[p]
+
+#おけるくん
+人間同士だからこそ、
+わかることもあるのかもしれないね。
+[p]
+
+[jump target="*restart"]
+
+*choice_hai
+
+#おけるくん
+Human AI Interaction...
+[p]
+
+#おけるくん
+人とAIが協力して寄り添う方法を
+考えてみよう！
+[p]
+
+[jump target="*restart"]
+
+*restart
+
+[freeimage layer=0]
+
+[glink color="blue" text="はじめに戻る" target="*start" x=360 y=380 width=520 size=28]
+
 [s]
