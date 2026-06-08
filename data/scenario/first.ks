@@ -20,7 +20,7 @@
 [call target="*Sub_Character"]
 
 ; [jump] main.ksへ。
-[jump storage="main.ks"]
+[jump storage="day1.ks"]
 
 [s]
 
