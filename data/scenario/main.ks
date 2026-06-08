@@ -1,54 +1,209 @@
-; ============================================================
+;==================================================
 ; main.ks
-; ゲーム全体の入口になるファイルです。
-;
-; 役割:
-; ・ゲーム初期化
-; ・共通設定
-; ・character.ks 読み込み
-; ・macro.ks 読み込み
-; ・title.ks へ移動
-; ============================================================
+; 1日目：お世話ロボットがやってくる
+;==================================================
 
+
+
+;--------------------------------------------------
 *start
+;--------------------------------------------------
 
-; 画面に残っている文章やボタンを消します。
-; タイトルからやり直した時にも、前の表示が残りにくくなります。
+; 画面初期化
+; set_default_view は macro.ks の独自マクロ
+; chara="off" にして、ここではまだキャラを表示しない
+[set_default_view chara="off"]
+
+; 変数初期化
+[eval exp="f.robot_name=''"]
+[eval exp="sf.robot_name=''"]
+
+; とよぽん初登場
+; first.ks で toyopon は定義済み
+[chara_show name="toyopon" face="def" x="30" y="380" width="120" time="800"]
+[jump target="*day1_scene1"]
+
+
+
+
+
+;==================================================
+; シーン1：初登場
+;==================================================
+
+*day1_scene1
+
+; 名前はまだ決まっていないので？？？
+#？？？
+
+初めまして！今日からみなさんのお世話をするロボットです！[p]
+
+[jump target="*day1_scene2"]
+
+
+
+
+
+;==================================================
+; シーン2：名前をつけてほしい
+;==================================================
+
+*day1_scene2
+
+; 表情はdefのまま
+[typ/def]
+
+#？？？
+
+まず初めに皆さんに名前をつけて欲しいです！[p]
+
+[jump target="*day1_scene3"]
+
+
+
+
+
+;==================================================
+; シーン3：入力を促す
+;==================================================
+
+*day1_scene3
+
+; 表情はdefのまま
+[typ/def]
+
+#？？？
+
+ぼくの名前を入力してください！[p]
+
+[jump target="*day1_name_edit"]
+
+
+
+
+
+;==================================================
+; 名前入力画面
+;==================================================
+
+*day1_name_edit
+
+; 再入力時のため、一時変数を空にしておく
+[eval exp="f.robot_name=''"]
+
+; 入力中はメッセージウィンドウを隠す
+[layopt layer="message0" visible="false"]
+
+; 入力用の背景画像などを出したい場合はここで表示
+; 画像が不要ならこの行は削除してOK
+; サンプル風に使う場合は data/image/15_input_A.png が必要
+[image layer="1" storage="15_input_A.png" x="0" y="0"]
+
+; 入力欄
+; 入力内容は f.robot_name に入る
+[edit name="f.robot_name" left="380" top="350" width="260" height="40" size="30" maxchars="8"]
+
+; 決定ボタン
+; data/image/config/arrow_next.png を使用
+[button graphic="config/arrow_next.png" target="*day1_name_commit" x="440" y="430"]
+
+; 入力待ち
+[s]
+
+
+
+
+
+;==================================================
+; 入力内容をcommitして確認
+;==================================================
+
+*day1_name_commit
+
+; edit の内容を f.robot_name に反映
+[commit]
+
+; 入力欄とボタンを消す
 [cm]
-[clearfix]
-[freeimage layer=1]
-[freeimage layer="free"]
 
-; メニューやキー設定を使えるようにします。
-; 不要な場合は [showmenubutton] を消しても大丈夫です。
-[start_keyconfig]
-[showmenubutton]
+; 入力用画像を消す
+[freeimage layer="1"]
 
-; よく使う変数をここで初期化します。
-; f. から始まる変数はセーブデータに保存されるゲーム用変数です。
-[eval exp="f.current_task = ''"]
-[eval exp="f.task_result = ''"]
-[eval exp="f.task_index = 0"]
-[eval exp="f.success_count = 0"]
+; メッセージウィンドウを再表示
+[layopt layer="message0" visible="true"]
 
-; 共通の画面設定です。
-; メッセージウィンドウの位置や名前欄は、全シーンで使えるようにここで設定します。
-[position layer="message0" left=130 top=500 width=1020 height=185 page=fore visible=true]
-[position layer="message0" page=fore margint=42 marginl=52 marginr=56 marginb=42]
-[layopt layer="message0" visible=true]
+; まだ正式な名前ではないので？？？のまま確認する
+#？？？
 
-; キャラクター名を表示するための領域を作ります。
-; #AIエージェント のように書いた時、この場所に名前が表示されます。
-[ptext name="chara_name_area" layer="message0" color="white" size=27 bold=true x=155 y=510]
-[chara_config ptext="chara_name_area"]
+「[emb exp="f.robot_name"]」ですね！[l][r]
 
-; キャラクター定義を読み込みます。
-; character.ks の最後には [return] を書いておく想定です。
-[call storage="character.ks"]
+[link target="*day1_name_ok"]【はい】[endlink]／
+[link target="*day1_name_edit"]【いいえ】[endlink]
 
-; 共通マクロを読み込みます。
-; macro.ks の最後にも [return] を書いておく想定です。
-[call storage="macro.ks"]
+[s]
 
-; 初期化が終わったらタイトル画面へ移動します。
-[jump storage="title.ks"]
+
+
+
+
+;==================================================
+; 名前確定
+;==================================================
+
+*day1_name_ok
+
+; 入力された名前を、以降も使えるように保存
+; 未入力の場合も空欄のまま保存する
+[eval exp="sf.robot_name=f.robot_name"]
+
+; 画面を整える
+[cm]
+
+[jump target="*day1_scene4"]
+
+
+
+
+
+;==================================================
+; シーン4：入力された名前で進行
+;==================================================
+
+*day1_scene4
+
+; 名前をつけてもらったのでhappyにする
+[chara_mod name="toyopon" face="happy" time="500"]
+
+; ここから名前欄は入力された名前
+#&sf.robot_name
+
+[emb exp="sf.robot_name"]ですね！これからよろしくお願いします！[p]
+
+#
+
+今日から、[emb exp="sf.robot_name"]との一週間の生活が始まる。[p]
+
+[jump target="*day1_scene5"]
+
+
+
+
+
+;==================================================
+; シーン5：次のシーンでdefに戻る
+;==================================================
+
+*day1_scene5
+
+; 次のシーンではdefに戻す
+[typ/def]
+
+#&sf.robot_name
+
+それでは、さっそくお世話を開始します。[p]
+
+#
+
+こうして、少し不思議なお世話ロボットとの一日目が始まった。[p]
+
+[s]
