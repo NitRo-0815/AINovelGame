@@ -12,7 +12,7 @@
 [eval exp="f.final_robot=''"]
 
 ; とよぽん表示
-[chara_show name="toyopon" face="def" x="30" y="180" width="420" time="0"]
+[chara_show name="toyopon" face="def" x="520" y="180" width="420" time="0"]
 
 [jump target="*day7_scene1"]
 
@@ -90,7 +90,7 @@
 
 [wait time="500"]
 
-[chara_show name="agent001" face="def" x="520" y="160" width="380" time="800"]
+[chara_show name="agent001" face="def" x="30" y="160" width="380" time="800"]
 
 #AGENT001
 

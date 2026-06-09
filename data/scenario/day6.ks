@@ -13,8 +13,8 @@
 [eval exp="f.day6_ng_human=0"]
 [eval exp="f.day6_ng_sign=0"]
 
-; とよぽん表示
-[chara_show name="toyopon" face="def" x="30" y="180" width="420" time="0"]
+; とよぽん表示（右）
+[chara_show name="toyopon" face="def" x="520" y="180" width="420" time="0"]
 
 [jump target="*day6_scene1"]
 
@@ -24,6 +24,9 @@
 ;==================================================
 
 *day6_scene1
+
+; 念のため、とよぽんを右に固定
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 [typ/def]
 #&sf.robot_name
@@ -78,7 +81,11 @@
 
 [bg storage="kissaten.jpg" time="1000"]
 
-[chara_show name="person2" face="def" x="520" y="180" width="380" time="800"]
+; 背景変更後、念のためとよぽんを右に固定
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
+
+; 増田さん表示（左）
+[chara_show name="person2" face="def" x="30" y="180" width="380" time="800"]
 
 #増田さん
 
@@ -135,6 +142,10 @@
 
 [cm]
 
+; 選択肢表示前も、とよぽん右・増田さん左を固定
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+
 [typ/def]
 #&sf.robot_name
 
@@ -162,6 +173,10 @@
 
 [cm]
 [eval exp="f.day6_choice='ゴミ箱ロボットHAI'"]
+
+; 立ち位置固定
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 #
 
@@ -221,7 +236,11 @@ HAI……？[p]
 
 *day6_gomirobo_appear
 
-[chara_show name="gomirobo" face="def" x="390" y="240" width="240" time="800"]
+; 増田さん左、とよぽん右、HAI中央
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
+
+[chara_show name="gomirobo" face="def" x="365" y="260" width="230" time="800"]
 
 #HAI
 
@@ -266,6 +285,10 @@ HAIは、返事も性能の一部です。[p]
 [eval exp="f.day6_choice='人手を増やす'"]
 [eval exp="f.day6_ng_human=1"]
 
+; 立ち位置固定
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
+
 #
 
 人手を増やして、店の周りを見回るのはどうでしょう。[p]
@@ -308,6 +331,10 @@ HAIは、返事も性能の一部です。[p]
 [cm]
 [eval exp="f.day6_choice='AI搭載の自動注意看板'"]
 [eval exp="f.day6_ng_sign=1"]
+
+; 立ち位置固定
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 #
 
@@ -357,6 +384,11 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 *day6_success
 
 [cm]
+
+; 立ち位置固定
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
+[chara_move name="gomirobo" x="365" y="260" width="230" time="0"]
 
 ; 少し時間経過した雰囲気
 [wait time="500"]
@@ -419,6 +451,13 @@ HAIを見に来るお客さんも増えてね。[p]
 ;==================================================
 
 *day6_end
+
+[cm]
+
+; HAIは退場させ、増田さん左・とよぽん右で締める
+[chara_hide name="gomirobo" time="500"]
+[chara_move name="person2" x="30" y="180" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 [typ/def]
 #&sf.robot_name
