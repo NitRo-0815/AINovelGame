@@ -110,5 +110,10 @@
 [chara_face name="gomirobo" face="def"         storage="chara/gomirobo/pink_default.png"]
 
 
+; agent001 のキャラクター定義
+[chara_new  name="agent001"  jname="AGENT001" storage="chara/agent001/default.png"]
+[chara_face name="agent001" face="def" storage="chara/agent001/default.png"]
+
+
 ; [return] 帰ります。
 [return]
