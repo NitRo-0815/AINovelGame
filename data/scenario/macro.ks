@@ -196,8 +196,10 @@
 [layopt layer="message0" visible="true"]
 
 ; [bg][chara_show][wait] 解説画面用の背景、キャラを表示してから、ちょっと待機します。
-[bg         time="  0" storage="room.jpg"]
-[chara_show time="0" name="toyopon" face="def"]
+[bg         time="0" storage="room.jpg"]
+[if exp="chara != 'off'"]
+[chara_show time="0" name="toyopon" face="def" x="30" y="180" width="480"]
+[endif]
 [wait       time="100"]
 
 [mask_off time="400"]

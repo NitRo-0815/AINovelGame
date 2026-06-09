@@ -20,7 +20,7 @@
 
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み
-[chara_show name="toyopon" face="def" x="30" y="380" width="120" time="800"]
+[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
 [jump target="*day1_scene1"]
 
 
@@ -196,7 +196,6 @@
 *day1_scene5
 
 ; 次のシーンではdefに戻す
-[typ/def]
 
 #&sf.robot_name
 
@@ -206,4 +205,36 @@
 
 こうして、少し不思議なお世話ロボットとの一日目が始まった。[p]
 
+[link target="*day1_scene6"]【続ける】[endlink]
+
 [s]
+
+*day1_scene6
+
+[chara_mod name="toyopon" face="happy" time="500"]
+
+#&sf.robot_name
+
+お世話ロボットとしてできることを紹介します！[p]
+
+[typ/hap]
+#&sf.robot_name
+
+まず、家事ができます！掃除、洗濯、料理、片付け、予定管理、目覚まし、話し相手……だいたい何でもお任せください！[p]
+
+#&sf.robot_name
+
+スマホやエアコンに乗り移ることもできます！[p]
+
+[link target="*day1_scene7"]【続ける】[endlink]
+
+[s]
+
+*day1_scene7
+
+[typ/def]
+#&sf.robot_name
+
+明日は宿題のお手伝いをする日です。楽しみにしていてくださいね。[p]
+
+[jump storage="day2.ks"]
