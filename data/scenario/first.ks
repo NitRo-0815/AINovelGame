@@ -97,5 +97,18 @@
 [chara_face name="toyopon" face="aircon_off"   storage="chara/toyopon/airconoff.png"]
 
 
+; 増田さんのキャラクター定義
+[chara_new  name="person2"  jname="増田さん" storage="chara/person2/default.png"]
+
+[chara_face name="person2" face="def"          storage="chara/person2/default.png"]
+[chara_face name="person2" face="happy"        storage="chara/person2/happy.png"]
+
+
+; ゴミ箱ロボット HAI のキャラクター定義
+[chara_new  name="gomirobo"  jname="HAI" storage="chara/gomirobo/pink_default.png"]
+
+[chara_face name="gomirobo" face="def"         storage="chara/gomirobo/pink_default.png"]
+
+
 ; [return] 帰ります。
 [return]
