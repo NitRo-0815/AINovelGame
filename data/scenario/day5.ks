@@ -21,7 +21,7 @@
 できるよ！[p]
 
 ; とよぽんをスマホ状態に変更
-[chara_mod name="toyopon" face="ph_def" time="500"]
+[typ/ph_def]
 
 #とよぽん
 
@@ -104,7 +104,7 @@
 *arrive
 
 ; 背景変更したい場合
-; [bg storage="town.jpg" time="1000"]
+; [bg storage="ekimae.jpg" time="1000"]
 
 #
 
