@@ -787,4 +787,4 @@
 
 明日もまた、あなたのお世話をがんばりますね。[p]
 
-[jump storage="day6.ks"]
+[jump storage="day5.ks"]
