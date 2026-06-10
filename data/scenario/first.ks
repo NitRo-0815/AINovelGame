@@ -12,14 +12,17 @@
 
 
 ; [title] タイトルバーに表示されるテキストを変更します。
-[title name="ティラノスクリプト｜サンプルテクニック集１"]
+[title name="とよぽんとの1週間"]
 
 ; [call]x3 設定用サブルーチンを3つ呼びます。
 [call target="*Sub_Layer"    ]
 [call target="*Sub_Plugin"   ]
 [call target="*Sub_Character"]
 
-; [jump] main.ksへ。
+; [hidemenubutton] メニューボタンを隠します。
+[hidemenubutton]
+
+; [jump] day1.ksへ。
 [jump storage="day1.ks"]
 
 [s]
