@@ -17,6 +17,14 @@
 ; 変数初期化
 [eval exp="f.robot_name=''"]
 [eval exp="sf.robot_name=''"]
+; 振り返り用変数の初期化
+[eval exp="f.summary_day1='未記録'"]
+[eval exp="f.summary_day2='未記録'"]
+[eval exp="f.summary_day3='未記録'"]
+[eval exp="f.summary_day4='未記録'"]
+[eval exp="f.summary_day5='未記録'"]
+[eval exp="f.summary_day6='未記録'"]
+[eval exp="f.summary_day7='未記録'"]
 
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み
@@ -161,6 +169,7 @@
 [eval exp="sf.robot_name=f.robot_name"]
 
 ; 画面を整える
+[eval exp="f.summary_day1='名前：' + sf.robot_name"]
 [cm]
 
 [jump target="*day1_scene4"]

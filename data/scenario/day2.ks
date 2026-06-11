@@ -83,7 +83,7 @@
 [jump target="*day2_end"]
 
 *day2_end
-
+[eval exp="f.summary_day2='宿題：' + f.homework_state"]
 [typ/hap]
 #&sf.robot_name
 

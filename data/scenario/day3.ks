@@ -58,7 +58,7 @@
 いいですね。私は見守りながら、必要なときにサポートします。[p]
 
 [jump target="*day3_end"]
-
+[eval exp="f.summary_day3='お風呂の準備：' + f.bath_choice"]
 *day3_skip
 
 [typ/def]

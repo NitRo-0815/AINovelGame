@@ -407,7 +407,17 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 *day6_success
 
 [cm]
+[eval exp="f.day6_attempt_text=''"]
 
+[if exp="f.day6_ng_human == 1"]
+[eval exp="f.day6_attempt_text=f.day6_attempt_text + '人手を増やす→失敗。'"]
+[endif]
+
+[if exp="f.day6_ng_sign == 1"]
+[eval exp="f.day6_attempt_text=f.day6_attempt_text + 'AI搭載の自動注意看板→失敗。'"]
+[endif]
+
+[eval exp="f.summary_day6='喫茶店のポイ捨て対策：' + f.day6_attempt_text + 'ゴミ箱ロボットHAI→成功'"]
 ; 立ち位置固定
 [chara_move name="person2" x="30" y="180" width="380" time="0"]
 [chara_move name="toyopon" x="520" y="180" width="420" time="0"]

@@ -719,6 +719,7 @@
 
 *day4_result
 
+[eval exp="f.summary_day4='読み聞かせ：お爺さん=' + f.c1 + '／桃の流れ方=' + f.c2 + '／主人公=' + f.c3 + '／持ち物=' + f.c4 + '／仲間=' + f.c5 + '・' + f.c6 + '・' + f.c7 + '／結末=' + f.c8 + '／正解数=' + f.correct_count + '/8'"]
 [typ/hap]
 #&sf.robot_name
 
