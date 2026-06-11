@@ -1,6 +1,7 @@
 ;==================================================
 ; day7.ks
 ; 7日目：最後の日と代わりのロボット
+; 選択肢：glink 使用
 ;==================================================
 
 *start
@@ -11,7 +12,7 @@
 ; 選択用変数
 [eval exp="f.final_robot=''"]
 
-; とよぽん表示
+; とよぽん表示（右）
 [chara_show name="toyopon" face="def" x="520" y="180" width="420" time="0"]
 
 [jump target="*day7_scene1"]
@@ -22,6 +23,9 @@
 ;==================================================
 
 *day7_scene1
+
+; 念のため、とよぽんを右に固定
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 [typ/def]
 #&sf.robot_name
@@ -83,13 +87,15 @@
 
 
 ;==================================================
-; シーン2：agent001 登場
+; シーン2：AGENT001 登場
 ;==================================================
 
 *day7_scene2
 
 [wait time="500"]
 
+; とよぽん右、AGENT001左
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 [chara_show name="agent001" face="def" x="30" y="160" width="380" time="800"]
 
 #AGENT001
@@ -119,7 +125,11 @@ AGENT001……。[p]
 
 #AGENT001
 
-旧型機に比べ、処理速度は約三倍。判断精度、会話応答、作業効率も大幅に向上しています。[p]
+旧型機に比べ、処理速度は約三倍。[p]
+
+#AGENT001
+
+判断精度、会話応答、作業効率も大幅に向上しています。[p]
 
 #
 
@@ -155,6 +165,10 @@ AGENT001は、とても優秀です。[p]
 ;==================================================
 
 *day7_scene3
+
+; 立ち位置固定
+[chara_move name="agent001" x="30" y="160" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 [typ/def]
 #&sf.robot_name
@@ -237,12 +251,16 @@ AGENT001は、とても優秀です。[p]
 
 [cm]
 
+; 立ち位置固定
+[chara_move name="agent001" x="30" y="160" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
+
 #
 
-これから一緒にいるロボットを選ぼう。[l][r]
+これから一緒にいるロボットを選ぼう。[p]
 
-[link target="*day7_choose_toyopon"]今まで一緒に過ごした[emb exp="sf.robot_name"]を選ぶ[endlink][r]
-[link target="*day7_choose_agent001"]高性能なAGENT001を選ぶ[endlink]
+[glink color=blue size=28 x=180 y=220 width=500 target=*day7_choose_toyopon text="今まで一緒に過ごしたロボットを選ぶ"]
+[glink color=blue size=28 x=180 y=340 width=500 target=*day7_choose_agent001 text="高性能なAGENT001を選ぶ"]
 
 [s]
 
@@ -255,6 +273,10 @@ AGENT001は、とても優秀です。[p]
 
 [cm]
 [eval exp="f.final_robot='toyopon'"]
+
+; 立ち位置固定
+[chara_move name="agent001" x="30" y="160" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 #
 
@@ -307,7 +329,7 @@ AGENT001はすごく有能だけど、この一週間一緒にいたのは[emb e
 
 #AGENT001
 
-理解しました。サポート権限をtoyoponに引き継ぎます。[p]
+理解しました。サポート権限を[emb exp="sf.robot_name"]に引き継ぎます。[p]
 
 [typ/hap]
 #&sf.robot_name
@@ -322,13 +344,17 @@ AGENT001はすごく有能だけど、この一週間一緒にいたのは[emb e
 
 
 ;==================================================
-; agent001を選ぶ
+; AGENT001を選ぶ
 ;==================================================
 
 *day7_choose_agent001
 
 [cm]
 [eval exp="f.final_robot='agent001'"]
+
+; 立ち位置固定
+[chara_move name="agent001" x="30" y="160" width="380" time="0"]
+[chara_move name="toyopon" x="520" y="180" width="420" time="0"]
 
 #
 
@@ -392,9 +418,8 @@ AGENT001はすごく有能だけど、この一週間一緒にいたのは[emb e
 
 *day7_end
 
-[wait time="500"]
-
 [cm]
+[wait time="500"]
 
 #
 
@@ -402,3 +427,10 @@ AGENT001はすごく有能だけど、この一週間一緒にいたのは[emb e
 
 #
 
+けれど、最後に選んだ答えが、明日からの生活を変えていく。[p]
+
+#
+
+END[p]
+
+[s]

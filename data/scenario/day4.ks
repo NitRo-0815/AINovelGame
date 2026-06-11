@@ -3,6 +3,7 @@
 ; 4日目：読み聞かせの練習
 ; 背景：とよぽんが話を忘れてしまうので、プレイヤーが助ける
 ; 方針：間違った選択肢でも、そのまま物語として進む
+; 選択肢：glink 使用
 ;==================================================
 
 *start
@@ -97,31 +98,35 @@
 [typ/def]
 #&sf.robot_name
 
-何をしに行ったのでしたっけ？[l][r]
+何をしに行ったのでしたっけ？[p]
 
-[link target="*day4_c1_shibakari"]芝刈り[endlink]／
-[link target="*day4_c1_chikurin"]竹林[endlink]／
-[link target="*day4_c1_yamakaji"]山火事[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c1_shibakari text="芝刈り"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c1_chikurin text="竹林"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c1_yamakaji text="山火事"]
 
 [s]
 
 *day4_c1_shibakari
+
+[cm]
 [eval exp="f.c1='芝刈り'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c1"]
 
 *day4_c1_chikurin
+
+[cm]
 [eval exp="f.c1='竹林'"]
 [jump target="*day4_after_c1"]
 
 *day4_c1_yamakaji
+
+[cm]
 [eval exp="f.c1='山火事'"]
 [jump target="*day4_after_c1"]
 
 
 *day4_after_c1
-
-[cm]
 
 [if exp="f.c1 == '芝刈り'"]
 [typ/hap]
@@ -168,31 +173,35 @@
 [typ/def]
 #&sf.robot_name
 
-ええと、どんなふうに流れてくるんでしたっけ？[l][r]
+ええと、どんなふうに流れてくるんでしたっけ？[p]
 
-[link target="*day4_c2_zabun"]ざぶーん、ざぶーんと[endlink]／
-[link target="*day4_c2_donbura"]どんぶらこ、どんぶらこと[endlink]／
-[link target="*day4_c2_basha"]バシャバシャバシャと[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c2_zabun text="ざぶーん、ざぶーんと"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c2_basha text="バシャバシャバシャと"]
 
 [s]
 
 *day4_c2_zabun
+
+[cm]
 [eval exp="f.c2='ざぶーん、ざぶーんと'"]
 [jump target="*day4_after_c2"]
 
 *day4_c2_donbura
+
+[cm]
 [eval exp="f.c2='どんぶらこ、どんぶらこと'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c2"]
 
 *day4_c2_basha
+
+[cm]
 [eval exp="f.c2='バシャバシャバシャと'"]
 [jump target="*day4_after_c2"]
 
 
 *day4_after_c2
-
-[cm]
 
 [if exp="f.c2 == 'どんぶらこ、どんぶらこと'"]
 [typ/hap]
@@ -244,31 +253,35 @@
 [typ/def]
 #&sf.robot_name
 
-あれ？何太郎でしたっけ？[l][r]
+あれ？何太郎でしたっけ？[p]
 
-[link target="*day4_c3_kibi"]キビ太郎[endlink]／
-[link target="*day4_c3_tanaka"]田中太郎[endlink]／
-[link target="*day4_c3_momo"]桃太郎[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c3_kibi text="キビ太郎"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c3_tanaka text="田中太郎"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c3_momo text="桃太郎"]
 
 [s]
 
 *day4_c3_kibi
+
+[cm]
 [eval exp="f.c3='キビ太郎'"]
 [jump target="*day4_after_c3"]
 
 *day4_c3_tanaka
+
+[cm]
 [eval exp="f.c3='田中太郎'"]
 [jump target="*day4_after_c3"]
 
 *day4_c3_momo
+
+[cm]
 [eval exp="f.c3='桃太郎'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c3"]
 
 
 *day4_after_c3
-
-[cm]
 
 [if exp="f.c3 == '桃太郎'"]
 [typ/hap]
@@ -315,31 +328,35 @@
 [typ/def]
 #&sf.robot_name
 
-ええと……何を持たせたのでしたっけ？[l][r]
+ええと……何を持たせたのでしたっけ？[p]
 
-[link target="*day4_c4_onigiri"]おにぎり[endlink]／
-[link target="*day4_c4_kibidango"]キビだんご[endlink]／
-[link target="*day4_c4_mame"]豆[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c4_onigiri text="おにぎり"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c4_kibidango text="キビだんご"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c4_mame text="豆"]
 
 [s]
 
 *day4_c4_onigiri
+
+[cm]
 [eval exp="f.c4='おにぎり'"]
 [jump target="*day4_after_c4"]
 
 *day4_c4_kibidango
+
+[cm]
 [eval exp="f.c4='キビだんご'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c4"]
 
 *day4_c4_mame
+
+[cm]
 [eval exp="f.c4='豆'"]
 [jump target="*day4_after_c4"]
 
 
 *day4_after_c4
-
-[cm]
 
 [if exp="f.c4 == 'キビだんご'"]
 [typ/hap]
@@ -386,31 +403,35 @@
 [typ/def]
 #&sf.robot_name
 
-ええと、誰でしたっけ？[l][r]
+ええと、誰でしたっけ？[p]
 
-[link target="*day4_c5_dobashi"]土橋さん[endlink]／
-[link target="*day4_c5_ookami"]オオカミ[endlink]／
-[link target="*day4_c5_inu"]犬[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c5_dobashi text="土橋さん"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c5_ookami text="オオカミ"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c5_inu text="犬"]
 
 [s]
 
 *day4_c5_dobashi
+
+[cm]
 [eval exp="f.c5='土橋さん'"]
 [jump target="*day4_after_c5"]
 
 *day4_c5_ookami
+
+[cm]
 [eval exp="f.c5='オオカミ'"]
 [jump target="*day4_after_c5"]
 
 *day4_c5_inu
+
+[cm]
 [eval exp="f.c5='犬'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c5"]
 
 
 *day4_after_c5
-
-[cm]
 
 [if exp="f.c5 == '犬'"]
 [typ/hap]
@@ -457,31 +478,35 @@
 [typ/def]
 #&sf.robot_name
 
-ええと、次の仲間は誰でしたっけ？[l][r]
+ええと、次の仲間は誰でしたっけ？[p]
 
-[link target="*day4_c6_saru"]さる[endlink]／
-[link target="*day4_c6_gorira"]ゴリラ[endlink]／
-[link target="*day4_c6_momonga"]モモンガ[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c6_saru text="さる"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c6_gorira text="ゴリラ"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c6_momonga text="モモンガ"]
 
 [s]
 
 *day4_c6_saru
+
+[cm]
 [eval exp="f.c6='さる'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c6"]
 
 *day4_c6_gorira
+
+[cm]
 [eval exp="f.c6='ゴリラ'"]
 [jump target="*day4_after_c6"]
 
 *day4_c6_momonga
+
+[cm]
 [eval exp="f.c6='モモンガ'"]
 [jump target="*day4_after_c6"]
 
 
 *day4_after_c6
-
-[cm]
 
 [if exp="f.c6 == 'さる'"]
 [typ/hap]
@@ -533,31 +558,35 @@
 [typ/def]
 #&sf.robot_name
 
-最後の仲間は誰でしたっけ？[l][r]
+最後の仲間は誰でしたっけ？[p]
 
-[link target="*day4_c7_hagewashi"]ハゲワシ[endlink]／
-[link target="*day4_c7_fukurou"]フクロウ[endlink]／
-[link target="*day4_c7_kiji"]キジ[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c7_hagewashi text="ハゲワシ"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c7_fukurou text="フクロウ"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c7_kiji text="キジ"]
 
 [s]
 
 *day4_c7_hagewashi
+
+[cm]
 [eval exp="f.c7='ハゲワシ'"]
 [jump target="*day4_after_c7"]
 
 *day4_c7_fukurou
+
+[cm]
 [eval exp="f.c7='フクロウ'"]
 [jump target="*day4_after_c7"]
 
 *day4_c7_kiji
+
+[cm]
 [eval exp="f.c7='キジ'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c7"]
 
 
 *day4_after_c7
-
-[cm]
 
 [if exp="f.c7 == 'キジ'"]
 [typ/hap]
@@ -614,31 +643,35 @@
 [typ/def]
 #&sf.robot_name
 
-最後は、どうするんでしたっけ？[l][r]
+最後は、どうするんでしたっけ？[p]
 
-[link target="*day4_c8_throw"]鬼に[emb exp="f.c4"]を投げた[endlink]／
-[link target="*day4_c8_defeat"]鬼を倒した[endlink]／
-[link target="*day4_c8_friend"]鬼と仲良くなった[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c8_throw text="鬼に持っていたものを投げた"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c8_defeat text="鬼を倒した"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c8_friend text="鬼と仲良くなった"]
 
 [s]
 
 *day4_c8_throw
+
+[cm]
 [eval exp="f.c8='鬼に' + f.c4 + 'を投げた'"]
 [jump target="*day4_after_c8"]
 
 *day4_c8_defeat
+
+[cm]
 [eval exp="f.c8='鬼を倒した'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c8"]
 
 *day4_c8_friend
+
+[cm]
 [eval exp="f.c8='鬼と仲良くなった'"]
 [jump target="*day4_after_c8"]
 
 
 *day4_after_c8
-
-[cm]
 
 [if exp="f.c8 == '鬼を倒した'"]
 [typ/hap]
@@ -764,7 +797,7 @@
 
 途中で迷っても、誰かが言葉をくれたら、物語は先に進めるんだとわかりました。[p]
 
-[link target="*day4_end"]【読み聞かせを終える】[endlink]
+[glink color=green size=28 x=180 y=330 width=500 target=*day4_end text="読み聞かせを終える"]
 
 [s]
 

@@ -18,18 +18,18 @@
 
 おはようございます。今日は宿題がまだ残っていますね。[p]
 
-[jump target="*day2_scene2"]
-
 *day2_scene2
 
 [typ/hap]
 #&sf.robot_name
 
-どうしますか？[l][r]
-[link target="*day2_all_done" exp="f.homework_state='全部やってもらう'" ][emb exp="sf.robot_name"]に全部やってもらう[endlink]／
-[link target="*day2_self" exp="f.homework_state='自分でやる'" ]全部自力でやる[endlink]／
-[link target="*day2_skip" exp="f.homework_state='やらない'" ]今日はやらない[endlink]
+どうしますか？[p]
 
+[glink color=blue size=28 x=180 y=180 width=500 target=*day2_all_done text="全部やってもらう"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day2_self text="全部自力でやる"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day2_skip text="今日はやらない"]
+
+[s]
 [s]
 
 *day2_all_done

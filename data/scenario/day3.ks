@@ -18,17 +18,16 @@
 
 今日はお風呂に入る日です。準備は整っていますか？[p]
 
-[jump target="*day3_scene2"]
-
 *day3_scene2
 
 [typ/hap]
 #&sf.robot_name
 
-どうしますか？[l][r]
-[link target="*day3_help" exp="f.bath_choice='頼む'" ][emb exp="sf.robot_name"]に掃除とお湯わかしを任せる[endlink]／
-[link target="*day3_self" exp="f.bath_choice='自分でやる'" ]自分で掃除とお湯わかしをする[endlink]／
-[link target="*day3_skip" exp="f.bath_choice='やらない'" ]今日はやらない[endlink]
+どうしますか？[p]
+
+[glink color=blue size=28 x=180 y=180 width=500 target=*day3_help text="掃除とお湯わかしを任せる"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day3_self text="自分で掃除とお湯わかしをする"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day3_skip text="今日はやらない"]
 
 [s]
 

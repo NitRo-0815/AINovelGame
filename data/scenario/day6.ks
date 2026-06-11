@@ -1,6 +1,7 @@
 ;==================================================
 ; day6.ks
 ; 6日目：喫茶店のポイ捨て問題
+; 選択肢：glink 使用
 ;==================================================
 
 *start
@@ -149,16 +150,38 @@
 [typ/def]
 #&sf.robot_name
 
-どんな方法を提案しましょうか？[l][r]
+どんな方法を提案しましょうか？[p]
 
-[link target="*day6_choice_gomirobo"]ゴミ箱ロボット「HAI」を導入する[endlink]
+; まだ何も失敗していない場合
+[if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 0"]
 
-[if exp="f.day6_ng_human == 0"]
-／[link target="*day6_choice_human"]人手を増やす[endlink]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day6_choice_human text="人手を増やす"]
+[glink color=blue size=28 x=180 y=420 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
+
 [endif]
 
-[if exp="f.day6_ng_sign == 0"]
-／[link target="*day6_choice_sign"]AI搭載の自動注意看板を設置する[endlink]
+; 人手だけ失敗済みの場合
+[if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 0"]
+
+[glink color=blue size=28 x=180 y=180 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
+
+[endif]
+
+; 看板だけ失敗済みの場合
+[if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 1"]
+
+[glink color=blue size=28 x=180 y=180 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=180 y=300 width=500 target=*day6_choice_human text="人手を増やす"]
+
+[endif]
+
+; 両方失敗済みの場合
+[if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 1"]
+
+[glink color=blue size=28 x=180 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+
 [endif]
 
 [s]
