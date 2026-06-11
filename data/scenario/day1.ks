@@ -152,8 +152,12 @@
 
 *day1_name_ok
 
+; 未入力だった場合の保険
+[if exp="f.robot_name == ''"]
+[eval exp="f.robot_name='とよぽん'"]
+[endif]
+
 ; 入力された名前を、以降も使えるように保存
-; 未入力の場合も空欄のまま保存する
 [eval exp="sf.robot_name=f.robot_name"]
 
 ; 画面を整える

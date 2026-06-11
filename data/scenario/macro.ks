@@ -57,63 +57,53 @@
 
 ; ----------------------------------------------------------
 ; とよぽん 表情変更マクロ
+; 名前欄は変更せず、表情だけ変更する
 ; ----------------------------------------------------------
 
 ; 通常
 [macro name="typ/def"]
 
-[chara_ptext name="toyopon"]
-[chara_mod   name="toyopon" face="def"]
+[chara_mod name="toyopon" face="def"]
 
 [endmacro]
-
 
 
 ; 笑顔
 [macro name="typ/hap"]
 
-[chara_ptext name="toyopon"]
-[chara_mod   name="toyopon" face="happy"]
+[chara_mod name="toyopon" face="happy"]
 
 [endmacro]
-
 
 
 ; スマホ通常
 [macro name="typ/ph_def"]
 
-[chara_ptext name="toyopon"]
-[chara_mod   name="toyopon" face="phone_def"]
+[chara_mod name="toyopon" face="phone_def"]
 
 [endmacro]
-
 
 
 ; スマホ笑顔
 [macro name="typ/ph_hap"]
 
-[chara_ptext name="toyopon"]
-[chara_mod   name="toyopon" face="phone_happy"]
+[chara_mod name="toyopon" face="phone_happy"]
 
 [endmacro]
-
 
 
 ; エアコン稼働
 [macro name="typ/air_run"]
 
-[chara_ptext name="toyopon"]
-[chara_mod   name="toyopon" face="aircon_run"]
+[chara_mod name="toyopon" face="aircon_run"]
 
 [endmacro]
-
 
 
 ; エアコン停止
 [macro name="typ/air_off"]
 
-[chara_ptext name="toyopon"]
-[chara_mod   name="toyopon" face="aircon_off"]
+[chara_mod name="toyopon" face="aircon_off"]
 
 [endmacro]
 
