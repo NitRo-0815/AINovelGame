@@ -30,7 +30,7 @@
 ; first.ks で toyopon は定義済み
 [chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
 [jump target="*day1_scene1"]
-
+[s]
 
 
 
@@ -47,7 +47,7 @@
 初めまして！今日からみなさんのお世話をするロボットです！[p]
 
 [jump target="*day1_scene2"]
-
+[s]
 
 
 
@@ -67,7 +67,7 @@
 
 [jump target="*day1_scene3"]
 
-
+[s]
 
 
 
@@ -86,7 +86,7 @@
 
 [jump target="*day1_name_edit"]
 
-
+[s]
 
 
 
@@ -174,7 +174,7 @@
 
 [jump target="*day1_scene4"]
 
-
+[s]
 
 
 
@@ -198,7 +198,7 @@
 
 [jump target="*day1_scene5"]
 
-
+[s]
 
 
 
@@ -218,7 +218,7 @@
 
 こうして、少し不思議なお世話ロボットとの一日目が始まった。[p]
 
-[link target="*day1_scene6"]【続ける】[endlink]
+[jump target="*day1_scene6"]
 
 [s]
 
@@ -239,7 +239,7 @@
 
 スマホやエアコンに乗り移ることもできます！[p]
 
-[link target="*day1_scene7"]【続ける】[endlink]
+[jump target="*day1_scene7"]
 
 [s]
 

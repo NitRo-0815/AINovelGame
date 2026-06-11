@@ -11,6 +11,8 @@
 
 [jump target="*day3_scene1"]
 
+[s]
+
 *day3_scene1
 
 [typ/def]
@@ -44,6 +46,8 @@
 了解です！すぐにピカピカにして、お湯もあたためますね。[p]
 
 [jump target="*day3_end"]
+
+[s]
 
 *day3_self
 

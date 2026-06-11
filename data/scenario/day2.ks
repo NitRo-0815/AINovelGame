@@ -30,7 +30,6 @@
 [glink color=blue size=28 x=180 y=420 width=500 target=*day2_skip text="今日はやらない"]
 
 [s]
-[s]
 
 *day2_all_done
 
