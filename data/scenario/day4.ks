@@ -405,7 +405,7 @@
 
 ええと、誰でしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c5_dobashi text="土橋さん"]
+[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c5_dobashi text="江刺さん"]
 [glink color=blue size=28 x=180 y=300 width=500 target=*day4_c5_ookami text="オオカミ"]
 [glink color=blue size=28 x=180 y=420 width=500 target=*day4_c5_inu text="犬"]
 
@@ -414,7 +414,7 @@
 *day4_c5_dobashi
 
 [cm]
-[eval exp="f.c5='土橋さん'"]
+[eval exp="f.c5='江刺さん'"]
 [jump target="*day4_after_c5"]
 
 *day4_c5_ookami
