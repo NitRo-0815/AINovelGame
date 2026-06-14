@@ -6,9 +6,32 @@
 ; 選択肢：glink 使用
 ;==================================================
 
-*start
 
+
+;--------------------------------------------------
+*start
+;--------------------------------------------------
+
+; 画面初期化
 [set_default_view chara="off"]
+
+; 背景を即時表示
+[bg storage="room.jpg" time="0"]
+
+; メッセージボックスを中央寄せ・濃いめに再設定
+[position left="200" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
+[position margint="50" marginl="25" marginr="25" marginb="10"]
+
+; 名前欄も中央寄せしたメッセージボックスに合わせて再配置
+[free name="chara_name_area" layer="message0"]
+[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="200" y="445" color="0xffffff" edge="0x000000"]
+[chara_config ptext="chara_name_area"]
+
+; BGM開始
+; data/bgm/day4.ogg を配置すること
+[playbgm storage="day4.ogg" loop="true" fadein="1000"]
+
+; とよぽん表示
 [chara_show name="toyopon" face="def" x="30" y="180" width="480" time="0"]
 
 ; 選択肢用変数の初期化
@@ -27,41 +50,105 @@
 [jump target="*day4_scene1"]
 
 
+
+
+
 ;==================================================
-; シーン1：読み聞かせ開始
+; シーン1：読み聞かせ導入
 ;==================================================
 
 *day4_scene1
 
 [typ/hap]
+
 #&sf.robot_name
 
-ねえ、今日は読み聞かせの練習をさせてほしいです！[p]
+おはようございます。[p]
 
 #
 
-読み聞かせ？[p]
+おはよう、[emb exp="sf.robot_name"]。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
-はい。桃太郎のお話を読もうと思うのですが……。[p]
+今日は、少しだけ相談があります。[p]
+
+#
+
+相談？[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+はい。実はぼく、最近お世話ロボットの仕事とは別に、ちいさなバイトを始めたんです。[p]
+
+#
+
+バイト？ ロボットなのに？[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+はい！地域の子ども向け施設で、絵本や昔話の読み聞かせをするお手伝いです。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
-実は、ところどころ内容を忘れてしまっていて。[p]
+掃除や料理だけではなく、誰かが安心できる時間を作るのも、お世話のひとつだと思いまして。[p]
+
+#
+
+なるほど。読み聞かせか。[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+はい。子どもたちが静かに聞いてくれたり、笑ってくれたりすると、ぼくの記録回路もぽかぽかします。[p]
+
+#
+
+記録回路がぽかぽか……。[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+ですが、ひとつ問題があります。[p]
+
+#
+
+問題？[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+今日は「桃太郎」の読み聞かせ練習をしようと思ったのですが……。[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+ところどころ、内容を忘れてしまっているんです。[p]
 
 #
 
 忘れちゃったの？[p]
 
 [typ/def]
+
 #&sf.robot_name
 
 はい……。お世話ロボットなのに、少し恥ずかしいです。[p]
 
 [typ/hap]
+
 #&sf.robot_name
 
 なので、ぼくが言葉に詰まったら、次に続く言葉を選んで助けてくれませんか？[p]
@@ -71,11 +158,27 @@
 うん。任せて。[p]
 
 [typ/hap]
+
 #&sf.robot_name
 
-ありがとうございます！たとえ少し違っていても、あなたが選んでくれた言葉で読んでみますね。[p]
+ありがとうございます！[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+たとえ少し違っていても、あなたが選んでくれた言葉で読んでみます。[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+それでは、読み聞かせの練習を始めますね。[p]
 
 [jump target="*day4_read1"]
+
+
+
 
 
 ;==================================================
@@ -86,23 +189,22 @@
 *day4_read1
 
 [typ/def]
+
 #&sf.robot_name
 
 むかーし昔、あるところに、お爺さんとお婆さんが暮らしていました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 お爺さんは山へ……ええと、山へ……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 何をしに行ったのでしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c1_shibakari text="芝刈り"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c1_chikurin text="竹林"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c1_yamakaji text="山火事"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c1_shibakari text="芝刈り"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c1_chikurin text="竹林"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c1_yamakaji text="山火事"]
 
 [s]
 
@@ -129,33 +231,41 @@
 *day4_after_c1
 
 [if exp="f.c1 == '芝刈り'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 そうです、芝刈りです！思い出しました！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c1"]……でしたっけ？[p]
 
-[typ/def]
 #&sf.robot_name
 
 少し違う気もしますが、あなたが選んでくれたので、そのまま読んでみます。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 お爺さんは山へ[emb exp="f.c1"]に行きました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 そして、お婆さんは川へ洗濯に行きました。[p]
 
 [jump target="*day4_read2"]
+
+
+
 
 
 ;==================================================
@@ -166,18 +276,18 @@
 *day4_read2
 
 [typ/def]
+
 #&sf.robot_name
 
 お婆さんが川で洗濯をしていると、大きな桃が……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 ええと、どんなふうに流れてくるんでしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c2_zabun text="ざぶーん、ざぶーんと"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c2_basha text="バシャバシャバシャと"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c2_zabun text="ざぶーん、ざぶーんと"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c2_basha text="バシャバシャバシャと"]
 
 [s]
 
@@ -204,28 +314,37 @@
 *day4_after_c2
 
 [if exp="f.c2 == 'どんぶらこ、どんぶらこと'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 そうです！どんぶらこ、どんぶらこです！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c2"]……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 うーん、少し勢いがある気もしますが……続けますね。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 大きな桃が、[emb exp="f.c2"]流れてきました。[p]
 
 [jump target="*day4_read3"]
+
+
+
 
 
 ;==================================================
@@ -236,28 +355,26 @@
 *day4_read3
 
 [typ/def]
+
 #&sf.robot_name
 
 お婆さんはその桃を家に持ち帰りました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 そして桃を切ってみると、中から元気な男の子が生まれました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 その子の名前は……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 あれ？何太郎でしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c3_kibi text="キビ太郎"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c3_tanaka text="田中太郎"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c3_momo text="桃太郎"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c3_kibi text="キビ太郎"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c3_tanaka text="田中太郎"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c3_momo text="桃太郎"]
 
 [s]
 
@@ -284,33 +401,41 @@
 *day4_after_c3
 
 [if exp="f.c3 == '桃太郎'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 はい、桃太郎です！大事な主人公の名前でしたね。[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c3"]……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 たしか桃から生まれたような気もしますが……でも、今は[emb exp="f.c3"]で進めます。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 その子は[emb exp="f.c3"]と名づけられました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 [emb exp="f.c3"]はすくすくと育ち、やがて村の人を困らせている鬼を退治しに行くことになりました。[p]
 
 [jump target="*day4_read4"]
+
+
+
 
 
 ;==================================================
@@ -321,18 +446,18 @@
 *day4_read4
 
 [typ/def]
+
 #&sf.robot_name
 
 旅立つ[emb exp="f.c3"]に、お婆さんは何かを持たせました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 ええと……何を持たせたのでしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c4_onigiri text="おにぎり"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c4_kibidango text="キビだんご"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c4_mame text="豆"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c4_onigiri text="おにぎり"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c4_kibidango text="キビだんご"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c4_mame text="豆"]
 
 [s]
 
@@ -359,28 +484,37 @@
 *day4_after_c4
 
 [if exp="f.c4 == 'キビだんご'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 そうでした！キビだんごです！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c4"]……ですか。[p]
 
-[typ/def]
 #&sf.robot_name
 
 それを持って鬼ヶ島へ……少し不思議ですが、進めてみます。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 お婆さんは[emb exp="f.c3"]に[emb exp="f.c4"]を持たせました。[p]
 
 [jump target="*day4_read5"]
+
+
+
 
 
 ;==================================================
@@ -391,23 +525,22 @@
 *day4_read5
 
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c3"]は鬼ヶ島へ向かう道中で、まず誰かに出会いました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 最初に出会ったのは……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 ええと、誰でしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c5_dobashi text="江刺さん"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c5_ookami text="オオカミ"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c5_inu text="犬"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c5_dobashi text="江刺さん"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c5_ookami text="オオカミ"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c5_inu text="犬"]
 
 [s]
 
@@ -434,33 +567,41 @@
 *day4_after_c5
 
 [if exp="f.c5 == '犬'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 犬です！思い出しました！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c5"]……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 桃太郎のお話に出てきましたっけ……？でも、きっと頼もしい仲間ですね。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c3"]は[emb exp="f.c5"]に出会いました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 [emb exp="f.c3"]は[emb exp="f.c5"]に[emb exp="f.c4"]をひとつ渡し、仲間にしました。[p]
 
 [jump target="*day4_read6"]
+
+
+
 
 
 ;==================================================
@@ -471,18 +612,18 @@
 *day4_read6
 
 [typ/def]
+
 #&sf.robot_name
 
 次に[emb exp="f.c3"]が出会ったのは……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 ええと、次の仲間は誰でしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c6_saru text="さる"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c6_gorira text="ゴリラ"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c6_momonga text="モモンガ"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c6_saru text="さる"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c6_gorira text="ゴリラ"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c6_momonga text="モモンガ"]
 
 [s]
 
@@ -509,33 +650,41 @@
 *day4_after_c6
 
 [if exp="f.c6 == 'さる'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 はい、さるです！順番も思い出せました！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c6"]……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 あれ、そんな仲間もいましたっけ……？でも、続けてみます。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 次に[emb exp="f.c3"]は[emb exp="f.c6"]に出会いました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 [emb exp="f.c3"]は[emb exp="f.c6"]にも[emb exp="f.c4"]を渡し、仲間にしました。[p]
 
 [jump target="*day4_read7"]
+
+
+
 
 
 ;==================================================
@@ -546,23 +695,22 @@
 *day4_read7
 
 [typ/def]
+
 #&sf.robot_name
 
 最後に[emb exp="f.c3"]が出会った仲間は……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 ううん、ここまで来ているのに思い出せません。[p]
 
-[typ/def]
 #&sf.robot_name
 
 最後の仲間は誰でしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c7_hagewashi text="ハゲワシ"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c7_fukurou text="フクロウ"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c7_kiji text="キジ"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c7_hagewashi text="ハゲワシ"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c7_fukurou text="フクロウ"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c7_kiji text="キジ"]
 
 [s]
 
@@ -589,38 +737,59 @@
 *day4_after_c7
 
 [if exp="f.c7 == 'キジ'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
-キジです！犬、さる、キジ。これでそろいました！[p]
+キジです！思い出しました！[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+これで、[emb exp="f.c5"]、[emb exp="f.c6"]、[emb exp="f.c7"]がそろいました！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c7"]……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 空を飛ぶ仲間、という意味では近い……のでしょうか。少し自信がありません。[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+でも、これで[emb exp="f.c5"]、[emb exp="f.c6"]、[emb exp="f.c7"]がそろいました。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 最後に[emb exp="f.c3"]は[emb exp="f.c7"]に出会いました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 [emb exp="f.c3"]は[emb exp="f.c7"]にも[emb exp="f.c4"]を渡し、仲間にしました。[p]
 
 [typ/hap]
+
 #&sf.robot_name
 
 こうして、[emb exp="f.c3"]、[emb exp="f.c5"]、[emb exp="f.c6"]、[emb exp="f.c7"]は鬼ヶ島へ向かいました。[p]
 
 [jump target="*day4_read8"]
+
+
+
 
 
 ;==================================================
@@ -631,23 +800,22 @@
 *day4_read8
 
 [typ/def]
+
 #&sf.robot_name
 
 鬼ヶ島に着いた[emb exp="f.c3"]たちは、鬼たちと向き合いました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 そして[emb exp="f.c3"]は……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 最後は、どうするんでしたっけ？[p]
 
-[glink color=blue size=28 x=180 y=180 width=500 target=*day4_c8_throw text="鬼に持っていたものを投げた"]
-[glink color=blue size=28 x=180 y=300 width=500 target=*day4_c8_defeat text="鬼を倒した"]
-[glink color=blue size=28 x=180 y=420 width=500 target=*day4_c8_friend text="鬼と仲良くなった"]
+[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c8_throw text="鬼に'+f.c+'を投げた"]
+[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c8_defeat text="鬼を倒した"]
+[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c8_friend text="鬼と仲良くなった"]
 
 [s]
 
@@ -674,43 +842,53 @@
 *day4_after_c8
 
 [if exp="f.c8 == '鬼を倒した'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 そうです！[emb exp="f.c3"]は鬼を倒したんです！[p]
+
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 [emb exp="f.c8"]……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 元のお話とは少し違う気もしますが、あなたが選んだ結末で読んでみます。[p]
+
 [endif]
 
 [typ/def]
+
 #&sf.robot_name
 
 鬼ヶ島に着いた[emb exp="f.c3"]は、[emb exp="f.c8"]。[p]
 
-[typ/def]
 #&sf.robot_name
 
 そのあと、鬼に取られた宝物を取り返し、村へ帰りました。[p]
 
 [typ/hap]
+
 #&sf.robot_name
 
 村の人たちは[emb exp="f.c3"]たちに、とても感謝しました。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
 めでたし、めでたし。[p]
 
 [jump target="*day4_result"]
+
+
+
 
 
 ;==================================================
@@ -720,63 +898,71 @@
 *day4_result
 
 [eval exp="f.summary_day4='読み聞かせ：お爺さん=' + f.c1 + '／桃の流れ方=' + f.c2 + '／主人公=' + f.c3 + '／持ち物=' + f.c4 + '／仲間=' + f.c5 + '・' + f.c6 + '・' + f.c7 + '／結末=' + f.c8 + '／正解数=' + f.correct_count + '/8'"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 ふう……最後まで読めました。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
 途中で何度も忘れてしまいましたが、あなたが言葉を選んでくれたおかげです。[p]
 
-[typ/def]
 #&sf.robot_name
 
 今日のお話は……。[p]
 
-[typ/def]
 #&sf.robot_name
 
 お爺さんは山へ[emb exp="f.c1"]に行き、お婆さんが川で洗濯をしていると、大きな桃が[emb exp="f.c2"]流れてきました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 桃から生まれた子は[emb exp="f.c3"]と名づけられ、[emb exp="f.c4"]を持って鬼ヶ島へ向かいました。[p]
 
-[typ/def]
 #&sf.robot_name
 
 道中で[emb exp="f.c5"]、[emb exp="f.c6"]、[emb exp="f.c7"]を仲間にして、最後は[emb exp="f.c8"]のです。[p]
 
 [if exp="f.correct_count >= 7"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 すごいです！ほとんど元のお話どおりでした。あなたのおかげで、安心して読めました。[p]
 
 [elsif exp="f.correct_count >= 4"]
+
 [typ/hap]
+
 #&sf.robot_name
 
 少しだけ不思議なところもありましたが、ちゃんと桃太郎として最後まで読めましたね。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
 迷ったところも、あなたが選んでくれたので進むことができました。[p]
 
 [else]
+
 [typ/def]
+
 #&sf.robot_name
 
 ええと……元のお話とは、かなり違っていた気がします。[p]
 
 [typ/hap]
+
 #&sf.robot_name
 
 でも、最後まで止まらずに読めました。助けてくれてありがとうございます。[p]
+
 [endif]
 
 #
@@ -784,23 +970,43 @@
 ちゃんと最後まで読めてよかったね。[p]
 
 [typ/hap]
+
 #&sf.robot_name
 
 はい！あなたがいてくれたからです。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
 読み聞かせは、間違えないことだけが大事なのではないんですね。[p]
 
-[typ/def]
 #&sf.robot_name
 
 途中で迷っても、誰かが言葉をくれたら、物語は先に進めるんだとわかりました。[p]
 
-[glink color=green size=28 x=180 y=330 width=500 target=*day4_end text="読み聞かせを終える"]
+#
+
+バイト先でも、うまく読めそう？[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+はい。次は、子どもたちの前でも落ち着いて読めそうです。[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+もしまた忘れてしまっても、今日みたいに誰かと一緒に物語を作ればいいんですね。[p]
+
+[glink color=green size=28 x=230 y=350 width=500 target=*day4_end text="読み聞かせを終える"]
 
 [s]
+
+
+
 
 
 ;==================================================
@@ -812,13 +1018,42 @@
 [cm]
 
 [typ/hap]
+
 #&sf.robot_name
 
 今日は手伝ってくれて、本当にありがとうございました。[p]
 
 [typ/def]
+
 #&sf.robot_name
 
-明日もまた、あなたのお世話をがんばりますね。[p]
+読み聞かせの練習も、バイトの準備も、あなたのおかげで無事にできました。[p]
+
+#
+
+どういたしまして。[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+今日のことは、ぼくの大切な記録に残しておきます。[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+それでは、今日はゆっくり休んでください。[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+おやすみなさい。また明日、そばにいますね。[p]
+
+#
+
+こうして、[emb exp="sf.robot_name"]との四日目が終わった。[p]
 
 [jump storage="day5.ks"]
+``

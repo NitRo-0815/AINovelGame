@@ -232,3 +232,4 @@
 [resetfont]
 
 [endmacro]
+[return]
