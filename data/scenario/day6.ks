@@ -199,7 +199,7 @@
 ; まだ何も失敗していない場合
 [if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 0"]
 
-[glink color=blue size=28 x=230 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=230 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=230 y=245 width=500 target=*day6_choice_human text="人手を増やす"]
 [glink color=blue size=28 x=230 y=350 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
@@ -208,7 +208,7 @@
 ; 人手だけ失敗済みの場合
 [if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 0"]
 
-[glink color=blue size=28 x=230 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=230 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=230 y=310 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
 [endif]
@@ -216,7 +216,7 @@
 ; 看板だけ失敗済みの場合
 [if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 1"]
 
-[glink color=blue size=28 x=230 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=230 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=230 y=310 width=500 target=*day6_choice_human text="人手を増やす"]
 
 [endif]
@@ -224,7 +224,7 @@
 ; 両方失敗済みの場合
 [if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 1"]
 
-[glink color=blue size=28 x=230 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボット「HAI」を導入する"]
+[glink color=blue size=28 x=230 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 
 [endif]
 
@@ -235,14 +235,14 @@
 
 
 ;==================================================
-; 選択肢1：ゴミ箱ロボット HAI
+; 選択肢1：ゴミ箱ロボット
 ; 成功ルート
 ;==================================================
 
 *day6_choice_gomirobo
 
 [cm]
-[eval exp="f.day6_choice='ゴミ箱ロボットHAI'"]
+[eval exp="f.day6_choice='ゴミ箱ロボット'"]
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
@@ -262,15 +262,9 @@
 
 はい。自走式のゴミ箱ロボットです。[p]
 
-[typ/hap]
-
-#&sf.robot_name
-
-名前は、HAIです。[p]
-
 #増田さん
 
-HAI……？[p]
+自走式……？[p]
 
 [typ/def]
 
@@ -300,7 +294,7 @@ HAI……？[p]
 
 #&sf.robot_name
 
-では、HAIを呼びましょう。[p]
+では、ゴミ箱ロボットを呼びましょう。[p]
 
 [jump target="*day6_gomirobo_appear"]
 
@@ -309,43 +303,39 @@ HAI……？[p]
 
 
 ;==================================================
-; HAI登場
+; ゴミ箱ロボット登場
 ;==================================================
 
 *day6_gomirobo_appear
 
-; とよぽん左、増田さん右、HAI中央
+; とよぽん左、増田さん右、ゴミ箱ロボット中央
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
 [chara_move name="person2" left="650" top="0" width="380" time="0"]
 [chara_hide name="gomirobo" time="0"]
 
 [chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="800"]
 
-#HAI
+#
 
-ハイ。ゴミ箱ロボット、HAIです。[p]
+ゴミ箱ロボットが、静かに店先へ移動してきた。[p]
 
 #増田さん
 
 おお、本当に動くゴミ箱なんだね。[p]
 
-#HAI
+#
 
-ゴミを検知しましたら、近くまで移動します。[p]
-
-#HAI
-
-ポイ捨てゼロを目指して、はい、がんばります。[p]
+ゴミ箱ロボットは、ゆっくりと周囲を確認するように動いている。[p]
 
 #
 
-名前にかけてる……？[p]
+近くのゴミを見つけると、そちらへすっと近づいていった。[p]
 
 [typ/hap]
 
 #&sf.robot_name
 
-HAIは、返事も性能の一部です。[p]
+このように、ゴミを捨てやすい場所まで自分で移動できます。[p]
 
 #増田さん
 
@@ -486,7 +476,7 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 [eval exp="f.day6_attempt_text=f.day6_attempt_text + 'AI搭載の自動注意看板→失敗。'"]
 [endif]
 
-[eval exp="f.summary_day6='喫茶店のポイ捨て対策：' + f.day6_attempt_text + 'ゴミ箱ロボットHAI→成功'"]
+[eval exp="f.summary_day6='喫茶店のポイ捨て対策：' + f.day6_attempt_text + 'ゴミ箱ロボット→成功'"]
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
@@ -496,9 +486,47 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 ; 少し時間経過した雰囲気
 [wait time="500"]
 
+;==================================================
+; 数日後の演出
+;==================================================
+
+; 一度暗転して、日にちが変わった雰囲気を出す
+[mask color="black" time="600"]
+
+[cm]
+
+; キャラを一度非表示
+[chara_hide name="toyopon" time="0"]
+[chara_hide name="person2" time="0"]
+[chara_hide name="gomirobo" time="0"]
+
+; 背景は喫茶店のまま、数日後として再表示
+[bg storage="kissaten.jpg" time="0"]
+
+[mask_off time="600"]
+
+#
+
+数日後。[p]
+
+#
+
+ゴミ箱ロボットは、増田さんの喫茶店の店先に置かれることになった。[p]
+
+; 数日後の喫茶店として、キャラを再配置
+[mask color="black" time="300"]
+
+[cm]
+
+[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="0"]
+[chara_show name="person2" face="def" left="650" top="0" width="380" time="0"]
+[chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="0"]
+
+[mask_off time="300"]
+
 #増田さん
 
-それから数日、HAIを店先に置いてみたんだ。[p]
+あれから数日、ゴミ箱ロボットを店先に置いてみたんだ。[p]
 
 #増田さん
 
@@ -516,19 +544,19 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 #増田さん
 
-HAIを見に来るお客さんも増えてね。[p]
+ゴミ箱ロボットを見に来るお客さんも増えてね。[p]
 
 #増田さん
 
 「かわいいゴミ箱ロボットがいる喫茶店」って、少し話題になっているんだ。[p]
 
-#HAI
+#
 
-ハイ。お客様増加を確認しました。[p]
+ゴミ箱ロボットは、店先をゆっくり移動している。[p]
 
-#HAI
+#
 
-ゴミも減って、お客さんも増えました。はい、成功です。[p]
+落ちていたカップの近くで止まり、捨てやすい位置へ静かに動いた。[p]
 
 #
 
@@ -558,20 +586,25 @@ HAIを見に来るお客さんも増えてね。[p]
 ; 6日目終了
 ;==================================================
 
-
 *day6_end
+
+; 直前の表示入れ替わり防止のため、短くマスクしてから再配置する
+[mask color="black" time="150"]
 
 [cm]
 
-; HAIは即時退場させる
-; time="500" にすると退場中に立ち位置が一瞬崩れることがあるため、ここでは time="0" にする
+; 表示崩れ防止のため、一度全員消す
 [chara_hide name="gomirobo" time="0"]
+[chara_hide name="toyopon" time="0"]
+[chara_hide name="person2" time="0"]
 
-; とよぽん左・増田さん右で改めて固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
+; とよぽん左・増田さん右で表示し直す
+[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="0"]
+[chara_show name="person2" face="def" left="650" top="0" width="380" time="0"]
 
 [wait time="100"]
+
+[mask_off time="150"]
 
 [typ/def]
 

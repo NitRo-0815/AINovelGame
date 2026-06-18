@@ -134,7 +134,7 @@
 
 ; とよぽん左、AGENT001右
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_show name="agent001" face="def" left="650" top="0" width="380" time="800"]
+[chara_show name="agent001" face="def" left="650" top="150" width="380" time="800"]
 
 #AGENT001
 
@@ -212,7 +212,7 @@ AGENT001は、とても優秀です。[p]
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="agent001" left="650" top="0" width="380" time="0"]
+[chara_move name="agent001" left="650" top="150" width="380" time="0"]
 
 [typ/def]
 
@@ -300,7 +300,7 @@ AGENT001は、とても優秀です。[p]
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="agent001" left="650" top="0" width="380" time="0"]
+[chara_move name="agent001" left="650" top="150" width="380" time="0"]
 
 #
 
@@ -327,7 +327,7 @@ AGENT001は、とても優秀です。[p]
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="agent001" left="650" top="0" width="380" time="0"]
+[chara_move name="agent001" left="650" top="150" width="380" time="0"]
 
 #
 
@@ -411,7 +411,7 @@ AGENT001はすごく有能だけど、この一週間一緒にいたのは[emb e
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="agent001" left="650" top="0" width="380" time="0"]
+[chara_move name="agent001" left="650" top="150" width="380" time="0"]
 
 #
 
@@ -488,7 +488,7 @@ AGENT001はすごく有能だけど、この一週間一緒にいたのは[emb e
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="agent001" left="650" top="0" width="380" time="0"]
+[chara_move name="agent001" left="650" top="150" width="380" time="0"]
 
 #
 
