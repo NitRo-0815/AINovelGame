@@ -55,7 +55,7 @@
 
 ; とよぽんを左に固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-
+;位置固定できてる？
 [typ/def]
 
 #&sf.robot_name
