@@ -94,7 +94,7 @@
 [glink color=blue size=28 x=230 y=380 width=500 target=*day3_skip text="今日はやらない"]
 
 [s]
-
+;質問がワンパターンかもしれない
 
 
 
