@@ -16,12 +16,12 @@
 [bg storage="room.jpg" time="0"]
 
 ; メッセージボックスを中央寄せ・濃いめに再設定
-[position left="200" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
+[position left="250" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
 [position margint="50" marginl="25" marginr="25" marginb="10"]
 
 ; 名前欄も中央寄せしたメッセージボックスに合わせて再配置
 [free name="chara_name_area" layer="message0"]
-[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="200" y="445" color="0xffffff" edge="0x000000"]
+[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="250" y="445" color="0xffffff" edge="0x000000"]
 [chara_config ptext="chara_name_area"]
 
 ; BGM開始
@@ -79,9 +79,9 @@
 どうしますか？[p]
 
 ; 選択肢ボタンを画面中央寄せに配置
-[glink color=blue size=28 x=230 y=160 width=500 target=*day2_all_done text="全部やってもらう"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day2_self text="全部自力でやる"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day2_skip text="今日はやらない"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day2_all_done text="全部やってもらう"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day2_self text="全部自力でやる"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day2_skip text="今日はやらない"]
 
 [s]
 <<<<<<< HEAD

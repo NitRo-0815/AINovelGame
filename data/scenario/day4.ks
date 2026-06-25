@@ -19,12 +19,12 @@
 [bg storage="room.jpg" time="0"]
 
 ; メッセージボックスを中央寄せ・濃いめに再設定
-[position left="200" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
+[position left="250" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
 [position margint="50" marginl="25" marginr="25" marginb="10"]
 
 ; 名前欄も中央寄せしたメッセージボックスに合わせて再配置
 [free name="chara_name_area" layer="message0"]
-[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="200" y="445" color="0xffffff" edge="0x000000"]
+[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="250" y="445" color="0xffffff" edge="0x000000"]
 [chara_config ptext="chara_name_area"]
 
 ; BGM開始
@@ -202,9 +202,9 @@
 
 何をしに行ったのでしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c1_shibakari text="芝刈り"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c1_chikurin text="竹林"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c1_yamakaji text="山火事"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c1_shibakari text="芝刈り"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c1_chikurin text="竹林"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c1_yamakaji text="山火事"]
 
 [s]
 
@@ -285,9 +285,9 @@
 
 ええと、どんなふうに流れてくるんでしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c2_zabun text="ざぶーん、ざぶーんと"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c2_basha text="バシャバシャバシャと"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c2_zabun text="ざぶーん、ざぶーんと"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c2_basha text="バシャバシャバシャと"]
 
 [s]
 
@@ -372,9 +372,9 @@
 
 あれ？何太郎でしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c3_kibi text="キビ太郎"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c3_tanaka text="田中太郎"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c3_momo text="桃太郎"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c3_kibi text="キビ太郎"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c3_tanaka text="田中太郎"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c3_momo text="桃太郎"]
 
 [s]
 
@@ -455,9 +455,9 @@
 
 ええと……何を持たせたのでしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c4_onigiri text="おにぎり"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c4_kibidango text="キビだんご"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c4_mame text="豆"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c4_onigiri text="おにぎり"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c4_kibidango text="キビだんご"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c4_mame text="豆"]
 
 [s]
 
@@ -538,9 +538,9 @@
 
 ええと、誰でしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c5_dobashi text="江刺さん"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c5_ookami text="オオカミ"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c5_inu text="犬"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c5_dobashi text="江刺さん"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c5_ookami text="オオカミ"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c5_inu text="犬"]
 
 [s]
 
@@ -621,9 +621,9 @@
 
 ええと、次の仲間は誰でしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c6_saru text="さる"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c6_gorira text="ゴリラ"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c6_momonga text="モモンガ"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c6_saru text="さる"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c6_gorira text="ゴリラ"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c6_momonga text="モモンガ"]
 
 [s]
 
@@ -708,9 +708,9 @@
 
 最後の仲間は誰でしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c7_hagewashi text="ハゲワシ"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c7_fukurou text="フクロウ"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c7_kiji text="キジ"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c7_hagewashi text="ハゲワシ"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c7_fukurou text="フクロウ"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c7_kiji text="キジ"]
 
 [s]
 
@@ -813,9 +813,9 @@
 
 最後は、どうするんでしたっけ？[p]
 
-[glink color=blue size=28 x=230 y=160 width=500 target=*day4_c8_throw text="鬼に'+f.c4+'を投げた"]
-[glink color=blue size=28 x=230 y=270 width=500 target=*day4_c8_defeat text="鬼を倒した"]
-[glink color=blue size=28 x=230 y=380 width=500 target=*day4_c8_friend text="鬼と仲良くなった"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c8_throw text="鬼に+'f.c4'+を投げた"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c8_defeat text="鬼を倒した"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c8_friend text="鬼と仲良くなった"]
 
 [s]
 

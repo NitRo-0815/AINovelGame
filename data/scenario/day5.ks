@@ -18,12 +18,12 @@
 [bg storage="room.jpg" time="0"]
 
 ; メッセージボックスを中央寄せ・濃いめに再設定
-[position left="200" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
+[position left="250" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
 [position margint="50" marginl="25" marginr="25" marginb="10"]
 
 ; 名前欄も中央寄せしたメッセージボックスに合わせて再配置
 [free name="chara_name_area" layer="message0"]
-[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="200" y="445" color="0xffffff" edge="0x000000"]
+[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="250" y="445" color="0xffffff" edge="0x000000"]
 [chara_config ptext="chara_name_area"]
 
 ; BGM開始
@@ -97,9 +97,9 @@
 
 どうやって目的地まで行こう？[p]
 
-[glink color=blue size=28 x=230 y=140 width=500 target=*route_toyopon text="ロボットに調べてもらう"]
-[glink color=blue size=28 x=230 y=245 width=500 target=*route_self text="自分で調べてみる"]
-[glink color=blue size=28 x=230 y=350 width=500 target=*route_ask text="通行人に聞いてみる"]
+[glink color=blue size=28 x=350 y=140 width=500 target=*route_toyopon text="ロボットに調べてもらう"]
+[glink color=blue size=28 x=350 y=245 width=500 target=*route_self text="自分で調べてみる"]
+[glink color=blue size=28 x=350 y=350 width=500 target=*route_ask text="通行人に聞いてみる"]
 
 [s]
 
@@ -239,8 +239,8 @@
 
 あのロボットは何をしているんだろう？[p]
 
-[glink color=blue size=28 x=230 y=210 width=500 target=*robot_walk text="散歩しているのかも"]
-[glink color=blue size=28 x=230 y=330 width=500 target=*robot_trouble text="困っているみたい"]
+[glink color=blue size=28 x=350 y=210 width=500 target=*robot_walk text="散歩しているのかも"]
+[glink color=blue size=28 x=350 y=330 width=500 target=*robot_trouble text="困っているみたい"]
 
 [s]
 

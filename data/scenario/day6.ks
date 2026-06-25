@@ -17,12 +17,12 @@
 [bg storage="room.jpg" time="0"]
 
 ; メッセージボックスを中央寄せ・濃いめに再設定
-[position left="200" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
+[position left="250" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
 [position margint="50" marginl="25" marginr="25" marginb="10"]
 
 ; 名前欄も中央寄せしたメッセージボックスに合わせて再配置
 [free name="chara_name_area" layer="message0"]
-[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="200" y="445" color="0xffffff" edge="0x000000"]
+[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="250" y="445" color="0xffffff" edge="0x000000"]
 [chara_config ptext="chara_name_area"]
 
 ; BGM開始
@@ -199,32 +199,32 @@
 ; まだ何も失敗していない場合
 [if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 0"]
 
-[glink color=blue size=28 x=230 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
-[glink color=blue size=28 x=230 y=245 width=500 target=*day6_choice_human text="人手を増やす"]
-[glink color=blue size=28 x=230 y=350 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
+[glink color=blue size=28 x=350 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
+[glink color=blue size=28 x=350 y=245 width=500 target=*day6_choice_human text="人手を増やす"]
+[glink color=blue size=28 x=350 y=350 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
 [endif]
 
 ; 人手だけ失敗済みの場合
 [if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 0"]
 
-[glink color=blue size=28 x=230 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
-[glink color=blue size=28 x=230 y=310 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
+[glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
+[glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
 [endif]
 
 ; 看板だけ失敗済みの場合
 [if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 1"]
 
-[glink color=blue size=28 x=230 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
-[glink color=blue size=28 x=230 y=310 width=500 target=*day6_choice_human text="人手を増やす"]
+[glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
+[glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_human text="人手を増やす"]
 
 [endif]
 
 ; 両方失敗済みの場合
 [if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 1"]
 
-[glink color=blue size=28 x=230 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
+[glink color=blue size=28 x=350 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 
 [endif]
 
