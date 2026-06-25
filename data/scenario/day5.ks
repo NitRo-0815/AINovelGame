@@ -96,8 +96,8 @@
 #
 
 どうやって目的地まで行こう？[p]
-
-[glink color=blue size=28 x=350 y=140 width=500 target=*route_toyopon text="ロボットに調べてもらう"]
+[eval exp="f.day5_route_toyopon_text=sf.robot_name + 'に調べてもらう'"]
+[glink color=blue size=28 x=350 y=140 width=500 target=*route_toyopon text=&f.day5_route_toyopon_text]
 [glink color=blue size=28 x=350 y=245 width=500 target=*route_self text="自分で調べてみる"]
 [glink color=blue size=28 x=350 y=350 width=500 target=*route_ask text="通行人に聞いてみる"]
 
