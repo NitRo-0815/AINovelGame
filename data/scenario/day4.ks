@@ -813,7 +813,9 @@
 
 最後は、どうするんでしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c8_throw text="鬼に+'f.c4'+を投げた"]
+[eval exp="f.c8_throw_text='鬼に' + f.c4 + 'を投げた'"]
+
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c8_throw text=&f.c8_throw_text]
 [glink color=blue size=28 x=350 y=270 width=500 target=*day4_c8_defeat text="鬼を倒した"]
 [glink color=blue size=28 x=350 y=380 width=500 target=*day4_c8_friend text="鬼と仲良くなった"]
 
