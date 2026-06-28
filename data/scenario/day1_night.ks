@@ -253,7 +253,7 @@
 [eval exp="f.day1_bath_merit='疲れていてもすぐにお風呂に入れて、体を休められた'"]
 [eval exp="f.day1_bath_demerit='自分で掃除や準備をする経験が少なくなった'"]
 
-[jump target="*day1_bath_result"]
+[jump target="*day1_bath_end"]
 
 
 
@@ -363,7 +363,7 @@
 [eval exp="f.day1_bath_merit='自分で準備する力がつき、達成感があった'"]
 [eval exp="f.day1_bath_demerit='時間と手間がかかり、少し疲れた'"]
 
-[jump target="*day1_bath_result"]
+[jump target="*day1_bath_end"]
 
 
 

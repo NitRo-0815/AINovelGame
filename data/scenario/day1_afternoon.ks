@@ -242,7 +242,7 @@
 [eval exp="f.day1_outing_route_merit='迷わず安全に移動できた'"]
 [eval exp="f.day1_outing_route_demerit='ロボット任せになり、自分で道を覚えにくかった'"]
 
-[jump target="*day1_route_result"]
+[jump target="*day1_outing_end"]
 
 
 
@@ -309,7 +309,7 @@
 [eval exp="f.day1_outing_route_merit='自分で調べる力がつき、道を覚えやすかった'"]
 [eval exp="f.day1_outing_route_demerit='調べるのに時間がかかり、少し迷った'"]
 
-[jump target="*day1_route_result"]
+[jump target="*day1_outing_end"]
 
 
 
@@ -380,52 +380,8 @@
 [eval exp="f.day1_outing_route_merit='人に聞くことで早く解決できた'"]
 [eval exp="f.day1_outing_route_demerit='聞いた内容を忘れると、もう一度確認が必要になる'"]
 
-[jump target="*day1_route_result"]
+[jump target="*day1_outing_end"]
 
-
-
-
-
-;==================================================
-; ルート結果まとめ
-;==================================================
-
-*day1_route_result
-
-[cm]
-
-; スマホ状態の位置を維持
-[chara_move name="toyopon" x="30" y="230" width="480" time="0"]
-
-[typ/ph_def]
-
-#&sf.robot_name
-
-移動方法の結果を整理します。[p]
-
-#&sf.robot_name
-
-選んだ方法は、[emb exp="f.day1_outing_route"]です。[p]
-
-[typ/ph_hap]
-
-#&sf.robot_name
-
-メリットは、[emb exp="f.day1_outing_route_merit"]ことです。[p]
-
-[typ/ph_def]
-
-#&sf.robot_name
-
-デメリットは、[emb exp="f.day1_outing_route_demerit"]ことです。[p]
-
-#
-
-同じ目的地に行くだけでも、選び方で結果が変わるんだ。[p]
-
-[glink color=green size=28 x=350 y=350 width=500 target=*day1_arrive text="目的地へ向かう"]
-
-[s]
 
 
 
@@ -563,7 +519,7 @@
 [eval exp="f.day1_outing_robot_merit='余計なことをせず、そのまま移動できた'"]
 [eval exp="f.day1_outing_robot_demerit='困っている可能性に気づけず、問題が残ってしまった'"]
 
-[jump target="*day1_robot_result"]
+[jump target="*day1_outing_end"]
 
 
 

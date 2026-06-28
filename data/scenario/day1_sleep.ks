@@ -240,7 +240,7 @@
 [eval exp="f.day1_sleep_merit='安心して眠れて、朝もやさしく起きられた'"]
 [eval exp="f.day1_sleep_demerit='自分で起きる練習が少なくなり、ロボットに頼りやすくなった'"]
 
-[jump target="*day1_sleep_result"]
+[jump target="*day1_sleep_end"]
 
 
 
@@ -336,7 +336,7 @@
 [eval exp="f.day1_sleep_merit='自分で設定して起きる練習になった'"]
 [eval exp="f.day1_sleep_demerit='音で驚きやすく、止めたあと二度寝する可能性がある'"]
 
-[jump target="*day1_sleep_result"]
+[jump target="*day1_sleep_end"]
 
 
 
