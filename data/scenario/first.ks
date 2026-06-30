@@ -23,7 +23,7 @@
 [hidemenubutton]
 
 ; [jump] day1.ksへ。
-[jump storage="day1_morning.ks"]
+[jump storage="title.ks"]
 
 [s]
 
