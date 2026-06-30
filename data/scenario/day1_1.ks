@@ -14,8 +14,15 @@
 *start
 ;--------------------------------------------------
 
-;暗転解除！
-[mask_off time=2000]
+
+
+[free layer="1" name="maskB" time="1000" wait="false"] [wait time="200"]
+
+#
+次の日[p]
+
+; 背景を即時表示
+[bg storage="room.jpg" time="0"]
 
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み
@@ -46,7 +53,7 @@ toyozonで安かったから買ってみたんだ！[p]
 古い型のだが、お試しにはちょうどいいだろう！[p]
 
 #
-箱を開けた
+箱を開けた[p]
 
 
 [typ/def]

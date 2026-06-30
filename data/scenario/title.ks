@@ -27,8 +27,8 @@
 *first
 [cm]
 [freeimage layer=1]
-メッセージレイヤを再度表示する
+;メッセージレイヤを再度表示する
 @layopt layer=message0 visible=true
-ゲームが始まります[l][r]
+
 ; [jump] day1_1.ksへ。
 [jump storage="day0.ks"]
