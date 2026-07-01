@@ -12,7 +12,13 @@
 ;--------------------------------------------------
 *start
 ;--------------------------------------------------
+;==================================================
+; 変数初期化
+;==================================================
 
+[eval exp="f.day6_ng_human=0"]
+[eval exp="f.day6_ng_sign=0"]
+[eval exp="f.day6_choice=''"]
 ;==================================================
 ; シーン2：増田さん登場
 ;==================================================
@@ -77,16 +83,10 @@
 
 
 
-;==================================================
-; 選択肢ループ
-; 失敗した選択肢は次から表示しない
-;==================================================
-
 *day6_choice_loop
 
 [cm]
 
-; 選択肢表示前も、とよぽん左・増田さん右を固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
 [chara_move name="person2" left="650" top="0" width="380" time="0"]
 
@@ -96,41 +96,29 @@
 
 どんな方法を提案しましょうか？[p]
 
-; まだ何も失敗していない場合
-[if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 0"]
+[if exp="f.day6_ng_human==0 && f.day6_ng_sign==0"]
 
 [glink color=blue size=28 x=350 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=350 y=245 width=500 target=*day6_choice_human text="人手を増やす"]
 [glink color=blue size=28 x=350 y=350 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
-[endif]
-
-; 人手だけ失敗済みの場合
-[if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 0"]
+[elsif exp="f.day6_ng_human==1 && f.day6_ng_sign==0"]
 
 [glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
-[endif]
-
-; 看板だけ失敗済みの場合
-[if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 1"]
+[elsif exp="f.day6_ng_human==0 && f.day6_ng_sign==1"]
 
 [glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_human text="人手を増やす"]
 
-[endif]
-
-; 両方失敗済みの場合
-[if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 1"]
+[else]
 
 [glink color=blue size=28 x=350 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 
 [endif]
 
 [s]
-
-
 
 
 
@@ -542,11 +530,20 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 #
 場面転換で暗転[p]
 
-name「助けになれてよかったですね！」[p]
+#&sf.robot_name
 
-name「まさかそんなロボットがいるなんて知りませんでした！」[p]
+助けになれてよかったですね！[p]
 
-name「ありがとうございます！」[p]
+#&sf.robot_name
+
+まさかそんなロボットがいるなんて知りませんでした！[p]
+
+#&sf.robot_name
+
+ありがとうございます！[p]
+
+[chara_hide name="person2" time="0"]
+[chara_hide name="gomirobo" time="0"]
 
 2人は話しながら帰った[p]
 

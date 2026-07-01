@@ -3,8 +3,8 @@
 ;
 ; 内容：
 ; ・夕方、家に帰ってくる
-; ・nameが学校について聞く
-; ・nameが読み聞かせの練習をお願いする
+; ・ロボットが学校について聞く
+; ・ロボットが読み聞かせの練習をお願いする
 ; ・次の出来事 day2_4.ks へ
 ;==================================================
 
@@ -19,10 +19,12 @@
 #
 家に帰ってきた。[p]
 
-#name
+#&sf.robot_name
+
 お帰りなさい！[p]
 
-#name
+#&sf.robot_name
+
 学校は楽しかったですか？[p]
 
 
@@ -30,63 +32,83 @@
 ; 学校は楽しかった？
 ;==================================================
 
+#
 どう答えますか？[p]
 
-[link target="school_fun"]楽しい[endlink][r]
-[link target="school_normal"]普通[endlink][r]
-[link target="school_not_fun"]楽しくない！[endlink][s]
+[glink color=blue size=28 x=350 y=150 width=500 target=*school_fun text="楽しい"]
+[glink color=blue size=28 x=350 y=260 width=500 target=*school_normal text="普通"]
+[glink color=blue size=28 x=350 y=370 width=500 target=*school_not_fun text="楽しくない！"]
+
+[s]
 
 
 ;--------------------------------------------------
 *school_fun
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_school='楽しい'"]
+
+
 楽しいよ[p]
 
-#name
+#&sf.robot_name
+
 やっぱり！[p]
 
-[jump target="after_school_answer"]
+[jump target="*after_school_answer"]
 
 
 ;--------------------------------------------------
 *school_normal
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_school='普通'"]
+
+
+
 普通かな。[p]
 
-
-
-[jump target="after_school_answer"]
+[jump target="*after_school_answer"]
 
 
 ;--------------------------------------------------
 *school_not_fun
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_school='楽しくない'"]
+
+
 楽しくない！[p]
 
-#name
+#&sf.robot_name
+
 ええー！そうですか[p]
-[jump target="after_school_answer"]
+
+[jump target="*after_school_answer"]
 
 
 ;--------------------------------------------------
 *after_school_answer
 ;--------------------------------------------------
 
-#name
+#&sf.robot_name
+
 実はぼくは、子どもたちと[r]
 関わるのが好きで、[r]
 学校に憧れているんです！[p]
 
-#name
+#&sf.robot_name
+
 そこで、お願いがあるんだ。[p]
 
-#name
+#&sf.robot_name
+
 読み聞かせの練習を[r]
 手伝ってほしい！[p]
 
@@ -95,30 +117,42 @@
 ; 読み聞かせの練習を手伝う？
 ;==================================================
 
+#
 どうしますか？[p]
 
-[link target="reading"]喜んで手伝う[endlink][r]
-[link target="reading"]しょうがなく手伝う[endlink][r]
-[link target="reading"]本当に本当にしょうがなく手伝う[endlink][s]
+[glink color=blue size=28 x=350 y=150 width=500 target=*reading text="喜んで手伝う"]
+[glink color=blue size=28 x=350 y=260 width=500 target=*reading text="しょうがなく手伝う"]
+[glink color=blue size=28 x=350 y=370 width=500 target=*reading text="本当に本当にしょうがなく手伝う"]
+
+[s]
 
 
 ;--------------------------------------------------
 *reading
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_reading='手伝った'"]
+
+
+
 手伝うよ[p]
 
-#name
+#&sf.robot_name
+
 本当ですか！[r]
+
 ありがとうございます！[p]
 
-#name
+#&sf.robot_name
+
 それじゃあ、さっそく始めますね！[p]
 
 #
 読み聞かせは省略[p]
-[jump target="after_reading"]
+
+[jump target="*after_reading"]
 
 
 
@@ -126,6 +160,8 @@
 ;--------------------------------------------------
 *after_reading
 ;--------------------------------------------------
+
+[eval exp="f.summary_day2_evening='学校：' + f.day2_school + '／読み聞かせ練習：' + f.day2_reading"]
 
 #
 読み聞かせの練習を手伝った。[p]

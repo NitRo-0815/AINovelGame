@@ -17,61 +17,87 @@
 ; 宿題についての選択肢
 ;==================================================
 
+#
 どうしますか？[p]
 
-; 選択肢を表示
-[link target="homework_robot"]今日の宿題を頼む[endlink][r]
-[link target="homework_self"]自分で宿題を始める[endlink][r]
-[link target="homework_game"]宿題はあとでにして、好きな動画見る[endlink][s]
+[glink color=blue size=28 x=350 y=150 width=500 target=*homework_robot text="今日の宿題を頼む"]
+[glink color=blue size=28 x=350 y=260 width=500 target=*homework_self text="自分で宿題を始める"]
+[glink color=blue size=28 x=350 y=370 width=500 target=*homework_game text="宿題はあとでにして、好きな動画を見る"]
+
+[s]
 
 
 ;--------------------------------------------------
 *homework_robot
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_homework='宿題を頼んだ'"]
+
+# 
+
 今日の宿題、やってくれたりしないかな？[p]
 
-#name
+#&sf.robot_name
+
 宿題ですね！[r]
+
 お手伝いできることを探してみます！[p]
 
 分岐内容は省略[p]
-[jump target="after_homework"]
+
+[jump target="*after_homework"]
 
 
 ;--------------------------------------------------
 *homework_self
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_homework='自分で宿題をした'"]
+
+# 
+
 やっぱり宿題は自分でやるか。[p]
 
-#name
+#&sf.robot_name
+
 えらいですね！[r]
+
 応援しています！[p]
 
 分岐内容は省略[p]
-[jump target="after_homework"]
+
+[jump target="*after_homework"]
 
 
 ;--------------------------------------------------
 *homework_game
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_homework='動画を見た'"]
+
+# 
+
 宿題はあとでいいや。[r]
 
 #
-アプリを開いて動画を見る[p]
+アプリを開いて動画を見る。[p]
 
-ここスマホ画面に急に出てきたらおもろい[p]
+#
+ここスマホ画面に急に出てきたらおもろい。[p]
 
-#name
+#&sf.robot_name
+
 あとで忘れないようにしてくださいね！[p]
 
 分岐内容は省略[p]
-[jump target="after_homework"]
+
+[jump target="*after_homework"]
 
 
 ;--------------------------------------------------
@@ -82,45 +108,49 @@
 ; 数時間後、夜
 ;==================================================
 
-; 時間経過を表す暗転などを入れるならここ
-; 例：
-; [layopt layer="1" visible="true" opacity="255"]
-; [image layer="1" x="0" y="0" width="1280" height="720" storage="color/black.png" name="mask" time="1000" wait="true"]
-; [free layer="1" name="mask" time="1000"]
-
 #
 数時間後、夜。[p]
 
-#name
+#&sf.robot_name
 
 そろそろお風呂の準備をしましょう！[p]
 
-#name
-nameがお風呂の準備をしましょうか？[p]
+#&sf.robot_name
+
+[emb exp="sf.robot_name"]がお風呂の準備をしましょうか？[p]
 
 
 ;==================================================
 ; お風呂掃除についての選択肢
 ;==================================================
 
+#
 どうしますか？[p]
 
-[link target="bath_robot"]せっかくなら任せてやってもらおう[endlink][r]
-[link target="bath_self"]しっかり洗えるか怪しい、自分でやる[endlink][r]
-[link target="bath_together"]しっかり洗えるか怪しい、一緒に行く[endlink][s]
+[glink color=blue size=28 x=350 y=150 width=500 target=*bath_robot text="せっかくなら任せてやってもらおう"]
+[glink color=blue size=28 x=350 y=260 width=500 target=*bath_self text="しっかり洗えるか怪しい、自分でやる"]
+[glink color=blue size=28 x=350 y=370 width=500 target=*bath_together text="しっかり洗えるか怪しい、一緒に行く"]
+
+[s]
 
 
 ;--------------------------------------------------
 *bath_robot
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_bath='任せた'"]
+
+# 
+
 せっかくだし、任せてみるか。[p]
 
-#name
-お任せください！[r]
-nameがお風呂をピカピカにします！[p]
+#&sf.robot_name
 
+お任せください！[r]
+
+[emb exp="sf.robot_name"]がお風呂をピカピカにします！[p]
 
 #
 しばらくして、お風呂場を確認すると――[p]
@@ -128,28 +158,40 @@ nameがお風呂をピカピカにします！[p]
 #
 入浴剤が全部入っていた。[p]
 
-#あなた
+# 
+
 えっ……。[r]
+
 これ、全部入れたの？[p]
 
-#name
+#&sf.robot_name
+
 はい！[r]
+
 いい香りにしようと思いまして！[p]
 
-#あなた
+# 
+
 入れすぎだよ……。[r]
+
 これはちょっと大変なことになってるな。[p]
 
 ; 以下省略
-[jump target="after_bath"]
+[jump target="*after_bath"]
 
 
 ;--------------------------------------------------
 *bath_self
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_bath='自分で掃除した'"]
+
+# 
+
 しっかり洗えるか怪しいし、[r]
+
 今日は自分でやろう。[p]
 
 #
@@ -158,77 +200,101 @@ nameがお風呂をピカピカにします！[p]
 #
 しかし――[p]
 
-#あなた
+# 
+
 うわっ！？[p]
 
 #
 床が濡れていて、足を滑らせてしまった。[p]
 
-#あなた
+# 
+
 いたた……。[r]
+
 気をつけないと危ないな。[p]
 
-#name
+#&sf.robot_name
+
 大丈夫ですか！？[r]
+
 無理はしないでください！[p]
 
 ; 以下省略
-[jump target="after_bath"]
+[jump target="*after_bath"]
 
 
 ;--------------------------------------------------
 *bath_together
 ;--------------------------------------------------
 
-#あなた
+[cm]
+
+[eval exp="f.day2_bath='一緒に掃除した'"]
+
+# 
+
 しっかり洗えるか怪しいし、[r]
+
 一緒に見に行くか。[p]
 
-#name
+#&sf.robot_name
+
 はい！[r]
+
 一緒にお風呂の準備をしましょう！[p]
 
 #
 二人でお風呂場へ向かった。[p]
 
-#name
+#&sf.robot_name
+
 お湯をためる準備をしました！[p]
 
-#あなた
+# 
+
 どれどれ……。[p]
 
 #
 浴槽を見ると、お風呂のせんがされていなかった。[p]
 
-#あなた
+# 
+
 水がもったいないよ！[p]
 
-#name
+#&sf.robot_name
+
 えっ！？[r]
+
 あ、お風呂のせんをし忘れていました！[p]
 
-#あなた
+# 
+
 危ないところだった……。[p]
 
-#name
+#&sf.robot_name
+
 すみません！[r]
+
 次からは、せんを確認してからお湯を入れます！[p]
 
 ; 以下省略
-[jump target="after_bath"]
+[jump target="*after_bath"]
 
 
 ;--------------------------------------------------
 *after_bath
 ;--------------------------------------------------
 
-#
-無事に1日が終わった[p]
+[eval exp="f.summary_day2_night='宿題：' + f.day2_homework + '／お風呂：' + f.day2_bath"]
 
-#name
+#
+無事に1日が終わった。[p]
+
+#&sf.robot_name
+
 それでは、おやすみなさい。[p]
 
 
 ; 次の出来事へ
-;
 [jump storage="day3_1.ks"]
+``
