@@ -11,7 +11,7 @@
 [button graphic="start.png" target=*first]
 
 ; [glink] 文字ボタンを出します。
-[glink x="370" y="300" text="HAIの世界へ行く！" target="*first"]
+[glink x="450" y="300" text="HAIの世界へ行く！" target="*first"]
 
 [s]
 

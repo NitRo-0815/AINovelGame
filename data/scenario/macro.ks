@@ -141,11 +141,45 @@
 [endmacro]
 
 
+; ----------------------------------------------------------
+; 学校背景マクロ
+; time を省略した場合は 500ms で切り替える。
+; 例: [room/day time="0"]
+; ----------------------------------------------------------
 
+[macro name="school/load"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="SchoolLoad.jpg" time="&mp.time"]
+[endmacro]
 
+[macro name="school/room"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="SchoolRoom.jpg" time="&mp.time"]
+[endmacro]
 
+; ----------------------------------------------------------
+; お風呂背景マクロ
+; time を省略した場合は 500ms で切り替える。
+; 例: [room/day time="0"]
+; ----------------------------------------------------------
 
+[macro name="bath/in"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="bathin.jpg" time="&mp.time"]
+[endmacro]
 
+[macro name="bath/out"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="bathout.jpg" time="&mp.time"]
+[endmacro]
 
 ; ----------------------------------------------------------
 ; 画面の破壊/再構築系マクロ

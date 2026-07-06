@@ -15,6 +15,10 @@
 *start
 ;--------------------------------------------------
 
+;部屋ととよぽんを表示
+[room/evening time="0"]
+[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
+
 #
 夕方。[p]
 
@@ -149,7 +153,7 @@
 
 #&sf.robot_name
 
-それじゃあ、さっそく始めますね！[p]
+それじゃあ、早速お願いします！[p]
 
 [jump target="*day2_reading_intro"]
 
@@ -178,6 +182,26 @@
 #&sf.robot_name
 
 はい。一緒にお話を完成させましょう。[p]
+
+#
+準備ができたら、始めよう。[p]
+
+[glink color=blue size=28 x=350 y=270 width=500 target=*start_reading_story text="読み聞かせを始める"]
+
+[s]
+
+
+;--------------------------------------------------
+; 読み聞かせ開始ボタン押下後
+;--------------------------------------------------
+
+*start_reading_story
+
+[cm]
+
+#&sf.robot_name
+
+それでは、読み聞かせを始めますね！[p]
 
 [jump target="*day2_reading_q1"]
 

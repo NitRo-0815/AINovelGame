@@ -22,8 +22,8 @@
 急いでカバンを持って、学校へ向かった。[p]
 
 ;場面転換を追加
-
-;教室の画像を追加
+[chara_hide name="toyopon"]
+[school/room time="500"]
 
 #
 朝会が始まる。[p]
@@ -107,9 +107,11 @@
 
 #
 帰る時間になった。[p]
-
+[school/load time="0"]
+[chara_show name="gomirobo" face="def" left="400" top="400" width="230" time="800"]
 #
 廊下に出ると、足元にロボットが寄ってきた。[p]
+
 
 #
 近くに、くしゃくしゃのプリントが落ちている。[p]
