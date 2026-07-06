@@ -140,6 +140,12 @@
 [bg storage="roomnight.jpg" time="&mp.time"]
 [endmacro]
 
+[macro name="living"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="living.jpg" time="&mp.time"]
+[endmacro]
 
 ; ----------------------------------------------------------
 ; 学校背景マクロ
