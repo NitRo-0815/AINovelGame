@@ -18,7 +18,7 @@
 [set_default_view chara="off"]
 
 ; 背景を即時表示
-[bg storage="room.jpg" time="0"]
+[room/day time="0"]
 
 ; メッセージボックス設定
 [position left="250" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]

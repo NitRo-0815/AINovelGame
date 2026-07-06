@@ -32,6 +32,11 @@
 ; │├[set_message_window]
 ; │├[set_default_view]
 ; │
+; ├部屋背景マクロ
+; │├[room/day]
+; │├[room/evening]
+; │└[room/night]
+; │
 ; ├目次表示マクロ
 ; 　├[index_reset]
 ; 　└[list_item]
@@ -105,6 +110,34 @@
 
 [chara_mod name="toyopon" face="aircon_off"]
 
+[endmacro]
+
+
+; ----------------------------------------------------------
+; 部屋背景マクロ
+; time を省略した場合は 500ms で切り替える。
+; 例: [room/day time="0"]
+; ----------------------------------------------------------
+
+[macro name="room/day"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="room.jpg" time="&mp.time"]
+[endmacro]
+
+[macro name="room/evening"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="roomevening.jpg" time="&mp.time"]
+[endmacro]
+
+[macro name="room/night"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="roomnight.jpg" time="&mp.time"]
 [endmacro]
 
 
@@ -188,7 +221,7 @@
 [layopt layer="message0" visible="true"]
 
 ; [bg][chara_show][wait] 解説画面用の背景、キャラを表示してから、ちょっと待機します。
-[bg         time="0" storage="room.jpg"]
+[room/day time="0"]
 [if exp="chara != 'off'"]
 [chara_show time="0" name="toyopon" face="def" x="30" y="180" width="480"]
 [endif]
@@ -220,8 +253,8 @@
 ; fixボタンを消す
 [clearfix]
 
-; 通常メニューボタンも非表示
-[hidemenubutton]
+; ゲーム中に音量設定へ入れるようメニューボタンを表示
+[showmenubutton]
 
 ; 名前欄用ptext
 [ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="36" y="445" color="0xffffff" edge="0x000000"]

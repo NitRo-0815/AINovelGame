@@ -11,7 +11,7 @@
 ;--------------------------------------------------
 *start
 ;--------------------------------------------------
-[bg storage="room.jpg" time="0"]
+[room/day time="0"]
 [chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
 #
 家に着いた。[p]
@@ -89,6 +89,7 @@
 [cm]
 
 [eval exp="f.final_choice='AGENT001'"]
+[eval exp="f.summary_final='新しい性能と可能性を持つAGENT001を選んだ'"]
 
 #
 
@@ -128,7 +129,7 @@
 
 [eval exp="f.summary_day3_evening='最終選択：AGENT001を選んだ'"]
 
-[jump target="*ending"]
+[jump storage="day3_summary.ks"]
 
 
 
@@ -141,6 +142,7 @@
 [cm]
 
 [eval exp="f.final_choice=sf.robot_name"]
+[eval exp="f.summary_final='三日間を一緒に過ごした' + sf.robot_name + 'を選んだ'"]
 
 #
 

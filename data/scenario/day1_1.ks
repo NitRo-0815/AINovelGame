@@ -22,7 +22,7 @@
 次の日[p]
 
 ; 背景を即時表示
-[bg storage="room.jpg" time="0"]
+[room/day time="0"]
 
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み

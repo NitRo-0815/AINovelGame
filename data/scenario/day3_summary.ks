@@ -1,142 +1,120 @@
 ;==================================================
 ; day3_summary.ks
-; 最終ログ画面（2ページ構成）
+; 3日間の選択をまとめる専用リザルト画面
 ;==================================================
 
-
-
-;--------------------------------------------------
 *start
-;--------------------------------------------------
 
-; キャラ非表示
+; 通常の会話UIとキャラクターを片付ける
+[cm]
+[clearfix]
 [chara_hide name="toyopon" time="0"]
 [chara_hide name="agent001" time="0"]
+[layopt layer="message0" visible="false"]
+[layopt layer="message1" visible="false"]
+[layopt layer="0" visible="true"]
+[layopt layer="1" visible="true"]
+[hidemenubutton]
 
-; 背景（少し暗めにしたいなら別画像でもOK）
-[bg storage="room.jpg" time="0"]
+; 夜の部屋に暗いオーバーレイを重ねる
+[room/night time="600"]
 
-; 画面全体テキストボックス
-[position left="40" top="40" width="1120" height="620" color="0x000000" opacity="235" frame="none"]
-[position margint="40" marginl="30" marginr="30" marginb="20"]
+; 古いセーブデータでも結果画面を表示できるよう値を補う
+[eval exp="tf.result_day1_morning=f.summary_day1_morning || '記録なし'"]
+[eval exp="tf.result_day1_afternoon=f.summary_day1_afternoon || '記録なし'"]
+[eval exp="tf.result_day1_evening=f.summary_day1_evening || '記録なし'"]
+[eval exp="tf.result_day2_morning=f.summary_day2_morning || '記録なし'"]
+[eval exp="tf.result_day2_evening=f.summary_day2_evening || '記録なし'"]
+[eval exp="tf.result_day2_night=f.summary_day2_night || '記録なし'"]
+[eval exp="tf.result_day3=(f.summary_day6 && f.summary_day6!='未記録') ? f.summary_day6 : '喫茶店の問題に取り組んだ'"]
+[eval exp="tf.result_choice=f.final_choice || '選択結果なし'"]
+[eval exp="tf.result_message=(f.summary_final && f.summary_final!='未記録') ? f.summary_final : ((f.final_choice=='AGENT001') ? '新しい性能と可能性を持つAGENT001を選んだ' : '三日間を一緒に過ごした相棒を選んだ')"]
 
-; 名前欄（タイトル用）
-[free name="chara_name_area" layer="message0"]
-[ptext name="chara_name_area" layer="message0" zindex="102" size="36" x="60" y="45"]
-[chara_config ptext="chara_name_area"]
-
-[jump *log_page1]
-
-
-
+[jump target="*record_page"]
 
 
 ;==================================================
-; ページ1（1日目＋2日目）
+; 1ページ目：これまでの選択記録
 ;==================================================
 
-*log_page1
+*record_page
 
-[cm]
+[clearfix]
+[freeimage layer="0"]
+[freeimage layer="1"]
 
-#三日間の記録（1/2）
+; 背景を暗くし、テキストを読みやすくする
+[image layer="0" storage="black.png" x="0" y="0" width="1280" height="720" opacity="155" time="0"]
+[image layer="0" storage="black.png" x="70" y="112" width="1140" height="480" opacity="175" time="0"]
 
-【1日目】[r][r]
+[ptext layer="1" x="70" y="28" width="1140" align="center" text="3日間の選択記録" size="42" bold="true" color="0xffffff" edge="0x16324f"]
+[ptext layer="1" x="70" y="80" width="1140" align="center" text="あなたが物語の中で選んだ行動です" size="20" color="0xbfe8ff"]
 
-■ 朝（出会い）[r]
-[emb exp="f.summary_day1_morning"][r][r]
+[ptext layer="1" x="105" y="132" width="170" text="DAY 1　出会い" size="23" bold="true" color="0x65d7ff"]
+[ptext layer="1" x="290" y="132" width="860" text="&tf.result_day1_morning" size="21" color="0xffffff"]
 
-■ 昼（宿題）[r]
-[emb exp="f.summary_day1_afternoon"][r][r]
+[ptext layer="1" x="105" y="202" width="170" text="DAY 1　行動" size="23" bold="true" color="0x65d7ff"]
+[ptext layer="1" x="290" y="202" width="860" text="&tf.result_day1_afternoon" size="21" color="0xffffff"]
 
-■ 夕方（外出）[r]
-[emb exp="f.summary_day1_evening"][r][r]
+[ptext layer="1" x="105" y="272" width="170" text="DAY 1　放課後" size="23" bold="true" color="0x65d7ff"]
+[ptext layer="1" x="290" y="272" width="860" text="&tf.result_day1_evening" size="21" color="0xffffff"]
 
-■ 夜（お風呂・睡眠）[r]
-[emb exp="f.summary_day1_night"][p]
+[ptext layer="1" x="105" y="342" width="170" text="DAY 2　朝" size="23" bold="true" color="0xffd36a"]
+[ptext layer="1" x="290" y="342" width="860" text="&tf.result_day2_morning" size="21" color="0xffffff"]
 
-【2日目】[r][r]
+[ptext layer="1" x="105" y="412" width="170" text="DAY 2　学校" size="23" bold="true" color="0xffd36a"]
+[ptext layer="1" x="290" y="412" width="860" text="&tf.result_day2_evening" size="21" color="0xffffff"]
 
-■ 朝（宿題）[r]
-[emb exp="f.summary_day2_morning"][r][r]
+[ptext layer="1" x="105" y="482" width="170" text="DAY 2　帰宅後" size="23" bold="true" color="0xffd36a"]
+[ptext layer="1" x="290" y="482" width="860" text="&tf.result_day2_night" size="21" color="0xffffff"]
 
-■ 昼（読み聞かせ）[r]
-[emb exp="f.summary_day2_afternoon"][p]
-
-[glink color=green size=28 x=360 y=620 width=400 target=*log_page2 text="次の記録へ"]
-
+[glink color="blue" size="25" x="440" y="625" width="400" target="*final_page" text="最終結果を見る"]
 [s]
 
 
-
-
-
 ;==================================================
-; ページ2（2日目後半＋3日目）
+; 2ページ目：最終選択を強調して表示
 ;==================================================
 
-*log_page2
+*final_page
 
-[cm]
+[clearfix]
+[freeimage layer="0"]
+[freeimage layer="1"]
 
-#三日間の記録（2/2）
+[image layer="0" storage="black.png" x="0" y="0" width="1280" height="720" opacity="165" time="0"]
+[image layer="0" storage="black.png" x="150" y="115" width="980" height="430" opacity="195" time="0"]
 
-【2日目】[r][r]
+[ptext layer="1" x="100" y="35" width="1080" align="center" text="YOUR RESULT" size="26" bold="true" color="0x65d7ff"]
+[ptext layer="1" x="100" y="72" width="1080" align="center" text="あなたの最終選択" size="40" bold="true" color="0xffffff" edge="0x16324f"]
 
-■ 夕方（お風呂）[r]
-[emb exp="f.summary_day2_evening"][r][r]
+[ptext layer="1" x="200" y="145" width="880" align="center" text="3日目　喫茶店での行動" size="22" bold="true" color="0xffd36a"]
+[ptext layer="1" x="210" y="185" width="860" align="center" text="&tf.result_day3" size="21" color="0xffffff"]
 
-■ 夜（睡眠）[r]
-[emb exp="f.summary_day2_night"][p]
+[ptext layer="1" x="200" y="265" width="880" align="center" text="あなたが選んだ相棒" size="25" bold="true" color="0x65d7ff"]
+[ptext layer="1" x="180" y="310" width="920" align="center" text="&tf.result_choice" size="54" bold="true" color="0xffffff" edge="0x087fb5"]
+[ptext layer="1" x="210" y="400" width="860" align="center" text="&tf.result_message" size="24" color="0xffffff"]
 
-【3日目】[r][r]
+[ptext layer="1" x="180" y="485" width="920" align="center" text="この選択に唯一の正解はありません。それでも、あなたは自分で選びました。" size="20" color="0xbfe8ff"]
 
-■ 朝（宿題）[r]
-[emb exp="f.summary_day3_morning"][r][r]
-
-■ 昼（喫茶店）[r]
-[emb exp="f.summary_day3_afternoon"][r][r]
-
-■ 最終選択[r]
-[if exp="f.final=='toyopon'"]
-とよぽんを選んだ[r]
-[else]
-AGENT001を選んだ[r]
-[endif]
-
-[p]
-
-#
-
-三日間の選択は、すべてここに残っている。[p]
-
-#
-
-どれが正しかったのかは、まだわからない。[p]
-
-#
-
-でも、選んだことだけは消えない。[p]
-
-[glink color=green size=28 x=360 y=620 width=400 target=*finish text="END"]
-
+[glink color="gray" size="22" x="210" y="625" width="330" target="*record_page" text="記録を見返す"]
+[glink color="green" size="22" x="740" y="625" width="330" target="*finish" text="エンディングへ"]
 [s]
 
 
-
-
-
 ;==================================================
-; 終了
+; 終了画面
 ;==================================================
 
 *finish
 
-[cm]
+[clearfix]
+[freeimage layer="0"]
+[freeimage layer="1"]
+[image layer="0" storage="black.png" x="0" y="0" width="1280" height="720" opacity="205" time="0"]
 
-#END
-
-三日間の体験はここで終了です。[p]
+[ptext layer="1" x="100" y="210" width="1080" align="center" text="THANK YOU FOR PLAYING" size="46" bold="true" color="0xffffff" edge="0x087fb5"]
+[ptext layer="1" x="100" y="300" width="1080" align="center" text="3日間の体験はここで終了です" size="26" color="0xbfe8ff"]
+[ptext layer="1" x="100" y="355" width="1080" align="center" text="プレイしてくれてありがとうございました" size="22" color="0xffffff"]
 
 [s]
-``
