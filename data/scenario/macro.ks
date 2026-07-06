@@ -188,6 +188,31 @@
 [endmacro]
 
 ; ----------------------------------------------------------
+; その他背景マクロ
+; time を省略した場合は 500ms で切り替える。
+; 例: [room/day time="0"]
+; ----------------------------------------------------------
+[macro name="street"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="street.jpg" time="&mp.time"]
+[endmacro]
+
+[macro name="kissaten/in"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="kissaten.jpg" time="&mp.time"]
+[endmacro]
+
+[macro name="kissaten/out"]
+[if exp="!mp.time"]
+[eval exp="mp.time='500'"]
+[endif]
+[bg storage="kissatenout.jpg" time="&mp.time"]
+[endmacro]
+; ----------------------------------------------------------
 ; 画面の破壊/再構築系マクロ
 ; ----------------------------------------------------------
 
