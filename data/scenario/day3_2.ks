@@ -49,7 +49,7 @@
 ; とよぽん：中央 → 左
 ; マスター：右寄り
 [chara_move name="toyopon" left="80" top="0" width="420" time="600"]
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="800"]
+[chara_show name="person2" face="def" left="650" top="120" width="380" time="800"]
 
 #喫茶店のマスター
 
