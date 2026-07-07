@@ -24,10 +24,11 @@
 
 #
 
-やっぱり外は暑いな[p]
+頼まれたことを買うことができた[p]
 
 #
-買い物は終わったけど、どこか涼しい場所に行きたいな。[p]
+せっかく外に出たしどこか[r]
+涼しい場所に行きたいな。[p]
 
 [kissaten/out]
 
@@ -48,56 +49,35 @@
 ; 背景変更後、喫茶店のマスター登場と同時にとよぽんを左へ移動
 ; とよぽん：中央 → 左
 ; マスター：右寄り
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+; とよぽんをレイヤー1へ移動して左へ配置（表情変化マクロは継続動作）
+[chara_hide name="toyopon" layer="1" time="0"]
+[chara_show name="toyopon" layer="1" face="def" left="80" top="0" width="420" time="500"]
 
 
 #喫茶店のマスター
 
 いらっしゃいませー！[p]
 
-#
-
-店の中は涼しく、コーヒーの香りがした。[p]
-
-#喫茶店のマスター
-
 お好きな席へどうぞ。[p]
-
-#
-
-窓際の席に座り、メニューを開いた。[p]
 
 #
 
 じゃあ、アイスティーとサンドイッチで。[p]
 
-#&sf.robot_name
-
-私は食べられませんので、そばで待っていますね。[p]
-
-#喫茶店のマスター
-
-かしこまりました。少々お待ちください。[p]
-
-[chara_hide name="person2" time="500"]
+[chara_hide name="person2" layer="1" time="500"]
 
 #
 
 しばらくして、注文したサンドイッチとアイスティーが運ばれてきた。[p]
 
-[chara_show name="person2" face="def" left="700" top="120" width="380" time="500"]
+[chara_show name="person2" layer="1" face="def" left="700" top="120" width="380" time="500"]
 
 #喫茶店のマスター
 
 お待たせしました。[p]
 
-#
 
-マスターの名札には「増田」と書かれている。[p]
-
-#
-
-サンドイッチを食べていると、増田さんが窓の外を見ながら小さくため息をついた。[p]
+サンドイッチを食べていると、マスターが窓の外を見ながら小さくため息をついた。[p]
 
 [typ/def]
 
@@ -105,23 +85,21 @@
 
 あの、何かお困りですか？[p]
 
-#増田さん
+#マスター
 
 え？　ああ、顔に出ていたかな。[p]
 
 #
 
-とよぽんは窓の外と、困った顔の増田さんを交互に見た。[p]
+とよぽんは窓の外と、困った顔のマスターを交互に見た。[p]
 
 [typ/hap]
 
 #&sf.robot_name
 
 よければ、私たちで悩み事を解決しましょう！[p]
+私は困っている人を助けることが大好きなんです！[p]
 
-#
-
-いきなりそこまで言うんだ。[p]
 
 #増田さん
 
@@ -137,10 +115,6 @@
 
 [typ/def]
 
-#&sf.robot_name
-
-テイクアウト用の容器が、そのまま道端に捨てられてしまうようです。[p]
-
 #増田さん
 
 お客さんを疑いたくはないけれど、近所の人にも迷惑がかかる。[p]
@@ -151,11 +125,7 @@
 
 [typ/def]
 
-#&sf.robot_name
 
-状況はわかりました。[p]
-
-[typ/hap]
 
 #&sf.robot_name
 
@@ -276,9 +246,9 @@
 *day6_gomirobo_appear
 
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
-[chara_hide name="gomirobo" time="500"]
+[chara_hide name="gomirobo" layer="1" time="500"]
 
-[chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="800"]
+[chara_show name="gomirobo" layer="1" face="def" left="400" top="180" width="230" time="800"]
 
 #
 
@@ -505,7 +475,7 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 
 #
-場面転換で暗転[p]
+;場面転換で暗転[p]
 
 #&sf.robot_name
 
@@ -519,8 +489,10 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 ありがとうございます！[p]
 
-[chara_hide name="person2" time="500"]
-[chara_hide name="gomirobo" time="500"]
+; レイヤー1のキャラ（とよぽん・増田さん・HAI）を一括退場
+[chara_hide_all layer="1" time="500"]
+
+#
 
 2人は話しながら帰った[p]
 

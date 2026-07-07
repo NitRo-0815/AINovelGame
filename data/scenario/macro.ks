@@ -13,33 +13,49 @@
 ; ＝定義しているマクロ一覧＝
 ; 
 ; ├表情変更マクロ
-; │├あかね
-; ││├[akn/def]
-; ││├[akn/hap]
-; ││├[akn/sad]
-; ││├[akn/dok]
-; ││├[akn/ang]
-; │├やまと
-; │　├[ymt/def]
-; │　├[ymt/hap]
-; │　├[ymt/sad]
-; │　├[ymt/thh]
-; │　├[ymt/ang]
+; │├とよぽん
+; ││├[typ/def]
+; ││├[typ/hap]
+; ││├[typ/sad]
+; ││├[typ/ph_def]
+; ││├[typ/ph_hap]
+; ││├[typ/air_run]
+; ││└[typ/air_off]
+; │├ゴミ箱ロボット（ピンク）
+; ││├[pdb/def]
+; ││├[pdb/hap]
+; ││└[pdb/sad]
+; │└ゴミ箱ロボット（青）
+; │　├[bdb/def]
+; │　├[bdb/hap]
+; │　└[bdb/sad]
+; │
+; ├背景マクロ
+; │├部屋
+; ││├[room/day]
+; ││├[room/evening]
+; ││├[room/night]
+; ││└[living]
+; │├学校
+; ││├[school/load]
+; ││└[school/room]
+; │├お風呂
+; ││├[bath/in]
+; ││└[bath/out]
+; │└その他
+; │　├[street]
+; │　├[kissaten/in]
+; │　└[kissaten/out]
+; │
+; ├暗転マクロ
+; │├[ankoku]
+; │└[meiten]
 ; │
 ; ├画面破壊/再構築マクロ
-; │├[destroy]
-; │├[reset_all]
-; │├[set_message_window]
-; │├[set_default_view]
-; │
-; ├部屋背景マクロ
-; │├[room/day]
-; │├[room/evening]
-; │└[room/night]
-; │
-; ├目次表示マクロ
-; 　├[index_reset]
-; 　└[list_item]
+; 　├[destroy]
+; 　├[reset_all]
+; 　├[set_default_view]
+; 　└[set_message_window]
 ;
 ; ==========================================================
 
@@ -116,6 +132,56 @@
 [macro name="typ/air_off"]
 
 [chara_mod name="toyopon" face="aircon_off"]
+
+[endmacro]
+
+
+; ----------------------------------------------------------
+; ゴミ箱ロボット 表情変更マクロ
+; 名前欄は変更せず、表情だけ変更する
+; pdb＝ピンク（p_dustbox） / bdb＝青（b_dustbox）
+; ----------------------------------------------------------
+
+; ピンク・通常
+[macro name="pdb/def"]
+
+[chara_mod name="p_dustbox" face="def"]
+
+[endmacro]
+
+; ピンク・笑顔
+[macro name="pdb/hap"]
+
+[chara_mod name="p_dustbox" face="happy"]
+
+[endmacro]
+
+; ピンク・悲しい
+[macro name="pdb/sad"]
+
+[chara_mod name="p_dustbox" face="sad"]
+
+[endmacro]
+
+
+; 青・通常
+[macro name="bdb/def"]
+
+[chara_mod name="b_dustbox" face="def"]
+
+[endmacro]
+
+; 青・笑顔
+[macro name="bdb/hap"]
+
+[chara_mod name="b_dustbox" face="happy"]
+
+[endmacro]
+
+; 青・悲しい
+[macro name="bdb/sad"]
+
+[chara_mod name="b_dustbox" face="sad"]
 
 [endmacro]
 
@@ -270,6 +336,24 @@
 [layopt layer="2" visible="false"]
 [layopt layer="message0" visible="true"]
 [layopt layer="message1" visible="false"]
+[endmacro]
+
+; ----------------------------------------------------------
+; [ankoku] / [meiten]
+; 暗転専用レイヤー（layer2）を使った全画面暗転／明転。
+; layer2 は立ち絵（layer1）より上・メッセージより下なので、
+; 立ち絵ごと画面を黒く覆いつつ、メッセージは読める。
+; time= でフェード時間（ミリ秒・省略時1000）を指定可能。
+; ----------------------------------------------------------
+
+; 暗転（全画面を黒くフェードイン）
+[macro name="ankoku"]
+[image layer="2" storage="black.png" x="0" y="0" width="1280" height="720" name="maskB" time="%time|1000"]
+[endmacro]
+
+; 明転（暗転を解除）
+[macro name="meiten"]
+[free layer="2" name="maskB" time="%time|1000" wait="false"]
 [endmacro]
 
 ; ----------------------------------------------------------

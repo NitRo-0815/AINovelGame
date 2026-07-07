@@ -8,8 +8,8 @@
 ; 通常の会話UIとキャラクターを片付ける
 [cm]
 [clearfix]
-[chara_hide name="toyopon" time="0"]
-[chara_hide name="agent001" time="0"]
+[chara_hide name="toyopon" layer="1" time="0"]
+[chara_hide name="agent009" layer="1" time="0"]
 [layopt layer="message0" visible="false"]
 [layopt layer="message1" visible="false"]
 [layopt layer="0" visible="true"]
@@ -28,7 +28,7 @@
 [eval exp="tf.result_day2_night=f.summary_day2_night || '記録なし'"]
 [eval exp="tf.result_day3=(f.summary_day6 && f.summary_day6!='未記録') ? f.summary_day6 : '喫茶店の問題に取り組んだ'"]
 [eval exp="tf.result_choice=f.final_choice || '選択結果なし'"]
-[eval exp="tf.result_message=(f.summary_final && f.summary_final!='未記録') ? f.summary_final : ((f.final_choice=='AGENT001') ? '新しい性能と可能性を持つAGENT001を選んだ' : '三日間を一緒に過ごした相棒を選んだ')"]
+[eval exp="tf.result_message=(f.summary_final && f.summary_final!='未記録') ? f.summary_final : ((f.final_choice=='AGENT009') ? '新しい性能と可能性を持つAGENT009を選んだ' : '三日間を一緒に過ごした相棒を選んだ')"]
 
 [jump target="*record_page"]
 
@@ -98,7 +98,7 @@
 [ptext layer="1" x="180" y="485" width="920" align="center" text="この選択に唯一の正解はありません。それでも、あなたは自分で選びました。" size="20" color="0xbfe8ff"]
 
 [glink color="gray" size="22" x="210" y="625" width="330" target="*record_page" text="記録を見返す"]
-[glink color="green" size="22" x="740" y="625" width="330" target="*finish" text="エンディングへ"]
+[glink color="green" size="22" x="740" y="625" width="330" target="*finish" text="終わる"]
 [s]
 
 

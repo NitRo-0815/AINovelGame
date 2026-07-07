@@ -16,7 +16,7 @@
 
 
 
-[free layer="1" name="maskB" time="1000" wait="false"] [wait time="200"]
+[meiten] [wait time="200"]
 
 #
 次の日[p]
@@ -53,7 +53,7 @@ toyozonで安かったから買ってみたんだ！[p]
 箱を開けた[p]
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 ;次のシーンへ
 [jump target="*day1_1_scene2"]
 
@@ -138,7 +138,8 @@ toyozonで安かったから買ってみたんだ！[p]
 
 ; 入力用の背景画像
 ; data/image/15_input_A.png が必要
-[image layer="1" storage="15_input_A.png" x="0" y="0"]
+; とよぽんをレイヤー1に載せたため、入力背景はlayer2に置いて衝突を回避
+[image layer="2" storage="15_input_A.png" x="0" y="0"]
 
 ; 入力欄
 [edit name="f.robot_name" left="450" top="450" width="400" height="52" size="30" maxchars="8"]
@@ -170,8 +171,8 @@ toyozonで安かったから買ってみたんだ！[p]
 ; 入力欄とボタンを消す
 [cm]
 
-; 入力用画像を消す
-[freeimage layer="1"]
+; 入力用画像を消す（とよぽんはlayer1なので巻き込まない）
+[freeimage layer="2"]
 
 ; メッセージウィンドウを再表示
 [layopt layer="message0" visible="true"]
@@ -242,3 +243,4 @@ toyozonで安かったから買ってみたんだ！[p]
 ; 次の出来事へ
 ; 
 [jump storage="day1_2.ks"]
+[s]

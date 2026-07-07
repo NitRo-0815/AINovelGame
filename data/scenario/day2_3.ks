@@ -17,10 +17,8 @@
 
 ;部屋ととよぽんを表示
 [room/evening time="500"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 
-#
-夕方。[p]
 
 #
 家に帰ってきた。[p]
@@ -38,9 +36,6 @@
 ; 学校は楽しかった？
 ;==================================================
 
-#
-どう答えますか？[p]
-
 [glink color=blue size=28 x=350 y=150 width=500 target=*school_fun text="楽しい"]
 [glink color=blue size=28 x=350 y=260 width=500 target=*school_normal text="普通"]
 [glink color=blue size=28 x=350 y=370 width=500 target=*school_not_fun text="楽しくない！"]
@@ -56,7 +51,7 @@
 
 [eval exp="f.day2_school='楽しい'"]
 
-#
+#あなた
 楽しいよ[p]
 
 #&sf.robot_name
@@ -74,7 +69,7 @@
 
 [eval exp="f.day2_school='普通'"]
 
-#
+#あなた
 普通かな。[p]
 
 [jump target="*after_school_answer"]
@@ -88,7 +83,7 @@
 
 [eval exp="f.day2_school='楽しくない'"]
 
-#
+#あなた
 楽しくない！[p]
 
 #&sf.robot_name
@@ -122,9 +117,6 @@
 ; 読み聞かせの練習を手伝う？
 ;==================================================
 
-#
-どうしますか？[p]
-
 [glink color=blue size=28 x=350 y=150 width=500 target=*reading text="喜んで手伝う"]
 [glink color=blue size=28 x=350 y=260 width=500 target=*reading text="しょうがなく手伝う"]
 [glink color=blue size=28 x=350 y=370 width=500 target=*reading text="本当に本当にしょうがなく手伝う"]
@@ -151,10 +143,6 @@
 
 ありがとうございます！[p]
 
-#&sf.robot_name
-
-それじゃあ、早速お願いします！[p]
-
 [jump target="*day2_reading_intro"]
 
 
@@ -176,15 +164,10 @@
 
 その時は続きを教えてほしいです。[p]
 
-#
-つまり、自分が読み聞かせを手伝う感じか。[p]
 
 #&sf.robot_name
 
-はい。一緒にお話を完成させましょう。[p]
-
-#
-準備ができたら、始めよう。[p]
+一緒にお話を完成させましょう。[p]
 
 [glink color=blue size=28 x=350 y=270 width=500 target=*start_reading_story text="読み聞かせを始める"]
 
@@ -211,7 +194,7 @@
 ;==================================================
 
 ;==================================================
-; 選択肢1：お爺さんは山へ何をしに行った？
+; 選択肢1：おじいさんは山へ何をしに行った？
 ; 正解：芝刈り
 ;==================================================
 
@@ -221,21 +204,28 @@
 
 #&sf.robot_name
 
-むかーし昔、あるところに、お爺さんとお婆さんが暮らしていました。[p]
+むかーし昔、あるところに、おじいさんとおばあさんが暮らしていました。[p]
 
 #&sf.robot_name
 
-お爺さんは山へ……ええと、山へ……。[p]
+おじいさんは山へ……ええと、山へ……。[p]
 
 #&sf.robot_name
 
 何をしに行ったのでしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c1_shibakari text="芝刈り"]
-[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c1_chikurin text="竹林"]
-[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c1_yamakaji text="山火事"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c1_take text="竹を取る"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c1_shibakari text="芝刈り"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c1_bbq text="バーベキュー"]
 
 [s]
+
+*day4_c1_take
+
+[cm]
+; ボタン表示は「竹を取る」だが、台詞に自然に埋め込むため名詞形「竹取り」で格納
+[eval exp="f.c1='竹取り'"]
+[jump target="*day4_after_c1"]
 
 *day4_c1_shibakari
 
@@ -244,16 +234,10 @@
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c1"]
 
-*day4_c1_chikurin
+*day4_c1_bbq
 
 [cm]
-[eval exp="f.c1='竹林'"]
-[jump target="*day4_after_c1"]
-
-*day4_c1_yamakaji
-
-[cm]
-[eval exp="f.c1='山火事'"]
+[eval exp="f.c1='バーベキュー'"]
 [jump target="*day4_after_c1"]
 
 
@@ -275,9 +259,6 @@
 
 ありがとうございます！[emb exp="f.c1"]ですね。[p]
 
-#&sf.robot_name
-
-あなたが教えてくれた続きを読んでみます！[p]
 
 [endif]
 
@@ -285,11 +266,11 @@
 
 #&sf.robot_name
 
-お爺さんは山へ[emb exp="f.c1"]に行きました。[p]
+おじいさんは山へ[emb exp="f.c1"]に行きました。[p]
 
 #&sf.robot_name
 
-そして、お婆さんは川へ洗濯に行きました。[p]
+そして、おばあさんは川へ洗濯に行きました。[p]
 
 [jump target="*day4_read2"]
 
@@ -305,22 +286,28 @@
 
 #&sf.robot_name
 
-お婆さんが川で洗濯をしていると、大きな桃が……。[p]
+おばあさんが川で洗濯をしていると、大きな桃が……。[p]
 
 #&sf.robot_name
 
 ええと、どんなふうに流れてくるんでしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c2_zabun text="ざぶーん、ざぶーんと"]
-[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
-[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c2_basha text="バシャバシャバシャと"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c2_untokosho text="うんとこしょ、どっこいしょと"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c2_korokoro text="ころころ、ころりんと"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c2_donbura text="どんぶらこ、どんぶらこと"]
 
 [s]
 
-*day4_c2_zabun
+*day4_c2_untokosho
 
 [cm]
-[eval exp="f.c2='ざぶーん、ざぶーんと'"]
+[eval exp="f.c2='うんとこしょ、どっこいしょと'"]
+[jump target="*day4_after_c2"]
+
+*day4_c2_korokoro
+
+[cm]
+[eval exp="f.c2='ころころ、ころりんと'"]
 [jump target="*day4_after_c2"]
 
 *day4_c2_donbura
@@ -328,12 +315,6 @@
 [cm]
 [eval exp="f.c2='どんぶらこ、どんぶらこと'"]
 [eval exp="f.correct_count=f.correct_count+1"]
-[jump target="*day4_after_c2"]
-
-*day4_c2_basha
-
-[cm]
-[eval exp="f.c2='バシャバシャバシャと'"]
 [jump target="*day4_after_c2"]
 
 
@@ -381,7 +362,7 @@
 
 #&sf.robot_name
 
-お婆さんはその桃を家に持ち帰りました。[p]
+おばあさんはその桃を家に持ち帰りました。[p]
 
 #&sf.robot_name
 
@@ -389,28 +370,29 @@
 
 #&sf.robot_name
 
-その子の名前は……。[p]
+おじいさんとおばあさんは[r]
+男の子に名前をつけました。[p]
 
 #&sf.robot_name
 
 あれ？何太郎でしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c3_kibi text="キビ太郎"]
-[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c3_tanaka text="田中太郎"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c3_nashi text="梨太郎"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c3_dragon text="ドラゴンフルーツ太郎"]
 [glink color=blue size=28 x=350 y=380 width=500 target=*day4_c3_momo text="桃太郎"]
 
 [s]
 
-*day4_c3_kibi
+*day4_c3_nashi
 
 [cm]
-[eval exp="f.c3='キビ太郎'"]
+[eval exp="f.c3='梨太郎'"]
 [jump target="*day4_after_c3"]
 
-*day4_c3_tanaka
+*day4_c3_dragon
 
 [cm]
-[eval exp="f.c3='田中太郎'"]
+[eval exp="f.c3='ドラゴンフルーツ太郎'"]
 [jump target="*day4_after_c3"]
 
 *day4_c3_momo
@@ -429,7 +411,7 @@
 
 #&sf.robot_name
 
-はい、桃太郎です！大事な主人公の名前でしたね。[p]
+桃太郎ですね！大事な主人公の名前でした。[p]
 
 [else]
 
@@ -439,9 +421,6 @@
 
 ありがとうございます！[emb exp="f.c3"]ですね。[p]
 
-#&sf.robot_name
-
-主人公の名前として読んでみます！[p]
 
 [endif]
 
@@ -459,7 +438,7 @@
 
 
 ;==================================================
-; 選択肢4：お婆さんが持たせたもの
+; 選択肢4：おばあさんが持たせたもの
 ; 正解：キビだんご
 ;==================================================
 
@@ -469,14 +448,14 @@
 
 #&sf.robot_name
 
-旅立つ[emb exp="f.c3"]に、お婆さんは何かを持たせました。[p]
+旅立つ[emb exp="f.c3"]に、おばあさんは何かを持たせました。[p]
 
 #&sf.robot_name
 
 ええと……何を持たせたのでしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c4_onigiri text="おにぎり"]
-[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c4_kibidango text="キビだんご"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c4_onigiri text="おむすび"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c4_kibidango text="きびだんご"]
 [glink color=blue size=28 x=350 y=380 width=500 target=*day4_c4_mame text="豆"]
 
 [s]
@@ -484,13 +463,13 @@
 *day4_c4_onigiri
 
 [cm]
-[eval exp="f.c4='おにぎり'"]
+[eval exp="f.c4='おむすび'"]
 [jump target="*day4_after_c4"]
 
 *day4_c4_kibidango
 
 [cm]
-[eval exp="f.c4='キビだんご'"]
+[eval exp="f.c4='きびだんご'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c4"]
 
@@ -503,13 +482,13 @@
 
 *day4_after_c4
 
-[if exp="f.c4 == 'キビだんご'"]
+[if exp="f.c4 == 'きびだんご'"]
 
 [typ/hap]
 
 #&sf.robot_name
 
-そうでした！キビだんごです！[p]
+そうでした！きびだんごです！[p]
 
 [else]
 
@@ -519,17 +498,13 @@
 
 ありがとうございます！[emb exp="f.c4"]ですね。[p]
 
-#&sf.robot_name
-
-旅に持っていくものとして読んでみます！[p]
-
 [endif]
 
 [typ/def]
 
 #&sf.robot_name
 
-お婆さんは[emb exp="f.c3"]に[emb exp="f.c4"]を持たせました。[p]
+おばあさんは[emb exp="f.c3"]に[emb exp="f.c4"]を持たせました。[p]
 
 [jump target="*day4_read5"]
 
@@ -555,41 +530,48 @@
 
 ええと、誰でしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c5_dobashi text="江刺さん"]
-[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c5_ookami text="オオカミ"]
-[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c5_inu text="犬"]
+; 選択肢「江刺さん」に合わせて先輩の画像を最前面(fixレイヤー＝メッセージより前)に表示
+; target等を指定しないfixボタンはクリックしても何も起きない（飾り画像として使う）
+[button fix="true" folder="image" graphic="big_senpai.png" name="senpai" x="730" y="160" width="60" auto_next="false"]
+
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c5_ezashi text="江刺さん"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c5_neko text="ねこ"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c5_inu text="いぬ"]
 
 [s]
 
-*day4_c5_dobashi
+*day4_c5_ezashi
 
 [cm]
 [eval exp="f.c5='江刺さん'"]
 [jump target="*day4_after_c5"]
 
-*day4_c5_ookami
+*day4_c5_neko
 
 [cm]
-[eval exp="f.c5='オオカミ'"]
+[eval exp="f.c5='ねこ'"]
 [jump target="*day4_after_c5"]
 
 *day4_c5_inu
 
 [cm]
-[eval exp="f.c5='犬'"]
+[eval exp="f.c5='いぬ'"]
 [eval exp="f.correct_count=f.correct_count+1"]
 [jump target="*day4_after_c5"]
 
 
 *day4_after_c5
 
-[if exp="f.c5 == '犬'"]
+; 江刺さんの画像（fixボタン）を片付ける
+[clearfix name="senpai"]
+
+[if exp="f.c5 == 'いぬ'"]
 
 [typ/hap]
 
 #&sf.robot_name
 
-犬です！思い出しました！[p]
+いぬです！思い出しました！[p]
 
 [else]
 
@@ -599,9 +581,6 @@
 
 ありがとうございます！[emb exp="f.c5"]ですね。[p]
 
-#&sf.robot_name
-
-心強い仲間として読んでみます！[p]
 
 [endif]
 
@@ -679,10 +658,6 @@
 
 ありがとうございます！[emb exp="f.c6"]ですね。[p]
 
-#&sf.robot_name
-
-次の仲間として読んでみます！[p]
-
 [endif]
 
 [typ/def]
@@ -719,22 +694,22 @@
 
 最後の仲間は誰でしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c7_hagewashi text="ハゲワシ"]
-[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c7_fukurou text="フクロウ"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c7_kujaku text="クジャク"]
+[glink color=blue size=28 x=350 y=270 width=500 target=*day4_c7_niwatori text="ニワトリ"]
 [glink color=blue size=28 x=350 y=380 width=500 target=*day4_c7_kiji text="キジ"]
 
 [s]
 
-*day4_c7_hagewashi
+*day4_c7_kujaku
 
 [cm]
-[eval exp="f.c7='ハゲワシ'"]
+[eval exp="f.c7='クジャク'"]
 [jump target="*day4_after_c7"]
 
-*day4_c7_fukurou
+*day4_c7_niwatori
 
 [cm]
-[eval exp="f.c7='フクロウ'"]
+[eval exp="f.c7='ニワトリ'"]
 [jump target="*day4_after_c7"]
 
 *day4_c7_kiji
@@ -757,9 +732,6 @@
 
 [typ/hap]
 
-#&sf.robot_name
-
-これで、[emb exp="f.c5"]、[emb exp="f.c6"]、[emb exp="f.c7"]がそろいました！[p]
 
 [else]
 
@@ -771,9 +743,6 @@
 
 [typ/hap]
 
-#&sf.robot_name
-
-これで、[emb exp="f.c5"]、[emb exp="f.c6"]、[emb exp="f.c7"]がそろいました！[p]
 
 [endif]
 
@@ -863,9 +832,6 @@
 
 ありがとうございます！[emb exp="f.c8"]ですね。[p]
 
-#&sf.robot_name
-
-あなたが教えてくれた結末で読んでみます！[p]
 
 [endif]
 
@@ -900,8 +866,6 @@
 
 *after_story
 
-#
-最後まで読み終えた。[p]
 
 #&sf.robot_name
 
@@ -909,17 +873,14 @@
 
 #&sf.robot_name
 
-おかげで、最後まで読めました！[p]
+とってもいい練習になりました！[p]
 
 #&sf.robot_name
 
 これなら大丈夫そうです！[p]
 
 #
-かなり自信がついたみたいだ。[p]
-
-#
-そのまま、読み聞かせに出かけていった。[p]
+自信ありげに[emb exp="sf.robot_name"]は部屋を出ていった。[p]
 
 [jump target="*result"]
 
@@ -957,23 +918,13 @@
 
 #&sf.robot_name
 
-成功しました！[p]
+上手くできました！[p]
 
 #&sf.robot_name
 
-子どもたち、笑ってくれました！[p]
+お父さんとお母さんに[r]
+褒めてもらえました！[p]
 
-#&sf.robot_name
-
-練習で教えてもらったことを思い出しながら読んだら、[r]
-最後までちゃんと伝えられました！[p]
-
-#
-すこし誇らしそうだ。[p]
-
-#
-本家の物語に近い形で読めたから、[r]
-子どもたちにも伝わりやすかったみたいだ。[p]
 
 [eval exp="f.day2_reading_result='本番成功'"]
 
@@ -990,42 +941,17 @@
 
 #&sf.robot_name
 
-……戻りました。[p]
+・・・[p]
 
-#
-少し疲れた様子だ。[p]
 
 #&sf.robot_name
 
-最後まで読むことはできました。[p]
+お父さんとお母さんに[r]
+読み聞かせを聞いてもらいましたが...[p]
 
 #&sf.robot_name
+おかしいと笑われてしまいました...[p]
 
-でも、子どもたちは少し戸惑っていました。[p]
-
-#
-戸惑っていた？[p]
-
-#&sf.robot_name
-
-はい。[p]
-
-#&sf.robot_name
-
-練習で読んだお話が、[r]
-子どもたちの知っている桃太郎とは少し違っていたみたいです。[p]
-
-#&sf.robot_name
-
-ぼくは楽しく読めたのですが、[r]
-みんなに伝えるには、元のお話に近いことも大事なんですね。[p]
-
-#
-少しだけ、考え込んでいる。[p]
-
-#
-でも、読み聞かせを最後までやりきったことは、
-とよぽんにとって大きな経験になったようだ。[p]
 
 [eval exp="f.day2_reading_result='本番失敗'"]
 
