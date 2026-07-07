@@ -49,7 +49,7 @@
 ; とよぽん：中央 → 左
 ; マスター：右寄り
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_show name="person2" face="def" left="700" top="120" width="380" time="500"]
+
 
 #喫茶店のマスター
 
@@ -171,7 +171,6 @@
 
 [cm]
 
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
 
 [typ/def]
 
@@ -215,9 +214,6 @@
 [cm]
 [eval exp="f.day6_choice='ゴミ箱ロボット'"]
 
-; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="700" top="120" width="380" time="500"]
 
 #
 
@@ -280,8 +276,6 @@
 *day6_gomirobo_appear
 
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="700" top="120" width="380" time="500"]
 [chara_hide name="gomirobo" time="500"]
 
 [chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="800"]
@@ -328,10 +322,6 @@
 [cm]
 [eval exp="f.day6_choice='人手を増やす'"]
 [eval exp="f.day6_ng_human=1"]
-
-; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="700" top="120" width="380" time="500"]
 
 #
 
@@ -380,9 +370,6 @@
 [eval exp="f.day6_choice='AI搭載の自動注意看板'"]
 [eval exp="f.day6_ng_sign=1"]
 
-; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="700" top="120" width="380" time="500"]
 
 #
 
@@ -449,11 +436,6 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 [eval exp="f.summary_day6='喫茶店のポイ捨て対策：' + f.day6_attempt_text + 'ゴミ箱ロボット→成功'"]
 
-; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="700" top="120" width="380" time="500"]
-[chara_move name="gomirobo" left="400" top="180" width="230" time="500"]
-
 #増田さん
 
 こんなメリットがありそうだね。[p]
@@ -484,21 +466,8 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 *day6_end
 
-; 直前の表示入れ替わり防止のため、短くマスクしてから再配置する
-[mask color="black" time="150"]
-
 [cm]
 
-; 表示崩れ防止のため、一度全員消す
-[chara_hide name="gomirobo" time="500"]
-[chara_hide name="toyopon" time="500"]
-[chara_hide name="person2" time="500"]
-
-; とよぽん左・増田さん右で表示し直す
-[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="500"]
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="500"]
-
-[wait time="100"]
 
 [mask_off time="150"]
 
