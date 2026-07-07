@@ -48,7 +48,9 @@
 ; 背景変更後、喫茶店のマスター登場と同時にとよぽんを左へ移動
 ; とよぽん：中央 → 左
 ; マスター：右寄り
-[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+; とよぽんをレイヤー1へ移動して左へ配置（表情変化マクロは継続動作）
+[chara_hide name="toyopon" layer="1" time="0"]
+[chara_show name="toyopon" layer="1" face="def" left="80" top="0" width="420" time="500"]
 
 
 #喫茶店のマスター
@@ -79,13 +81,13 @@
 
 かしこまりました。少々お待ちください。[p]
 
-[chara_hide name="person2" time="500"]
+[chara_hide name="person2" layer="1" time="500"]
 
 #
 
 しばらくして、注文したサンドイッチとアイスティーが運ばれてきた。[p]
 
-[chara_show name="person2" face="def" left="700" top="120" width="380" time="500"]
+[chara_show name="person2" layer="1" face="def" left="700" top="120" width="380" time="500"]
 
 #喫茶店のマスター
 
@@ -276,9 +278,9 @@
 *day6_gomirobo_appear
 
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
-[chara_hide name="gomirobo" time="500"]
+[chara_hide name="gomirobo" layer="1" time="500"]
 
-[chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="800"]
+[chara_show name="gomirobo" layer="1" face="def" left="400" top="180" width="230" time="800"]
 
 #
 
@@ -519,8 +521,10 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 ありがとうございます！[p]
 
-[chara_hide name="person2" time="500"]
-[chara_hide name="gomirobo" time="500"]
+; レイヤー1のキャラ（とよぽん・増田さん・HAI）を一括退場
+[chara_hide_all layer="1" time="500"]
+
+#
 
 2人は話しながら帰った[p]
 

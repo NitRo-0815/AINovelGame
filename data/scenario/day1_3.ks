@@ -13,9 +13,9 @@
 *start
 ;--------------------------------------------------
 ;背景表示
-[chara_hide name="gomirobo"]
+[chara_hide name="gomirobo" layer="1"]
 [room/evening time="500"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 #
 自分の部屋でゆっくりしていると[p]
 
@@ -514,7 +514,7 @@
 確認完了です！[r]
 私は部屋で待っていますね。[p]
 
-[chara_hide name="toyopon" time="300"]
+[chara_hide name="toyopon" layer="1" time="300"]
 [bath/in time="500"]
 
 #
@@ -531,7 +531,7 @@
 お風呂から上がり、自分の部屋へ戻った。[p]
 
 [room/night time="500"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="400"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="400"]
 
 #&sf.robot_name
 

@@ -8,8 +8,8 @@
 ; 通常の会話UIとキャラクターを片付ける
 [cm]
 [clearfix]
-[chara_hide name="toyopon" time="0"]
-[chara_hide name="agent001" time="0"]
+[chara_hide name="toyopon" layer="1" time="0"]
+[chara_hide name="agent001" layer="1" time="0"]
 [layopt layer="message0" visible="false"]
 [layopt layer="message1" visible="false"]
 [layopt layer="0" visible="true"]

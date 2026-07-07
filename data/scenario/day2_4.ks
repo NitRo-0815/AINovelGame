@@ -560,7 +560,7 @@
 入浴の準備、完了です！[r]
 私は部屋で待機します。[p]
 
-[chara_hide name="toyopon" time="300"]
+[chara_hide name="toyopon" layer="1" time="300"]
 [bath/in time="500"]
 
 #
@@ -577,7 +577,7 @@
 しっかり温まってから、お風呂を出た。[p]
 
 [room/night time="500"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="400"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="400"]
 
 #&sf.robot_name
 

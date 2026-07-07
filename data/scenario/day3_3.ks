@@ -12,7 +12,7 @@
 *start
 ;--------------------------------------------------
 [room/evening time="500"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 
 #
 家に着いた。[p]
@@ -31,8 +31,10 @@
 
 #
 父はリビングに立つロボットを指差した。[p]
-[chara_show name="agent001" face="def" x="650" y="120" width="480" time="500"]
-[chara_move name="toyopon" face="def" x="650" y="120" widh="480" time="500"]
+[chara_show name="agent001" layer="1" face="def" x="650" y="120" width="480" time="500"]
+; とよぽんをレイヤー1で移動（chara_moveはlayer1で不確実なためhide→show）
+[chara_hide name="toyopon" layer="1" time="0"]
+[chara_show name="toyopon" layer="1" face="def" x="650" y="120" width="480" time="500"]
 
 
 #お父さん

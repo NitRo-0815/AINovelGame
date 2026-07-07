@@ -17,7 +17,7 @@
 
 ;部屋ととよぽんを表示
 [room/evening time="500"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
+[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 
 #
 夕方。[p]

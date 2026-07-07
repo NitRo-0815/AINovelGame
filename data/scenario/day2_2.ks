@@ -14,7 +14,7 @@
 *start
 ;--------------------------------------------------
 
-[chara_hide name="toyopon"]
+[chara_hide name="toyopon" layer="1"]
 [school/room time="500"]
 
 #

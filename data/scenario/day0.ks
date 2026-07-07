@@ -81,6 +81,7 @@
 
 「AURORA-X9（オーロラ・エックスナイン）です。」[p]
 
+#
 
 オーロラ・エックスナイン...[r]
 かっこいいなぁ！[p]
@@ -89,7 +90,7 @@
 
 
 
-[image layer="1" x="0"  y="0" width="1280" height="720" storage="black.png" name="maskB" time="1000"]
+[ankoku]
 
 
 
