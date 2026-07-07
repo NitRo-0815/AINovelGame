@@ -49,7 +49,7 @@
 ; とよぽん：中央 → 左
 ; マスター：右寄り
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_show name="person2" face="def" left="650" top="120" width="380" time="500"]
+[chara_show name="person2" face="def" left="700" top="120" width="380" time="500"]
 
 #喫茶店のマスター
 
@@ -85,7 +85,7 @@
 
 しばらくして、注文したサンドイッチとアイスティーが運ばれてきた。[p]
 
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="500"]
+[chara_show name="person2" face="def" left="700" top="120" width="380" time="500"]
 
 #喫茶店のマスター
 
@@ -172,7 +172,6 @@
 [cm]
 
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="650" top="0" width="380" time="500"]
 
 [typ/def]
 
@@ -218,7 +217,7 @@
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_move name="person2" left="700" top="120" width="380" time="500"]
 
 #
 
@@ -282,7 +281,7 @@
 
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_move name="person2" left="700" top="120" width="380" time="500"]
 [chara_hide name="gomirobo" time="500"]
 
 [chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="800"]
@@ -332,7 +331,7 @@
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_move name="person2" left="700" top="120" width="380" time="500"]
 
 #
 
@@ -383,7 +382,7 @@
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_move name="person2" left="700" top="120" width="380" time="500"]
 
 #
 
@@ -452,101 +451,26 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 ; 立ち位置固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="500"]
-[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_move name="person2" left="700" top="120" width="380" time="500"]
 [chara_move name="gomirobo" left="400" top="180" width="230" time="500"]
 
-; 少し時間経過した雰囲気
-[wait time="500"]
+#増田さん
 
-;==================================================
-; 数日後の演出
-;==================================================
-
-; 一度暗転して、日にちが変わった雰囲気を出す
-[mask color="black" time="600"]
-
-[cm]
-
-; キャラを一度非表示
-[chara_hide name="toyopon" time="500"]
-[chara_hide name="person2" time="500"]
-[chara_hide name="gomirobo" time="500"]
-
-; 背景は喫茶店のまま、数日後として再表示
-[bg storage="kissaten.jpg" time="500"]
-
-[mask_off time="600"]
-
-#
-
-数日後。[p]
-
-#
-
-ゴミ箱ロボットは、増田さんの喫茶店の店先に置かれることになった。[p]
-
-; 数日後の喫茶店として、キャラを再配置
-[mask color="black" time="300"]
-
-[cm]
-
-[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="500"]
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="500"]
-[chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="500"]
-
-[mask_off time="300"]
+こんなメリットがありそうだね。[p]
 
 #増田さん
 
-あれから数日、ゴミ箱ロボットを店先に置いてみたんだ。[p]
-
-#増田さん
-
-すると、ポイ捨てがかなり減ったよ。[p]
+確かに。[p]
 
 [typ/hap]
 
 #&sf.robot_name
 
-よかったです！[p]
-
-#増田さん
-
-それだけじゃない。[p]
-
-#増田さん
-
-ゴミ箱ロボットを見に来るお客さんも増えてね。[p]
-
-#増田さん
-
-「かわいいゴミ箱ロボットがいる喫茶店」って、少し話題になっているんだ。[p]
-
-#
-
-ゴミ箱ロボットは、店先をゆっくり移動している。[p]
-
-#
-
-落ちていたカップの近くで止まり、捨てやすい位置へ静かに動いた。[p]
-
-#
-
-すごい。ちゃんと解決になったんだ。[p]
-
-[typ/hap]
-
-#&sf.robot_name
-
-はい。困っている人を助けられましたね。[p]
+案をくれてありがとう。[p]
 
 #増田さん
 
 ありがとう。君たちに相談してよかったよ。[p]
-
-#増田さん
-
-これからも、店と町をきれいにしていけそうだ。[p]
 
 [jump target="*day6_end"]
 
