@@ -119,8 +119,7 @@
 
 [chara_face name="p_dustbox" face="def"        storage="chara/gomirobo/p_dustbox_def.PNG"]
 [chara_face name="p_dustbox" face="happy"      storage="chara/gomirobo/p_dustbox_hap.PNG"]
-; ↓ファイル名に半角スペースが含まれています（p_ dustbox_sad.PNG）。要リネーム
-[chara_face name="p_dustbox" face="sad"        storage="chara/gomirobo/p_ dustbox_sad.PNG"]
+[chara_face name="p_dustbox" face="sad"        storage="chara/gomirobo/p_dustbox_sad.PNG"]
 
 
 ; ゴミ箱ロボット（青）のキャラクター定義
@@ -131,9 +130,9 @@
 [chara_face name="b_dustbox" face="sad"        storage="chara/gomirobo/b_dustbox_sad.PNG"]
 
 
-; agent001 のキャラクター定義
-[chara_new  name="agent001"  jname="AGENT001" storage="chara/agent001/default.png"]
-[chara_face name="agent001" face="def" storage="chara/agent001/default.png"]
+; agent009 のキャラクター定義
+[chara_new  name="agent009"  jname="AGENT009" storage="chara/agent009/default.png"]
+[chara_face name="agent009" face="def" storage="chara/agent009/default.png"]
 
 
 ; [return] 帰ります。

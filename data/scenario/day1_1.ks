@@ -243,3 +243,4 @@ toyozonで安かったから買ってみたんだ！[p]
 ; 次の出来事へ
 ; 
 [jump storage="day1_2.ks"]
+[s]

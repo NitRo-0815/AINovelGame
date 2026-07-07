@@ -31,7 +31,7 @@
 
 #
 父はリビングに立つロボットを指差した。[p]
-[chara_show name="agent001" layer="1" face="def" x="650" y="120" width="480" time="500"]
+[chara_show name="agent009" layer="1" face="def" x="650" y="120" width="480" time="500"]
 ; とよぽんをレイヤー1で移動（chara_moveはlayer1で不確実なためhide→show）
 [chara_hide name="toyopon" layer="1" time="0"]
 [chara_show name="toyopon" layer="1" face="def" x="650" y="120" width="480" time="500"]
@@ -48,19 +48,19 @@
 #
 見慣れないロボットが立っている。[p]
 
-#AGENT001
+#AGENT009
 
 はじめまして。[p]
 
-#AGENT001
+#AGENT009
 
-私はAGENT001です。[p]
+私はAGENT009です。[p]
 
-#AGENT001
+#AGENT009
 
 生活支援、学習支援、家事支援に対応しています。[p]
 
-#AGENT001
+#AGENT009
 
 あなたに最適な提案を行います。[p]
 
@@ -79,7 +79,7 @@
 #
 
 
-[glink color=blue size=28 x=350 y=220 width=500 target=*choose_agent text="AGENT001を選ぶ"]
+[glink color=blue size=28 x=350 y=220 width=500 target=*choose_agent text="AGENT009を選ぶ"]
 [glink color=blue size=28 x=350 y=340 width=500 target=*choose_toyopon text=&sf.robot_name]
 
 [s]
@@ -87,15 +87,15 @@
 
 
 ;==================================================
-; AGENT001を選ぶ
+; AGENT009を選ぶ
 ;==================================================
 
 *choose_agent
 
 [cm]
 
-[eval exp="f.final_choice='AGENT001'"]
-[eval exp="f.summary_final='新しい性能と可能性を持つAGENT001を選んだ'"]
+[eval exp="f.final_choice='AGENT009'"]
+[eval exp="f.summary_final='新しい性能と可能性を持つAGENT009を選んだ'"]
 
 #
 
@@ -109,11 +109,11 @@
 
 きっとその方が便利だぞ！[p]
 
-#AGENT001
+#AGENT009
 
 選択を確認しました。[p]
 
-#AGENT001
+#AGENT009
 
 これからよろしくお願いします。[p]
 
@@ -131,11 +131,11 @@
 
 #
 
-少しだけ寂しい気持ちになった。[p]
+みんなはどう思った？[p]
 
-[eval exp="f.summary_day3_evening='最終選択：AGENT001を選んだ'"]
+[eval exp="f.summary_day3_evening='最終選択：AGENT009を選んだ'"]
 
-; とよぽん・AGENT001（レイヤー1）を同時に退場させてから結果画面へ
+; とよぽん・AGENT009（レイヤー1）を同時に退場させてから結果画面へ
 [chara_hide_all layer="1" time="500"]
 [wait time="500"]
 
@@ -183,13 +183,13 @@
 これからも頑張ります！[p]
 
 #
-
-少し安心したように見えた。[p]
+[emb exp="sf.robot_name"]のこと[r]
+なんで選んだんだろう？[p]
 
 [eval exp="f.summary_day3_evening='最終選択：' + sf.robot_name + 'を選んだ'"]
 
 
-; とよぽん・AGENT001（レイヤー1）を同時に退場させてから結果画面へ
+; とよぽん・AGENT009（レイヤー1）を同時に退場させてから結果画面へ
 [chara_hide_all layer="1" time="500"]
 [wait time="500"]
 
