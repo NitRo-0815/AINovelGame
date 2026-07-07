@@ -1,53 +1,81 @@
-<div id="menu_menu_wrapper">
-    <div class="display_menu block_menu">
-        <!-- 閉じるボタン -->
-        <div class="menu_item" style="float: right; margin: 20px 10px 0 0">
-            <img class="menu_close" src="./tyrano/images/system/menu_button_close.png" />
+<div id="menu_menu_wrapper" class="menu_overlay">
+    <div class="display_menu block_menu menu_panel">
+        <div class="menu_panel_header">
+            <h2>音量設定</h2>
+            <button type="button" class="menu_close" aria-label="メニューを閉じる">×</button>
         </div>
-        <div style="clear: both"></div>
 
-        <!-- メニュー -->
-        <div style="margin-top: 50px">
-            <div class="menu_item menu_save_outer">
-                <img class="menu_save" src="./tyrano/images/system/menu_button_save.png" />
-            </div>
+        <div class="menu_panel_body">
+            <label class="menu_volume_row" for="menu_bgm_volume">
+                <span>BGM</span>
+                <input id="menu_bgm_volume" class="menu_volume_slider" type="range" min="0" max="100" value="80" />
+                <span class="menu_volume_value">80%</span>
+            </label>
 
-            <div class="menu_item menu_load_outer">
-                <img class="menu_load" src="./tyrano/images/system/menu_button_load.png" />
-            </div>
+            <label class="menu_volume_row" for="menu_se_volume">
+                <span>SE</span>
+                <input id="menu_se_volume" class="menu_volume_slider" type="range" min="0" max="100" value="80" />
+                <span class="menu_volume_value">80%</span>
+            </label>
+        </div>
 
-            <div class="menu_item menu_window_close_outer">
-                <img class="menu_window_close" src="./tyrano/images/system/menu_message_close.png" />
-            </div>
-
-            <div class="menu_item menu_skip_outer">
-                <img class="menu_skip" src="./tyrano/images/system/menu_button_skip.png" />
-            </div>
-
-            <div class="menu_item menu_back_title_outer">
-                <img class="menu_back_title" src="./tyrano/images/system/menu_button_title.png" />
-            </div>
+        <div class="menu_panel_footer">
+            <button type="button" class="menu_window_close">閉じる</button>
         </div>
     </div>
 
-    <!-- 背景とタイトル画像 -->
-    <img class="img_label img_label_menu block_menu" src="./tyrano/images/system/label_menu.png" />
-    <img class="img_bg_base" src="./tyrano/images/system/bg_base.png" />
-
-    <!-- ボタンホバー時に画像を変更する -->
     <script>
-        $("#menu_menu_wrapper .menu_item img").each((i, elm) => {
-            const j_elm = $(elm);
-            const original_src = j_elm.attr("src");
-            const hover_src = original_src.replace(".png", "2.png");
-            j_elm.hover(
-                () => {
-                    j_elm.attr("src", hover_src);
-                },
-                () => {
-                    j_elm.attr("src", original_src);
-                },
-            );
-        });
+        (function () {
+            const kag = TYRANO && TYRANO.kag ? TYRANO.kag : null;
+            const wrapper = $("#menu_menu_wrapper");
+            const bgmInput = wrapper.find("#menu_bgm_volume");
+            const seInput = wrapper.find("#menu_se_volume");
+            const bgmValue = wrapper.find(".menu_volume_value").eq(0);
+            const seValue = wrapper.find(".menu_volume_value").eq(1);
+
+            const setValueLabel = function (input, label) {
+                label.text(input.val() + "%");
+            };
+
+            const applyVolume = function (type, value) {
+                if (!kag || !kag.ftag || !kag.ftag.startTag) {
+                    return;
+                }
+                const tagName = type === "bgm" ? "bgmopt" : "seopt";
+                kag.ftag.startTag(tagName, { volume: String(value) });
+            };
+
+            const initFromConfig = function () {
+                const bgm = parseInt(kag && kag.config && kag.config.defaultBgmVolume ? kag.config.defaultBgmVolume : 80, 10);
+                const se = parseInt(kag && kag.config && kag.config.defaultSeVolume ? kag.config.defaultSeVolume : 80, 10);
+                bgmInput.val(isNaN(bgm) ? 80 : bgm);
+                seInput.val(isNaN(se) ? 80 : se);
+                setValueLabel(bgmInput, bgmValue);
+                setValueLabel(seInput, seValue);
+            };
+
+            bgmInput.on("input", function () {
+                const value = parseInt($(this).val(), 10);
+                setValueLabel($(this), bgmValue);
+                applyVolume("bgm", value);
+            });
+
+            seInput.on("input", function () {
+                const value = parseInt($(this).val(), 10);
+                setValueLabel($(this), seValue);
+                applyVolume("se", value);
+            });
+
+            wrapper.find(".menu_close, .menu_window_close").on("click", function (event) {
+                event.stopPropagation();
+                const menuLayer = kag && kag.layer ? kag.layer.getMenuLayer() : null;
+                if (menuLayer) {
+                    menuLayer.hide().empty();
+                    $(".button_menu").show();
+                }
+            });
+
+            initFromConfig();
+        })();
     </script>
 </div>

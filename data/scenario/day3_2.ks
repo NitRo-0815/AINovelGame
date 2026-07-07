@@ -1,7 +1,10 @@
 ;==================================================
-; day6.ks
-; 6日目：喫茶店のポイ捨て問題
-; 選択肢：glink 使用
+; day3_2.ks
+; 
+; 内容：
+; ・初めて入った喫茶店で食事を注文する
+; ・マスターの悩みに気づき、とよぽんと解決する
+; ・次の出来事 day3_3.ks へ
 ;==================================================
 
 
@@ -9,139 +12,120 @@
 ;--------------------------------------------------
 *start
 ;--------------------------------------------------
-
-; 画面初期化
-[set_default_view chara="off"]
-
-; 背景を即時表示
-[bg storage="room.jpg" time="0"]
-
-; メッセージボックスを中央寄せ・濃いめに再設定
-[position left="250" top="440" width="820" height="250" color="0x000000" opacity="220" frame="none"]
-[position margint="50" marginl="25" marginr="25" marginb="10"]
-
-; 名前欄も中央寄せしたメッセージボックスに合わせて再配置
-[free name="chara_name_area" layer="message0"]
-[ptext name="chara_name_area" layer="message0" zindex="102" size="32" face="ロゴたいぷゴシック,メイリオ,sans-serif" x="250" y="445" color="0xffffff" edge="0x000000"]
-[chara_config ptext="chara_name_area"]
-
-; BGM開始
-; data/bgm/day6.ogg を配置すること
-[playbgm storage="day6.ogg" loop="true" fadein="1000"]
-
+;==================================================
 ; 変数初期化
-[eval exp="f.day6_choice=''"]
+;==================================================
+
 [eval exp="f.day6_ng_human=0"]
 [eval exp="f.day6_ng_sign=0"]
+[eval exp="f.day6_choice=''"]
 
-; キャラを一度消してから、とよぽんを中央に表示
-[chara_hide name="toyopon" time="0"]
-[chara_hide name="person2" time="0"]
-[chara_hide name="gomirobo" time="0"]
-
-; 最初は従来通り中央
-[chara_show name="toyopon" face="def" left="400" top="0" width="420" time="0"]
-
-[jump target="*day6_scene1"]
-
-
-
-
-
-;==================================================
-; シーン1：相談
-;==================================================
-
-*day6_scene1
-
-; 増田さん登場前は、とよぽんを中央に固定
-[chara_move name="toyopon" left="400" top="0" width="420" time="0"]
-
-[typ/def]
-
-#&sf.robot_name
-
-おはようございます。[p]
-
-[typ/hap]
-
-#&sf.robot_name
-
-今日は、少しお願いがあります。[p]
+[street time="500"]
 
 #
 
-お願い？[p]
-
-[typ/def]
-
-#&sf.robot_name
-
-はい。ぼくの友人である増田さんが、困っているんです。[p]
+やっぱり外は暑いな[p]
 
 #
+買い物は終わったけど、どこか涼しい場所に行きたいな。[p]
 
-友人？ [emb exp="sf.robot_name"]に友達がいるんだ。[p]
-
-[typ/hap]
-
-#&sf.robot_name
-
-はい。喫茶店のオーナーをしている方です。[p]
-
-[typ/def]
-
-#&sf.robot_name
-
-最近テイクアウトを始めたそうなのですが、それによって少し問題が起きているみたいで……。[p]
+[kissaten/out]
 
 #
+ここならちょうどよく涼しめそうだ。[p]
 
-問題？[p]
+#
+ついでに昼ごはんでも食べていこう。[p]
 
-[typ/def]
-
-#&sf.robot_name
-
-詳しいことは、増田さんから直接聞いてみましょう。[p]
-
-[jump target="*day6_scene2"]
-
-
-
-
+[kissaten/in]
 
 ;==================================================
-; シーン2：増田さん登場
+; シーン2：初めての入店・注文
 ;==================================================
-
-*day6_scene2
 
 [bg storage="kissaten.jpg" time="1000"]
 
-; 背景変更後、増田さん登場と同時にとよぽんを左へ移動
+; 背景変更後、喫茶店のマスター登場と同時にとよぽんを左へ移動
 ; とよぽん：中央 → 左
-; 増田さん：右寄り
+; マスター：右寄り
 [chara_move name="toyopon" left="80" top="0" width="420" time="600"]
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="800"]
+[chara_show name="person2" face="def" left="650" top="120" width="380" time="800"]
+
+#喫茶店のマスター
+
+いらっしゃいませー！[p]
+
+#
+
+店の中は涼しく、コーヒーの香りがした。[p]
+
+#喫茶店のマスター
+
+お好きな席へどうぞ。[p]
+
+#
+
+窓際の席に座り、メニューを開いた。[p]
+
+#
+
+じゃあ、アイスティーとサンドイッチで。[p]
+
+#&sf.robot_name
+
+私は食べられませんので、そばで待っていますね。[p]
+
+#喫茶店のマスター
+
+かしこまりました。少々お待ちください。[p]
+
+[chara_hide name="person2" time="400"]
+
+#
+
+しばらくして、注文したサンドイッチとアイスティーが運ばれてきた。[p]
+
+[chara_show name="person2" face="def" left="650" top="0" width="380" time="400"]
+
+#喫茶店のマスター
+
+お待たせしました。[p]
+
+#
+
+マスターの名札には「増田」と書かれている。[p]
+
+#
+
+サンドイッチを食べていると、増田さんが窓の外を見ながら小さくため息をついた。[p]
+
+[typ/def]
+
+#&sf.robot_name
+
+あの、何かお困りですか？[p]
 
 #増田さん
 
-やあ、来てくれてありがとう。[p]
+え？　ああ、顔に出ていたかな。[p]
+
+#
+
+とよぽんは窓の外と、困った顔の増田さんを交互に見た。[p]
 
 [typ/hap]
 
 #&sf.robot_name
 
-増田さん、こちらがいつもお世話している方です。[p]
+よければ、私たちで悩み事を解決しましょう！[p]
 
 #
 
-こんにちは。[p]
+いきなりそこまで言うんだ。[p]
 
 #増田さん
 
-こんにちは。今日は相談に乗ってくれると聞いてね。[p]
+はは、頼もしいな。それじゃあ、聞いてもらってもいいかい？[p]
 
 #増田さん
 
@@ -169,7 +153,13 @@
 
 #&sf.robot_name
 
-あなたなら、どんな解決方法を提案しますか？[p]
+状況はわかりました。[p]
+
+[typ/hap]
+
+#&sf.robot_name
+
+一緒に解決方法を考えましょう！[p]
 
 [jump target="*day6_choice_loop"]
 
@@ -177,16 +167,10 @@
 
 
 
-;==================================================
-; 選択肢ループ
-; 失敗した選択肢は次から表示しない
-;==================================================
-
 *day6_choice_loop
 
 [cm]
 
-; 選択肢表示前も、とよぽん左・増田さん右を固定
 [chara_move name="toyopon" left="80" top="0" width="420" time="0"]
 [chara_move name="person2" left="650" top="0" width="380" time="0"]
 
@@ -196,41 +180,29 @@
 
 どんな方法を提案しましょうか？[p]
 
-; まだ何も失敗していない場合
-[if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 0"]
+[if exp="f.day6_ng_human==0 && f.day6_ng_sign==0"]
 
 [glink color=blue size=28 x=350 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=350 y=245 width=500 target=*day6_choice_human text="人手を増やす"]
 [glink color=blue size=28 x=350 y=350 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
-[endif]
-
-; 人手だけ失敗済みの場合
-[if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 0"]
+[elsif exp="f.day6_ng_human==1 && f.day6_ng_sign==0"]
 
 [glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
-[endif]
-
-; 看板だけ失敗済みの場合
-[if exp="f.day6_ng_human == 0 && f.day6_ng_sign == 1"]
+[elsif exp="f.day6_ng_human==0 && f.day6_ng_sign==1"]
 
 [glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 [glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_human text="人手を増やす"]
 
-[endif]
-
-; 両方失敗済みの場合
-[if exp="f.day6_ng_human == 1 && f.day6_ng_sign == 1"]
+[else]
 
 [glink color=blue size=28 x=350 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 
 [endif]
 
 [s]
-
-
 
 
 
@@ -620,7 +592,7 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 #
 
-[emb exp="sf.robot_name"]の友達も助けられてよかった。[p]
+このお店の人も助けられてよかった。[p]
 
 [typ/def]
 
@@ -638,20 +610,27 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 こちらこそ、相談してくれてありがとうございました。[p]
 
-[typ/def]
-
-#&sf.robot_name
-
-それでは、今日はゆっくり休みましょう。[p]
-
-[typ/hap]
-
-#&sf.robot_name
-
-おやすみなさい。また明日、そばにいますね。[p]
 
 #
+場面転換で暗転[p]
 
-こうして、[emb exp="sf.robot_name"]との六日目が終わった。[p]
+#&sf.robot_name
 
-[jump storage="day7.ks"]
+助けになれてよかったですね！[p]
+
+#&sf.robot_name
+
+まさかそんなロボットがいるなんて知りませんでした！[p]
+
+#&sf.robot_name
+
+ありがとうございます！[p]
+
+[chara_hide name="person2" time="0"]
+[chara_hide name="gomirobo" time="0"]
+
+2人は話しながら帰った[p]
+
+; 次の出来事へ
+; 
+[jump storage="day3_3.ks"]
