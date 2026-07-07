@@ -5,13 +5,11 @@
 @layopt layer=message0 visible=false
 
 ;背景画像を設定
-[image layer="base" page="fore" storage=bg1.PNG]
+[image layer="base" page="fore" storage=title.JPEG]
 
-[locate x=200 y=300 ]
-[button graphic="start.png" target=*first]
+[locate x=90 y=470 ]
+[button graphic="config/gobutton.PNG" target=*first width= 500]
 
-; [glink] 文字ボタンを出します。
-[glink x="450" y="300" text="HAIの世界へ行く！" target="*first"]
 
 [s]
 

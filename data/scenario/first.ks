@@ -92,6 +92,7 @@
 
 [chara_face name="toyopon" face="def"          storage="chara/toyopon/default.png"]
 [chara_face name="toyopon" face="happy"        storage="chara/toyopon/happy.png"]
+[chara_face name="toyopon" face="sad"        storage="chara/toyopon/sad.PNG"]
 
 [chara_face name="toyopon" face="phone_def"    storage="chara/toyopon/phonedefault.png"]
 [chara_face name="toyopon" face="phone_happy"  storage="chara/toyopon/phonehappy.png"]

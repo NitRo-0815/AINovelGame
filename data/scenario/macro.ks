@@ -80,6 +80,13 @@
 
 [endmacro]
 
+; 笑顔
+[macro name="typ/sad"]
+
+[chara_mod name="toyopon" face="sad"]
+
+[endmacro]
+
 
 ; スマホ通常
 [macro name="typ/ph_def"]
