@@ -11,7 +11,7 @@
 ;--------------------------------------------------
 *start
 ;--------------------------------------------------
-[room/evening time="0"]
+[room/evening time="500"]
 [chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
 [chara_show name="agent001" face="def" x="650" y="150" width="480" time="800"]
 

@@ -43,13 +43,13 @@
 ; シーン2：初めての入店・注文
 ;==================================================
 
-[bg storage="kissaten.jpg" time="1000"]
+[bg storage="kissaten.jpg" time="500"]
 
 ; 背景変更後、喫茶店のマスター登場と同時にとよぽんを左へ移動
 ; とよぽん：中央 → 左
 ; マスター：右寄り
-[chara_move name="toyopon" left="80" top="0" width="420" time="600"]
-[chara_show name="person2" face="def" left="650" top="120" width="380" time="800"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_show name="person2" face="def" left="650" top="120" width="380" time="500"]
 
 #喫茶店のマスター
 
@@ -79,13 +79,13 @@
 
 かしこまりました。少々お待ちください。[p]
 
-[chara_hide name="person2" time="400"]
+[chara_hide name="person2" time="500"]
 
 #
 
 しばらくして、注文したサンドイッチとアイスティーが運ばれてきた。[p]
 
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="400"]
+[chara_show name="person2" face="def" left="650" top="0" width="380" time="500"]
 
 #喫茶店のマスター
 
@@ -171,8 +171,8 @@
 
 [cm]
 
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_move name="person2" left="650" top="0" width="380" time="500"]
 
 [typ/def]
 
@@ -217,8 +217,8 @@
 [eval exp="f.day6_choice='ゴミ箱ロボット'"]
 
 ; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_move name="person2" left="650" top="0" width="380" time="500"]
 
 #
 
@@ -281,9 +281,9 @@
 *day6_gomirobo_appear
 
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
-[chara_hide name="gomirobo" time="0"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_hide name="gomirobo" time="500"]
 
 [chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="800"]
 
@@ -331,8 +331,8 @@
 [eval exp="f.day6_ng_human=1"]
 
 ; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_move name="person2" left="650" top="0" width="380" time="500"]
 
 #
 
@@ -382,8 +382,8 @@
 [eval exp="f.day6_ng_sign=1"]
 
 ; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_move name="person2" left="650" top="0" width="380" time="500"]
 
 #
 
@@ -451,9 +451,9 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 [eval exp="f.summary_day6='喫茶店のポイ捨て対策：' + f.day6_attempt_text + 'ゴミ箱ロボット→成功'"]
 
 ; 立ち位置固定
-[chara_move name="toyopon" left="80" top="0" width="420" time="0"]
-[chara_move name="person2" left="650" top="0" width="380" time="0"]
-[chara_move name="gomirobo" left="400" top="180" width="230" time="0"]
+[chara_move name="toyopon" left="80" top="0" width="420" time="500"]
+[chara_move name="person2" left="650" top="0" width="380" time="500"]
+[chara_move name="gomirobo" left="400" top="180" width="230" time="500"]
 
 ; 少し時間経過した雰囲気
 [wait time="500"]
@@ -468,12 +468,12 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 [cm]
 
 ; キャラを一度非表示
-[chara_hide name="toyopon" time="0"]
-[chara_hide name="person2" time="0"]
-[chara_hide name="gomirobo" time="0"]
+[chara_hide name="toyopon" time="500"]
+[chara_hide name="person2" time="500"]
+[chara_hide name="gomirobo" time="500"]
 
 ; 背景は喫茶店のまま、数日後として再表示
-[bg storage="kissaten.jpg" time="0"]
+[bg storage="kissaten.jpg" time="500"]
 
 [mask_off time="600"]
 
@@ -490,9 +490,9 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 [cm]
 
-[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="0"]
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="0"]
-[chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="0"]
+[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="500"]
+[chara_show name="person2" face="def" left="650" top="0" width="380" time="500"]
+[chara_show name="gomirobo" face="def" left="400" top="180" width="230" time="500"]
 
 [mask_off time="300"]
 
@@ -566,13 +566,13 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 [cm]
 
 ; 表示崩れ防止のため、一度全員消す
-[chara_hide name="gomirobo" time="0"]
-[chara_hide name="toyopon" time="0"]
-[chara_hide name="person2" time="0"]
+[chara_hide name="gomirobo" time="500"]
+[chara_hide name="toyopon" time="500"]
+[chara_hide name="person2" time="500"]
 
 ; とよぽん左・増田さん右で表示し直す
-[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="0"]
-[chara_show name="person2" face="def" left="650" top="0" width="380" time="0"]
+[chara_show name="toyopon" face="def" left="80" top="0" width="420" time="500"]
+[chara_show name="person2" face="def" left="650" top="0" width="380" time="500"]
 
 [wait time="100"]
 
@@ -626,8 +626,8 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 ありがとうございます！[p]
 
-[chara_hide name="person2" time="0"]
-[chara_hide name="gomirobo" time="0"]
+[chara_hide name="person2" time="500"]
+[chara_hide name="gomirobo" time="500"]
 
 2人は話しながら帰った[p]
 

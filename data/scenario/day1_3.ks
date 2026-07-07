@@ -14,8 +14,8 @@
 ;--------------------------------------------------
 ;背景表示
 [chara_hide name="gomirobo"]
-[room/evening time="0"]
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
+[room/evening time="500"]
+[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
 #
 自分の部屋でゆっくりしていると[p]
 
@@ -128,7 +128,7 @@
 数時間後、夜。[p]
 
 ;部屋を夜に変更
-[room/night time="0"]
+[room/night time="500"]
 
 #&sf.robot_name
 

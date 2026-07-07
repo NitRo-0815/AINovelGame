@@ -107,8 +107,8 @@
 
 #
 帰る時間になった。[p]
-[school/load time="0"]
-[chara_show name="gomirobo" face="def" left="400" top="400" width="230" time="800"]
+[school/load time="500"]
+[chara_show name="gomirobo" face="def" left="400" top="400" width="230" time="500"]
 #
 廊下に出ると、足元にロボットが寄ってきた。[p]
 
