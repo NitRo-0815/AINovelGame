@@ -22,7 +22,7 @@
 次の日[p]
 
 ; 背景を即時表示
-[room/day time="0"]
+[room/day time="500"]
 
 
 [jump target="*day1_1_scene1"]
@@ -53,7 +53,7 @@ toyozonで安かったから買ってみたんだ！[p]
 箱を開けた[p]
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み
-[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="800"]
+[chara_show name="toyopon" face="def" x="30" y="180" width="480" time="500"]
 ;次のシーンへ
 [jump target="*day1_1_scene2"]
 
