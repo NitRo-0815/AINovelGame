@@ -135,6 +135,10 @@
 
 [eval exp="f.summary_day3_evening='最終選択：AGENT001を選んだ'"]
 
+; とよぽん・AGENT001（レイヤー1）を同時に退場させてから結果画面へ
+[chara_hide_all layer="1" time="500"]
+[wait time="500"]
+
 [jump storage="day3_summary.ks"]
 
 
@@ -184,5 +188,9 @@
 
 [eval exp="f.summary_day3_evening='最終選択：' + sf.robot_name + 'を選んだ'"]
 
+
+; とよぽん・AGENT001（レイヤー1）を同時に退場させてから結果画面へ
+[chara_hide_all layer="1" time="500"]
+[wait time="500"]
 
 [jump storage="day3_summary.ks"]

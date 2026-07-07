@@ -98,7 +98,7 @@
 [ptext layer="1" x="180" y="485" width="920" align="center" text="この選択に唯一の正解はありません。それでも、あなたは自分で選びました。" size="20" color="0xbfe8ff"]
 
 [glink color="gray" size="22" x="210" y="625" width="330" target="*record_page" text="記録を見返す"]
-[glink color="green" size="22" x="740" y="625" width="330" target="*finish" text="エンディングへ"]
+[glink color="green" size="22" x="740" y="625" width="330" target="*finish" text="終わる"]
 [s]
 
 
