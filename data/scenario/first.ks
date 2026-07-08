@@ -109,9 +109,9 @@
 
 
 ; ゴミ箱ロボット HAI のキャラクター定義
-[chara_new  name="gomirobo"  jname="HAI" storage="chara/gomirobo/pink_default.png"]
+[chara_new  name="gomirobo"  jname="HAI" storage="chara/gomirobo/p_dustbox_def.png"]
 
-[chara_face name="gomirobo" face="def"         storage="chara/gomirobo/pink_default.png"]
+[chara_face name="gomirobo" face="def"         storage="chara/gomirobo/p_dustbox_def.png"]
 
 
 ; ゴミ箱ロボット（ピンク）のキャラクター定義

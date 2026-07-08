@@ -49,6 +49,7 @@
 ;==================================================
 
 [school/load time="500"]
+[chara_show name="p_dustbox" layer="1" face="def" x="30" y="180" width="480" time="500"]
 
 #
 廊下に出ると、いつもより廊下が綺麗だった。[p]

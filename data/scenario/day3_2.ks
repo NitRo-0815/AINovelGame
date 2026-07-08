@@ -246,9 +246,9 @@
 *day6_gomirobo_appear
 
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
-[chara_hide name="gomirobo" layer="1" time="500"]
+[chara_hide name="p_dustbox" layer="1" time="500"]
 
-[chara_show name="gomirobo" layer="1" face="def" left="400" top="180" width="230" time="800"]
+[chara_show name="p_dustbox" layer="1" face="def" left="400" top="180" width="230" time="800"]
 
 #
 

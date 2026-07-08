@@ -13,7 +13,7 @@
 *start
 ;--------------------------------------------------
 ;背景表示
-[chara_hide name="gomirobo" layer="1"]
+[chara_hide name="p_dustbox" layer="1"]
 [room/evening time="500"]
 [chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 #

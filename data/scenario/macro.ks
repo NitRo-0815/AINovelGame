@@ -96,7 +96,7 @@
 
 [endmacro]
 
-; 笑顔
+; 悲しみ
 [macro name="typ/sad"]
 
 [chara_mod name="toyopon" face="sad"]

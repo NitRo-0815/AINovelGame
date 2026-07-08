@@ -54,6 +54,7 @@ toyozonで安かったから買ってみたんだ！[p]
 ; とよぽん初登場
 ; first.ks で toyopon は定義済み
 [chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
+
 ;次のシーンへ
 [jump target="*day1_1_scene2"]
 
@@ -68,7 +69,6 @@ toyozonで安かったから買ってみたんだ！[p]
 ;==================================================
 
 *day1_1_scene2
-[typ/sad]
 #？？？
 
 こんにちは！私は家庭用お世話ロボット、ハウスボットです！[p]
