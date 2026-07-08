@@ -938,7 +938,7 @@
 
 *fail
 
-[typ/def]
+[typ/sad]
 
 #&sf.robot_name
 

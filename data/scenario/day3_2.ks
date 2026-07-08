@@ -70,7 +70,7 @@
 
 しばらくして、注文したサンドイッチとアイスティーが運ばれてきた。[p]
 
-[chara_show name="person2" layer="1" face="def" left="700" top="120" width="380" time="500"]
+[chara_show name="person2" layer="1" face="def" left="750" top="120" width="380" time="500"]
 
 #喫茶店のマスター
 
@@ -248,7 +248,7 @@
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
 [chara_hide name="p_dustbox" layer="1" time="500"]
 
-[chara_show name="p_dustbox" layer="1" face="def" left="400" top="180" width="230" time="800"]
+[chara_show name="p_dustbox" layer="1" face="def" left="450" top="180" width="230" time="800"]
 
 #
 
