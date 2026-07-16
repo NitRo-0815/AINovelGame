@@ -58,10 +58,13 @@
 
 いらっしゃいませー！[p]
 
-お好きな席へどうぞ。[p]
+#喫茶店のマスター
+
+お好きな席へどうぞ[p]
 
 #
 
+席に座り、注文を行った。[p]
 じゃあ、アイスティーとサンドイッチで。[p]
 
 [chara_hide name="person2" layer="1" time="500"]
@@ -76,8 +79,7 @@
 
 お待たせしました。[p]
 
-
-サンドイッチを食べていると、マスターが窓の外を見ながら小さくため息をついた。[p]
+サンドイッチを食べようとすると、マスターが小さくため息をついてることに気がついた。[p]
 
 [typ/def]
 
@@ -85,25 +87,32 @@
 
 あの、何かお困りですか？[p]
 
-#マスター
+#喫茶店のマスター
 
 え？　ああ、顔に出ていたかな。[p]
 
 #
 
-とよぽんは窓の外と、困った顔のマスターを交互に見た。[p]
+[emb exp="sf.robot_name"]は窓の外と、困った顔のマスターを交互に見た。[p]
 
 [typ/hap]
 
 #&sf.robot_name
 
-よければ、私たちで悩み事を解決しましょう！[p]
+何か悩み事があるのでしたら、私たちで悩み事を解決しましょう！[p]
 私は困っている人を助けることが大好きなんです！[p]
 
 
-#増田さん
+#喫茶店のマスター
 
 はは、頼もしいな。それじゃあ、聞いてもらってもいいかい？[p]
+この喫茶店のマスターの増田だ、よろしくね[p]
+
+#&sf.robot_name
+
+もちろんです！[p]
+増田さん、よろしくお願いします！[p]
+[emb exp="sf.robot_name"]といいます！[p]
 
 #増田さん
 
@@ -131,7 +140,9 @@
 
 一緒に解決方法を考えましょう！[p]
 
+どんな方法を提案しましょうか？[p]
 [jump target="*day6_choice_loop"]
+
 
 
 
@@ -141,36 +152,43 @@
 
 [cm]
 
-
 [typ/def]
 
 #&sf.robot_name
 
-どんな方法を提案しましょうか？[p]
-
+; まだどちらも試していない
 [if exp="f.day6_ng_human==0 && f.day6_ng_sign==0"]
 
-[glink color=blue size=28 x=350 y=140 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
-[glink color=blue size=28 x=350 y=245 width=500 target=*day6_choice_human text="人手を増やす"]
-[glink color=blue size=28 x=350 y=350 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
-
-[elsif exp="f.day6_ng_human==1 && f.day6_ng_sign==0"]
-
-[glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
+[glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_human text="人手を増やす"]
 [glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
 
+; 人手を増やすだけ試した
+[elsif exp="f.day6_ng_human==1 && f.day6_ng_sign==0"]
+
+[glink color=blue size=28 x=350 y=250 width=500 target=*day6_choice_sign text="AI搭載の自動注意看板を設置する"]
+
+; AI看板だけ試した
 [elsif exp="f.day6_ng_human==0 && f.day6_ng_sign==1"]
 
-[glink color=blue size=28 x=350 y=190 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
-[glink color=blue size=28 x=350 y=310 width=500 target=*day6_choice_human text="人手を増やす"]
+[glink color=blue size=28 x=350 y=250 width=500 target=*day6_choice_human text="人手を増やす"]
 
+; 両方試した
 [else]
+
+#&sf.robot_name
+
+人を増やすのも大変ですし、注意するだけではお店の雰囲気が悪くなるかもしれません。[p]
+
+#&sf.robot_name
+
+それなら、もっとゴミを捨てやすくする方法はないでしょうか？[p]
 
 [glink color=blue size=28 x=350 y=250 width=500 target=*day6_choice_gomirobo text="ゴミ箱ロボットを導入する"]
 
 [endif]
 
 [s]
+
 
 
 
@@ -197,27 +215,27 @@
 
 #&sf.robot_name
 
-はい。自走式のゴミ箱ロボットです。[p]
+はい。ごみの周りで困ってしまうロボットです！[p]
 
 #増田さん
 
-自走式……？[p]
+困ってしまうのかい？[p]
 
 [typ/def]
 
 #&sf.robot_name
 
-お客さんの近くまで移動して、自然にゴミを捨ててもらえるように案内できます。[p]
+はい！ゴミが落ちていたら、その周りで助けを求めるのです！[p]
 
 [typ/hap]
 
 #&sf.robot_name
 
-ただ注意するのではなく、「捨てやすい場所」をこちらから届ける方法です。[p]
+ただ注意するのではなく、「捨ててあげたいという気持ち」をこちらから伝える方法です。[p]
 
-#
+#増田さん
 
-怒るんじゃなくて、捨てやすくするんだね。[p]
+怒るんじゃなくて、手伝ってあげたいと思わせるんだね。[p]
 
 #増田さん
 
@@ -248,7 +266,7 @@
 ; とよぽん左、増田さん右、ゴミ箱ロボット中央
 [chara_hide name="p_dustbox" layer="1" time="500"]
 
-[chara_show name="p_dustbox" layer="1" face="def" left="450" top="180" width="230" time="800"]
+[chara_show name="p_dustbox" layer="1" face="def" left="450" top="180" width="250" time="800"]
 
 #
 
@@ -295,7 +313,7 @@
 
 #
 
-人手を増やして、店の周りを見回るのはどうでしょう。[p]
+人手を増やして、店の周りを見回るのはどうですか？[p]
 
 #増田さん
 
@@ -343,7 +361,7 @@
 
 #
 
-AI搭載の自動注意看板を置くのはどうでしょう。[p]
+AI搭載の自動注意看板を置くのはどうですか？[p]
 
 #増田さん
 
@@ -406,23 +424,11 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 
 [eval exp="f.summary_day6='喫茶店のポイ捨て対策：' + f.day6_attempt_text + 'ゴミ箱ロボット→成功'"]
 
-#増田さん
-
-こんなメリットがありそうだね。[p]
-
-#増田さん
-
-確かに。[p]
-
 [typ/hap]
-
-#&sf.robot_name
+#増田さん
 
 案をくれてありがとう。[p]
-
-#増田さん
-
-ありがとう。君たちに相談してよかったよ。[p]
+君たちに相談してよかったよ。[p]
 
 [jump target="*day6_end"]
 
@@ -474,20 +480,6 @@ AI搭載の自動注意看板を置くのはどうでしょう。[p]
 こちらこそ、相談してくれてありがとうございました。[p]
 
 
-#
-;場面転換で暗転[p]
-
-#&sf.robot_name
-
-助けになれてよかったですね！[p]
-
-#&sf.robot_name
-
-まさかそんなロボットがいるなんて知りませんでした！[p]
-
-#&sf.robot_name
-
-ありがとうございます！[p]
 
 ; レイヤー1のキャラ（とよぽん・増田さん・HAI）を一括退場
 [chara_hide_all layer="1" time="500"]
