@@ -108,7 +108,7 @@
 #
 帰る時間になった。[p]
 [school/load time="500"]
-[chara_show name="p_dustbox" layer="1" face="def" x="30" y="180" width="480" time="500"]
+[chara_show name="p_dustbox" layer="1" face="def" x="30" y="300" width="480" time="500"]
 #
 廊下に出ると、足元にロボットが寄ってきた。[p]
 
