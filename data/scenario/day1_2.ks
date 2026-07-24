@@ -108,7 +108,7 @@
 #
 帰る時間になった。[p]
 [school/load time="500"]
-[chara_show name="gomirobo" layer="1" face="def" left="400" top="400" width="230" time="500"]
+[chara_show name="p_dustbox" layer="1" face="def" left="400" top="180" width="480" time="500"]
 #
 廊下に出ると、足元にロボットが寄ってきた。[p]
 
@@ -140,6 +140,7 @@
 #
 プリントを拾い、ゴミ箱ロボットに入れてあげた。[p]
 
+[pdb/hap]
 #
 なんだか少し嬉しそうだ。[p]
 
@@ -160,6 +161,7 @@
 #
 プリントを拾い、自分でゴミ箱へ捨てた。[p]
 
+[chara_hide name="p_dustbox" layer="1" time="500"]
 #
 振り返ると、ゴミ箱ロボットはいつの間にか遠くへ行ってしまっていた。[p]
 
@@ -181,6 +183,7 @@
 プリントを拾い、遠くへ投げた。[p]
 
 
+[pdb/sad]
 #
 ゴミ箱ロボットは[r]
 泣いてしまった。[p]

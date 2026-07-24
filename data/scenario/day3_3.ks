@@ -31,10 +31,8 @@
 
 #
 父はリビングに立つロボットを指差した。[p]
-[chara_show name="agent009" layer="1" face="def" x="650" y="120" width="480" time="500"]
-; とよぽんをレイヤー1で移動（chara_moveはlayer1で不確実なためhide→show）
-[chara_hide name="toyopon" layer="1" time="0"]
-[chara_show name="toyopon" layer="1" face="def" x="650" y="120" width="480" time="500"]
+; とよぽんは左（x=30）のまま、AGENT009を右に登場させる
+[chara_show name="agent009" layer="1" face="def" x="650" y="200" width="480" time="500"]
 
 
 #お父さん
