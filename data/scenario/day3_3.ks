@@ -12,9 +12,7 @@
 *start
 ;--------------------------------------------------
 [room/evening time="500"]
-; とよぽんは画面左側に配置
-[chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
-
+[chara_show name="toyopon" layer="1" face="def" left="60" top="180" width="480" time="500"]
 #
 家に着いた。[p]
 
@@ -32,8 +30,8 @@
 
 #
 父はリビングに立つロボットを指差した。[p]
-; とよぽんは左（x=30）のまま、AGENT009を画面右側に登場させる
-[chara_show name="agent009" layer="1" face="def" x="720" y="240" width="480" time="500"]
+[chara_move name="toyopon" left="100" top="-100" time="500" anim="true"]
+[chara_show name="agent009" layer="1" face="def" left="650" top="100" width="480" time="500"]
 
 
 #お父さん

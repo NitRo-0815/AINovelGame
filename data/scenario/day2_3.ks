@@ -16,6 +16,7 @@
 ;--------------------------------------------------
 
 ;部屋ととよぽんを表示
+[chara_hide name="p_dustbox" layer="1"]
 [room/evening time="500"]
 [chara_show name="toyopon" layer="1" face="def" x="30" y="180" width="480" time="500"]
 
@@ -154,7 +155,7 @@
 
 #&sf.robot_name
 
-読み聞かせのお話は、桃太郎です。[p]
+読み聞かせのお話は、桃から生まれた少年が鬼から財宝を取り返す話です[p]
 
 #&sf.robot_name
 
@@ -937,7 +938,7 @@
 
 *fail
 
-[typ/def]
+[typ/sad]
 
 #&sf.robot_name
 
