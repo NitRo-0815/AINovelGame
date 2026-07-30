@@ -234,10 +234,6 @@ toyozonで安かったから買ってみたんだ！[p]
 
 #&sf.robot_name
 
-[emb exp="sf.robot_name"]ですね！[p]
-
-#&sf.robot_name
-
 ありがとう！いい名前です！[p]
 
 ; 次の出来事へ

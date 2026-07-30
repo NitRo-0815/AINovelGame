@@ -29,7 +29,7 @@
 朝会が始まる。[p]
 
 #先生
-
+おはようございます！[p]
 連絡です。今日から校内の廊下に[r]
 『ゴミ箱ロボット』が設置されます。[p]
 
@@ -54,7 +54,7 @@
 #
 どう思った？[p]
 
-[glink color=blue size=28 x=350 y=220 width=500 target=*robot_fun text="面白いかも"]
+[glink color=blue size=28 x=350 y=220 width=500 target=*robot_fun text="面白いかも!"]
 [glink color=blue size=28 x=350 y=340 width=500 target=*robot_doubt text="本当に役に立つ？"]
 
 [s]
@@ -69,7 +69,7 @@
 
 [cm]
 
-[eval exp="f.day1_robot_impression='面白いかも'"]
+[eval exp="f.day1_robot_impression='面白いかも!'"]
 
 
 
