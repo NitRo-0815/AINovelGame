@@ -12,7 +12,7 @@
 *start
 ;--------------------------------------------------
 [room/evening time="500"]
-[chara_show name="toyopon" layer="1" face="def" left="60" top="180" width="480" time="500"]
+[chara_show name="toyopon" layer="1" face="def" left="100" top="-100" width="480" time="500"]
 #
 家に着いた。[p]
 
