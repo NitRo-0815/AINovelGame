@@ -154,38 +154,15 @@
 *day2_reading_intro
 
 #&sf.robot_name
-
-読み聞かせのお話は、桃から生まれた少年が鬼から財宝を取り返す話です[p]
-
-#&sf.robot_name
+それでは、読み聞かせを始めますね！
 
 でも、途中で忘れてしまうことがあるので……[p]
 
 #&sf.robot_name
 
-その時は続きを教えてほしいです。[p]
-
-
-#&sf.robot_name
-
-一緒にお話を完成させましょう。[p]
-
-[glink color=blue size=28 x=350 y=270 width=500 target=*start_reading_story text="読み聞かせを始める"]
-
-[s]
-
-
-;--------------------------------------------------
-; 読み聞かせ開始ボタン押下後
-;--------------------------------------------------
-
-*start_reading_story
+その時は続きを教えてほしいです![p]
 
 [cm]
-
-#&sf.robot_name
-
-それでは、読み聞かせを始めますね！[p]
 
 [jump target="*day2_reading_q1"]
 
@@ -244,24 +221,11 @@
 
 *day4_after_c1
 
-[if exp="f.c1 == '芝刈り'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-そうです、芝刈りです！思い出しました！[p]
-
-[else]
-
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c1"]ですね。[p]
-
-
-[endif]
 
 [typ/def]
 
@@ -321,27 +285,11 @@
 
 *day4_after_c2
 
-[if exp="f.c2 == 'どんぶらこ、どんぶらこと'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-そうです！どんぶらこ、どんぶらこです！[p]
-
-[else]
-
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c2"]ですね。[p]
-
-#&sf.robot_name
-
-その感じで読んでみます！[p]
-
-[endif]
 
 [typ/def]
 
@@ -406,24 +354,11 @@
 
 *day4_after_c3
 
-[if exp="f.c3 == '桃太郎'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-桃太郎ですね！大事な主人公の名前でした。[p]
-
-[else]
-
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c3"]ですね。[p]
-
-
-[endif]
 
 [typ/def]
 
@@ -483,23 +418,11 @@
 
 *day4_after_c4
 
-[if exp="f.c4 == 'きびだんご'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-そうでした！きびだんごです！[p]
-
-[else]
-
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c4"]ですね。[p]
-
-[endif]
 
 [typ/def]
 
@@ -531,20 +454,16 @@
 
 ええと、誰でしたっけ？[p]
 
-; 選択肢「江刺さん」に合わせて先輩の画像を最前面(fixレイヤー＝メッセージより前)に表示
-; target等を指定しないfixボタンはクリックしても何も起きない（飾り画像として使う）
-[button fix="true" folder="image" graphic="big_senpai.png" name="senpai" x="730" y="160" width="60" auto_next="false"]
-
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c5_ezashi text="江刺さん"]
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c5_buta text="ぶた"]
 [glink color=blue size=28 x=350 y=270 width=500 target=*day4_c5_neko text="ねこ"]
 [glink color=blue size=28 x=350 y=380 width=500 target=*day4_c5_inu text="いぬ"]
 
 [s]
 
-*day4_c5_ezashi
+*day4_c5_buta
 
 [cm]
-[eval exp="f.c5='江刺さん'"]
+[eval exp="f.c5='ぶた'"]
 [jump target="*day4_after_c5"]
 
 *day4_c5_neko
@@ -563,27 +482,11 @@
 
 *day4_after_c5
 
-; 江刺さんの画像（fixボタン）を片付ける
-[clearfix name="senpai"]
-
-[if exp="f.c5 == 'いぬ'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-いぬです！思い出しました！[p]
-
-[else]
-
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c5"]ですね。[p]
-
-
-[endif]
 
 [typ/def]
 
@@ -617,7 +520,7 @@
 
 [glink color=blue size=28 x=350 y=160 width=500 target=*day4_c6_saru text="さる"]
 [glink color=blue size=28 x=350 y=270 width=500 target=*day4_c6_gorira text="ゴリラ"]
-[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c6_momonga text="モモンガ"]
+[glink color=blue size=28 x=350 y=380 width=500 target=*day4_c6_chimp text="チンパンジー"]
 
 [s]
 
@@ -634,32 +537,20 @@
 [eval exp="f.c6='ゴリラ'"]
 [jump target="*day4_after_c6"]
 
-*day4_c6_momonga
+*day4_c6_chimp
 
 [cm]
-[eval exp="f.c6='モモンガ'"]
+[eval exp="f.c6='チンパンジー'"]
 [jump target="*day4_after_c6"]
 
 
 *day4_after_c6
-
-[if exp="f.c6 == 'さる'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-はい、さるです！順番も思い出せました！[p]
-
-[else]
 
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c6"]ですね。[p]
-
-[endif]
 
 [typ/def]
 
@@ -695,16 +586,20 @@
 
 最後の仲間は誰でしたっけ？[p]
 
-[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c7_kujaku text="クジャク"]
+; 選択肢「江刺さん」に合わせて先輩の画像を最前面(fixレイヤー＝メッセージより前)に表示
+; target等を指定しないfixボタンはクリックしても何も起きない（飾り画像として使う）
+[button fix="true" folder="image" graphic="big_senpai.png" name="senpai" x="730" y="160" width="60" auto_next="false"]
+
+[glink color=blue size=28 x=350 y=160 width=500 target=*day4_c7_ezashi text="江刺さん"]
 [glink color=blue size=28 x=350 y=270 width=500 target=*day4_c7_niwatori text="ニワトリ"]
 [glink color=blue size=28 x=350 y=380 width=500 target=*day4_c7_kiji text="キジ"]
 
 [s]
 
-*day4_c7_kujaku
+*day4_c7_ezashi
 
 [cm]
-[eval exp="f.c7='クジャク'"]
+[eval exp="f.c7='江刺さん'"]
 [jump target="*day4_after_c7"]
 
 *day4_c7_niwatori
@@ -723,29 +618,14 @@
 
 *day4_after_c7
 
-[if exp="f.c7 == 'キジ'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-キジです！思い出しました！[p]
-
-[typ/hap]
-
-
-[else]
+; 江刺さんの画像（fixボタン）を片付ける
+[clearfix name="senpai"]
 
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c7"]ですね。[p]
-
-[typ/hap]
-
-
-[endif]
 
 [typ/def]
 
@@ -817,24 +697,11 @@
 
 *day4_after_c8
 
-[if exp="f.c8 == '鬼を倒した'"]
-
-[typ/hap]
-
-#&sf.robot_name
-
-そうです！[emb exp="f.c3"]は鬼を倒したんです！[p]
-
-[else]
-
 [typ/hap]
 
 #&sf.robot_name
 
 ありがとうございます！[emb exp="f.c8"]ですね。[p]
-
-
-[endif]
 
 [typ/def]
 
