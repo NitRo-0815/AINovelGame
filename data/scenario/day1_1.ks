@@ -47,7 +47,9 @@
 昨日のテレビでロボットに興味が沸いてさ[r]
 toyozonで安かったから買ってみたんだ！[p]
 
-古い型のだが、お試しにはちょうどいいだろう！[p]
+
+AGENT009ではない古い型のだが[r]
+お試しにはちょうどいいだろう！[p]
 
 #
 箱を開けた[p]
@@ -231,6 +233,10 @@ toyozonで安かったから買ってみたんだ！[p]
 *day1_morning_scene4
 
 [typ/hap]
+
+#&sf.robot_name
+
+[emb exp="sf.robot_name"]ですね！[p]
 
 #&sf.robot_name
 
