@@ -12,7 +12,7 @@
 
 
 ; [title] タイトルバーに表示されるテキストを変更します。
-[title name="とよぽんとの1週間"]
+[title name="エージェントとの生活"]
 
 ; [call]x3 設定用サブルーチンを3つ呼びます。
 [call target="*Sub_Layer"    ]
