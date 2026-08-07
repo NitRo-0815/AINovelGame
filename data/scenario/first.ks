@@ -102,7 +102,7 @@
 
 
 ; 増田さんのキャラクター定義
-[chara_new  name="person2"  jname="増田さん" storage="chara/person2/default.png"]
+[chara_new  name="person2"  jname="マスターの増田さん" storage="chara/person2/default.png"]
 
 [chara_face name="person2" face="def"          storage="chara/person2/default.png"]
 [chara_face name="person2" face="happy"        storage="chara/person2/happy.png"]
